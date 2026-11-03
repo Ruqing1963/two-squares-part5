@@ -1,0 +1,231 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\allowdisplaybreaks
+\setlength{\emergencystretch}{2.5em}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\e}{\varepsilon}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\HH}{\mathbb H}
+\newcommand{\sS}{\mathfrak S}
+\newcommand{\sE}{\mathfrak E}
+\DeclareMathOperator{\li}{li}
+
+\title[A prime plus a Heegner norm]{Sums of two squares and Heegner norms with few prime factors, V:\\ a prime plus a Heegner norm (the Linnik problem for the nine discriminants of class number one)}
+\author{Ruqing Chen}
+\address{GUT Geoservice Inc., Montreal, Canada}
+\email{ruqing@hotmail.com}
+\date{\today\ (first-stage draft)}
+
+\begin{document}
+
+\begin{abstract}
+Parts I--IV studied $N=n+(N-n)$ with both summands norms from an imaginary quadratic field of class number one, a sieve problem of dimension $2$ whose remainder is a bilinear form in Kloosterman sums with one argument fixed. This part changes the problem to $N=p+N_D(x,y)$, a rational prime plus a norm from the field of discriminant $-D$, $D\in\{3,4,7,8,11,19,43,67,163\}$. For $D=4$ this is the problem of Hardy and Littlewood solved by Linnik with the dispersion method. We prove, for all nine $D$ by the divisor-switching argument of Friedlander and Iwaniec, the asymptotic formula $\sum_{p<N}r_D(N-p)=\frac{2\pi}{\sqrt D}\,\sS_D(N)\,\pi(N)+o(\pi(N))$ with the singular series in closed form, $\sS_D(N)=(1+c_D(N))\prod_{\ell\mid N}(1-\chi_{-D}(\ell)/\ell)\prod_{\ell\nmid N}(1+\chi_{-D}(\ell)/(\ell(\ell-1)))$, where the factor at the ramified prime, $1+c_D(N)=1-\chi_{-D}(N)/(D-1)$ for odd $D$ and $1$ for $D=4,8$, comes from the second half of the hyperbola; the proof needs the Bombieri--Friedlander--Iwaniec level $\sqrt N(\log N)^A$ for the single residue class $N$, which is proved for fixed residues and which we state as a hypothesis, and for $D=4$ the theorem is unconditional by Linnik. The sequence $\{N-p\}$ has sieve dimension $1$, but the condition ``$N-p$ is a norm'' is not a sieve condition: the weighted sequence $r_D(N-p)$ has dimension $1$ as well, and no level of distribution for it follows from the Bombieri--Vinogradov theorem, because the hyperbola puts the sieve modulus next to a modulus of size $\sqrt N$. So neither Chen's $N=p+P_2$ nor Richert's $N=p+P_3$ transfers to norms, and we say precisely what would be needed. Numerically the asymptotic formula holds to $1\%$ for all nine $D$ at $N\le2\cdot10^5$, and for $N$ even the proportion of primes $p<N$ with $N-p$ a norm with at most two prime factors is between $0.11$ and $0.34$.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction and statement of results}\label{sec:intro}
+
+\subsection{The problem}
+Let $D\in\{3,4,7,8,11,19,43,67,163\}$, let $K=\mathbb Q(\sqrt{-D})$, $\chi=\chi_{-D}$ the Kronecker symbol of conductor $D$, $w_D$ the number of units ($6,4,2,\dots$), and $N_D$ the principal form, $x^2+y^2$, $x^2+2y^2$ or $x^2+xy+\frac{D+1}4y^2$. Since $h(-D)=1$, the number of representations of $n\ge1$ by $N_D$ is
+\[
+r_D(n)=w_D\sum_{d\mid n}\chi(d)=w_D\,\lambda(n),\qquad \lambda=1*\chi,
+\]
+and $r_D(n)>0$ exactly when $n$ is a norm, i.e.\ when every inert prime divides $n$ to an even power. Parts I--IV \cite{ChenI,ChenII,ChenIII,ChenIV} treated $N=n+(N-n)$ with both summands norms, through the theta series $\theta_D(z)\theta_D(pz)$; the sieve there has dimension $2$ and the remainder beyond the level $1/2$ is a bilinear form in Kloosterman sums with the single argument $N$ fixed. Here we consider instead
+\[
+N=p+N_D(x,y),\qquad p\ \text{prime},\quad (x,y)\in\Z^2,
+\]
+for a large integer $N$, through the sum
+\[
+S_D(N)=\sum_{p<N}r_D(N-p)=w_D\sum_{p<N}\ \sum_{d\mid N-p}\chi(d).
+\]
+For $D=4$ this is the Hardy--Littlewood problem $N=p+x^2+y^2$, which Linnik solved with the dispersion method \cite[Chapter~7]{Linnik}; Hooley \cite{Hooley57} had obtained the asymptotic under the extended Riemann hypothesis. For the shifted problem $p=x^2+y^2+1$, Bredihin \cite{Bredihin} extended Linnik's argument, and Friedlander and Iwaniec \cite{FI18} gave a short proof from the Bombieri--Friedlander--Iwaniec theorem \cite{BFI89} on primes in arithmetic progressions to moduli $\sqrt x(\log x)^A$. We follow the latter route, for all nine $D$ at once and for the fixed-$N$ problem, and we compute the singular series explicitly, including the factor at the ramified prime that the problem $N=p+N_D(x,y)$ has and the problem $p-1=x^2+y^2$ does not.
+
+\subsection{The asymptotic formula}
+The input is the following statement, which is the theorem of Bombieri, Friedlander and Iwaniec \cite[Theorem]{BFI89} with the residue class $a=N$ in place of a fixed residue class.
+
+\begin{hypothesis}[$\mathrm{H}(N)$]\label{hyp}
+For every $A>0$, uniformly in $X\le N$,
+\[
+\sum_{\substack{d\le\sqrt N(\log N)^A\\ (d,N)=1}}\Bigl|\pi(X;d,N)-\frac{\pi(X)}{\varphi(d)}\Bigr|\ll_A N\Bigl(\frac{\log\log N}{\log N}\Bigr)^2 .
+\]
+\end{hypothesis}
+
+For $X\le N(\log N)^{-3}$ the bound is trivial ($\pi(X;d,N)\le X/d+1$), so the content is in $N(\log N)^{-3}\le X\le N$. The Bombieri--Vinogradov theorem gives the bound with $d\le\sqrt N(\log N)^{-B}$ and the saving $(\log N)^{-A}$, uniformly in the residue class; the extension to $\sqrt N(\log N)^{A}$ is proved in \cite{BFI89} for a fixed residue class $a$, with the implied constant depending on $a$, and the uniform versions known to us (Maynard \cite{Maynard20}, Lichtman \cite{Lichtman23}) either restrict the moduli to those with a factor of a prescribed size or replace the absolute values by well-factorable weights. Hypothesis $\mathrm H(N)$ as stated is therefore open; it is what the divisor-switching proof needs, and nothing more.
+
+\begin{theorem}\label{thm:main}
+Let $c_D(N)=\varphi(D)^{-1}\sum_{a\bmod D,\ (a,D)=1}\chi_{-D}(N-a)$, so that $c_D(N)=-\chi_{-D}(N)/(D-1)$ for odd $D$ and $c_D(N)=0$ for $D=4,8$, and let
+\[
+\sS_D(N)=\bigl(1+c_D(N)\bigr)\prod_{\ell\mid N}\Bigl(1-\frac{\chi(\ell)}\ell\Bigr)\prod_{\ell\nmid N}\Bigl(1+\frac{\chi(\ell)}{\ell(\ell-1)}\Bigr).
+\]
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.2em]
+\item If $\mathrm H(N)$ holds, then
+\[
+S_D(N)=\frac{2\pi}{\sqrt D}\,\sS_D(N)\,\pi(N)+O\Bigl(N\Bigl(\frac{\log\log N}{\log N}\Bigr)^2\Bigr).
+\]
+\item For $D=4$ the asymptotic $S_4(N)\sim\pi\,\sS_4(N)\,\pi(N)$ holds unconditionally, with the error term $O(N(\log N)^{-1-\eta})$ of Linnik's theorem \cite[Chapter~7]{Linnik}.
+\end{enumerate}
+In particular $\sS_D(N)\gg1$ for every $N$ (every factor is at least $1-\frac12$ at $\ell=2$ and $1-\frac1{D-1}$ at the ramified prime, and the product over $\ell\nmid N$ converges absolutely), so that, under $\mathrm H(N)$, every large $N$ is a prime plus a norm from $K$, with $\gg N^{1-\e}$ representations.
+\end{theorem}
+
+The constant is the mean value of $r_D$: $w_DL(1,\chi_{-D})=2\pi h/\sqrt D=2\pi/\sqrt D$ by the class number formula, and the singular series is the correction at each prime, with the two halves of the hyperbola contributing $1$ and $c_D(N)$ respectively (Section~\ref{sec:proof}). The factor $1+c_D(N)$ is the local density at the ramified prime: for $D=3$, $N_3(x,y)=x^2+xy+y^2\equiv(x-y)^2\pmod3$ never is $2\bmod3$, so for $N\equiv1\pmod3$ the primes $p\equiv2\pmod3$ are lost ($\frac12$), for $N\equiv2$ none are lost and the primes $p\equiv2$ give $N-p\equiv0$, which has twice the density of norms ($\frac32$), and for $N\equiv0$ the two effects cancel ($1$). Section~\ref{sec:num} verifies the formula to $1\%$ for all nine $D$ and $N\le2\cdot10^5$; without the factor $1+c_D(N)$ the ratios for $D=3$ are $0.50$, $1.00$, $1.50$ according to $N\bmod3$.
+
+\begin{remark}
+(a) The dispersion method of Linnik does not need $\mathrm H(N)$; it proves (ii) with a power of $\log N$ saved, and it is what makes the problem $N=p+x^2+y^2$ unconditional. We expect it to apply to the forms $N_D$ as it applies to $x^2+y^2$ (the inputs are the divisor structure of $r_D$ and the equidistribution of the norms in residue classes, both of which the class number one fields share), but we have not carried the dispersion argument out for $D\ne4$, and we do not claim (ii) for them. (b) The error term in (i) is $o(\pi(N))$ and no better; this is the error term of \cite{FI18}, and it comes from the level $\sqrt N(\log N)^A$ with the saving $(\log\log N/\log N)^2$ of \cite{BFI89}.
+\end{remark}
+
+\subsection{The sieve}
+The sequence $\mathcal A=\{N-p:\ p<N\}$ is the sequence of Chen's theorem: its sieve dimension is $1$, its level of distribution is $1/2$ by the Bombieri--Vinogradov theorem, and the weighted sieve of Richert gives $N=p+P_3$, Chen's switching $N=p+P_2$, for every large even $N$. None of this uses or produces the condition that $N-p$ be a norm. The relevant sequence is the weighted one, $a_m=r_D(m)$ for $m=N-p$, and its level of distribution is Theorem~\ref{thm:main} in arithmetic progressions on average over the modulus.
+
+\begin{proposition}\label{prop:sieve}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.2em]
+\item For $\mathcal A=\{N-p\}$ and a prime $q\nmid N$, $\#\{p<N:\ q\mid N-p\}=\pi(N)/(q-1)+O(E(N;q))$, so that $\omega(q)=q/(q-1)$, $\omega(q)=0$ for $q\mid N$, and $\prod_{w\le q<z}(1-\omega(q)/q)^{-1}=\frac{\log z}{\log w}(1+O(1/\log w))$: dimension $1$. The level of distribution is $1/2$.
+\item For the weighted sequence $a_m=r_D(m)1_{N-m\ \mathrm{prime}}$ and a prime $q\nmid DN$, the expected local density is $\omega_D(q)=(1+\chi(q))\,q/(q-1)$: $2q/(q-1)$ at the split primes, $0$ at the inert ones, and $\sum_{q<z}\omega_D(q)/q=\log\log z+O(1)$: dimension $1$ on average, with the half-dimensional structure of the inert primes. The quantity whose average over $q\le N^\theta$ a sieve needs is
+\[
+\sum_{\substack{p<N\\ q\mid N-p}}r_D(N-p)-\frac{\omega_D(q)}q\,\frac{2\pi}{\sqrt D}\sS_D(N)\pi(N),
+\]
+and by the hyperbola (Section~\ref{sec:proof}) its control at the level $N^\theta$ is equivalent to the equidistribution of the primes $p\equiv N\pmod{qb}$ for $q\le N^\theta$, $b\le\sqrt N(\log N)^A$, with the weights $\chi(b)$: moduli of size $N^{1/2+\theta}(\log N)^A$ in the single residue class $N$. No $\theta>0$ follows from the Bombieri--Vinogradov theorem, and Hypothesis $\mathrm H(N)$ gives $\theta=0$ only.
+\item If the weighted sequence had the level $\theta=1/2$ (in the form needed by the weighted linear sieve), Richert's weighted sieve would give $N=p+P_3$ with $N-p$ a norm, for every large admissible $N$; Chen's switching would need, in addition, the level $1/2$ for the sequences $\{N-q_1q_2m\}$ with $q_1,q_2$ split primes in prescribed ranges, and would give $N=p+P_2$ with $N-p$ a norm. Neither is proved here.
+\end{enumerate}
+\end{proposition}
+
+\emph{Admissible $N$.} For $D\equiv3\pmod8$ the prime $2$ is inert, so an even value $N-p$ of $N_D$ is divisible by $4$, and $\Omega(N-p)\le2$ forces $N-p=4$: the statement ``$N=p+P_2$ with $N-p$ a norm'' can only hold for even $N$ when $D\in\{3,11,19,43,67,163\}$ (the data of Section~\ref{sec:num} show the count $0$ at every odd $N$ for these $D$). For $D=7$ ($2$ split) and $D=4,8$ ($2$ ramified) there is no parity condition.
+
+The content of Proposition~\ref{prop:sieve} is negative: the change of problem removes one of the two obstacles of Parts I--IV, the dimension $2$ (the prime side contributes nothing to the dimension), but not the other. The fixed argument $N$ of the Kloosterman sums of Part~III reappears as the fixed residue class $N$ of the primes, at moduli $qb$ with $b\asymp\sqrt N$, and this is the same square-root barrier in a different guise. What the change of problem does give, at the level $\sqrt N(\log N)^A$ of the single class $N$, is the asymptotic formula of Theorem~\ref{thm:main}, with every local factor explicit; and for $D=4$ Linnik's theorem gives that unconditionally.
+
+\section{Proof of Theorem~\ref{thm:main}}\label{sec:proof}
+
+\subsection{The singular series}
+\begin{proposition}\label{prop:series}
+For every $N\ge1$, $\sum_{(d,N)=1}\chi(d)/\varphi(d)=L(1,\chi)\,\sE_D(N)$ with
+\[
+\sE_D(N)=\prod_{\ell\mid N}\Bigl(1-\frac{\chi(\ell)}\ell\Bigr)\prod_{\ell\nmid N}\Bigl(1+\frac{\chi(\ell)}{\ell(\ell-1)}\Bigr),
+\]
+and $c_D(N)=\varphi(D)^{-1}\sum_{(a,D)=1}\chi(N-a)$ equals $-\chi(N)/(D-1)$ for odd $D$ and $0$ for $D=4,8$.
+\end{proposition}
+\begin{proof}
+The sum is multiplicative in $d$; at a prime $\ell\nmid N$ the local factor is $1+\sum_{j\ge1}\chi(\ell)^j/\varphi(\ell^j)=1+\frac{\chi(\ell)}{\ell-1}\bigl(1-\frac{\chi(\ell)}\ell\bigr)^{-1}$, and $\bigl(1+\frac{\chi(\ell)\ell}{(\ell-1)(\ell-\chi(\ell))}\bigr)\bigl(1-\frac{\chi(\ell)}\ell\bigr)=\frac{\ell^2-\ell+\chi(\ell)}{\ell(\ell-1)}=1+\frac{\chi(\ell)}{\ell(\ell-1)}$; at $\ell\mid N$ the factor is $1=(1-\chi(\ell)/\ell)\cdot(1-\chi(\ell)/\ell)^{-1}$. Multiplying out gives $L(1,\chi)\sE_D(N)$. For odd $D$ (a prime), $\sum_{a=1}^{D-1}\chi(N-a)=\sum_{b\not\equiv N}\chi(b)=-\chi(N)$ since $\sum_{b\bmod D}\chi(b)=0$. For $D=4$, $\chi_{-4}(N-1)+\chi_{-4}(N-3)=\chi_{-4}(N-1)+\chi_{-4}(N+1)=0$ because $N-1\equiv-(N+1)\pmod4$ and $\chi_{-4}(-1)=-1$. For $D=8$ and $N$ even, $\{N-a:\ a\ \text{odd}\}$ is the set of odd residues modulo $8$, on which $\chi_{-8}$ sums to $0$; for $N$ odd every $N-a$ is even and $\chi_{-8}(N-a)=0$.
+\end{proof}
+
+\subsection{Divisor switching}
+For $m\ge1$ write $m=D^km'$ with $D\nmid m'$. Since $\chi(D^j)=0$ for $j\ge1$, $\lambda(m)=\lambda(m')$, and for $(e,D)=1$, $\chi(m'/e)=\chi(m')\chi(e)$ whenever $e\mid m'$ ($\chi$ is real and completely multiplicative). For $y>0$, splitting the divisors of $m'$ at $y$ and writing the large ones as $m'/e$,
+\begin{equation}\label{eq:switch}
+\lambda(m)=\sum_{\substack{d\mid m'\\ d\le y}}\chi(d)+\chi(m')\sum_{\substack{e\mid m'\\ e<m'/y}}\chi(e)
+=\sum_{\substack{d\mid m\\ d\le y}}\chi(d)+\chi(m')\sum_{\substack{e\mid m'\\ e<m'/y}}\chi(e),
+\end{equation}
+the first sum being the same over $m$ and $m'$ because $\chi(d)=0$ unless $(d,D)=1$. Let $w\ge0$ be smooth, supported in $[1,2]$, with $\int w(t)\dd t/t=1$, and $Y\ge1$. Integrating \eqref{eq:switch} against $w(y/Y)\dd y/y$ and substituting $y\mapsto m'/y$ in the second sum,
+\begin{equation}\label{eq:smooth}
+\lambda(m)=\int_0^\infty\Bigl[w\Bigl(\frac yY\Bigr)+\chi(m')\,w\Bigl(\frac{m'}{yY}\Bigr)\Bigr]\sum_{\substack{b\mid m'\\ b<y}}\chi(b)\,\frac{\dd y}y ,
+\end{equation}
+which is \cite[(2.3)]{FI18} with the factor $\chi(m')$ added. Take $Y=\sqrt N$. For $m=N-p\le N$ the integrand vanishes unless $y\le2\sqrt N$, so all moduli $b$ are below $2\sqrt N$.
+
+\subsection{The first half}
+Summing the term $w(y/Y)$ of \eqref{eq:smooth} over $p<N$ gives
+\[
+\int_0^\infty w\Bigl(\frac yY\Bigr)\sum_{b<y}\chi(b)\,\pi(N;b,N)\,\frac{\dd y}y
+\]
+(for $b$ with $(b,N)>1$ the progression contains at most one prime, and these $b\le2\sqrt N$ contribute $O(\sqrt N)$). By $\mathrm H(N)$ with $X=N$,
+\[
+\sum_{b<2\sqrt N}\Bigl|\pi(N;b,N)-\frac{\pi(N)}{\varphi(b)}\Bigr|\ll N\Bigl(\frac{\log\log N}{\log N}\Bigr)^2,\qquad
+\sum_{\substack{b<y\\ (b,N)=1}}\frac{\chi(b)}{\varphi(b)}=L(1,\chi)\sE_D(N)+O(y^{-1+\e}),
+\]
+the second by Proposition~\ref{prop:series} and the convergence of $\sum\chi(b)/\varphi(b)$ (partial summation against $\sum_{b\le t}\chi(b)\ll D$). With $\int w(y/Y)\dd y/y=1$, the first half is
+\[
+L(1,\chi)\sE_D(N)\,\pi(N)+O\Bigl(N\Bigl(\frac{\log\log N}{\log N}\Bigr)^2\Bigr).
+\]
+
+\subsection{The second half}
+The term $\chi(m')w(m'/(yY))$ summed over $p<N$ with $b\mid m'$, i.e.\ $b\mid N-p$ (as $(b,D)=1$), is
+\[
+T_b(y)=\sum_{k\ge0}\ \sum_{\substack{p<N,\ p\equiv N\ (b)\\ D^k\,\|\,N-p}}\chi\Bigl(\frac{N-p}{D^k}\Bigr)\,w\Bigl(\frac{N-p}{D^kyY}\Bigr).
+\]
+If $D\mid N$, only $p=D$ has $D\mid N-p$, and the terms $k\ge1$ are $O(1)$. Let $D\nmid N$. The inner sum is over the primes in the classes $p\equiv N\pmod b$, $p\equiv N+D^ka\pmod{D^{k+1}}$, $a\not\equiv0\pmod D$, with the smooth weight $f_{k,y}(p)=w((N-p)/(D^kyY))$ and the value $\chi(-a)$; by the Chinese remainder theorem these are $\varphi(D)$ classes modulo $bD^{k+1}$ (for $k=0$) or $D-1$ classes (for $k\ge1$, $a$ ranging over $1,\dots,D-1$), all coprime to $bD$ when $(b,N)=1$. The smooth-weighted count of primes in a class modulo $q=bD^{k+1}$ is $\frac1{\varphi(q)}\sum_pf_{k,y}(p)$ plus an error which, by partial summation in $f$ as in \cite[Lemma~3.1]{FI18}, is bounded by $\sup_{X\le N}|\pi(X;q,\cdot)-\pi(X)/\varphi(q)|$ times $O(1)$; summed over $b<2\sqrt N$ this is the hypothesis $\mathrm H(N)$ for the moduli $q=bD^{k+1}\le2\sqrt N D^{k+1}$, which lie below $\sqrt N(\log N)^A$ as long as $D^{k+1}\le(\log N)^{A-1}$. For the larger $k$, $D^{k}>(\log N)^{A-2}$, the trivial bound $\sum_{b}\#\{p:\ bD^k\mid N-p\}\ll\sum_{b<2\sqrt N}(N/(bD^k)+1)\ll N\log N/D^k+\sqrt N$ is $O(N/(\log N)^{A-3})$. The main terms: for $k=0$ the classes carry $\chi(N-a)$, $a$ coprime to $D$, and $\sum_{(a,D)=1}\chi(N-a)/\varphi(bD)=c_D(N)/\varphi(b)$; for $k\ge1$ the classes carry $\chi(-a)$, $a=1,\dots,D-1$, and $\sum_{a=1}^{D-1}\chi(-a)=0$. Hence
+\[
+T_b(y)=\frac{c_D(N)}{\varphi(b)}\sum_{p<N}w\Bigl(\frac{N-p}{yY}\Bigr)+E_b(y),\qquad \sum_{b<2\sqrt N}\sup_y|E_b(y)|\ll N\Bigl(\frac{\log\log N}{\log N}\Bigr)^2 .
+\]
+Summing $\chi(b)T_b(y)$ over $b<y$ and integrating:
+\[
+\int_0^\infty\sum_{p<N}w\Bigl(\frac{N-p}{yY}\Bigr)\frac{\dd y}y=\sum_{p<N}\int_0^\infty w(t)\,\frac{\dd t}t=\pi(N)
+\]
+(substitute $t=(N-p)/(yY)$; $N-p\ge1$), the $b$-sum is again $L(1,\chi)\sE_D(N)+O(y^{-1+\e})$ with $y\gg\sqrt N\,(N-p)/N$, and the range of $y$ where $w((N-p)/(yY))\ne0$ with $N-p\le N^{1-\e}$ (small $y$, where the truncation error $y^{-1+\e}$ is not small) contains $O(N^{1-\e})$ primes. The second half is therefore $c_D(N)L(1,\chi)\sE_D(N)\pi(N)+O(N(\log\log N/\log N)^2)$.
+
+\subsection{Conclusion}
+Adding the two halves and multiplying by $w_D$, $S_D(N)=w_DL(1,\chi)(1+c_D(N))\sE_D(N)\pi(N)+O(N(\log\log N/\log N)^2)$, and $w_DL(1,\chi_{-D})=2\pi/\sqrt D$ by the class number formula $L(1,\chi_{-D})=2\pi h/(w_D\sqrt D)$ with $h=1$. This is (i). Part (ii) is Linnik's theorem \cite[Chapter~7]{Linnik}, whose main term is $\pi A_0\,\prod_{\ell\mid N}(\dots)\,N/\log N$ with the same local factors; the identification of his constant with $\pi\sS_4(N)$ is the computation of Proposition~\ref{prop:series} with $c_4=0$. \qed
+
+\begin{remark}
+Where $\mathrm H(N)$ enters. The Bombieri--Vinogradov theorem covers $b\le\sqrt N(\log N)^{-B}$ with the saving $(\log N)^{-A}$ and no dependence on the residue class. The window $\sqrt N(\log N)^{-B}<b<2\sqrt N$ contributes trivially $\ll\sum_b\pi(N;b,N)\ll\pi(N)\sum_b1/\varphi(b)\asymp\pi(N)\,B\log\log N$, which is larger than the main term, and there is no cancellation to use in it, because the error terms $\pi(X;b,N)-\pi(X)/\varphi(b)$ enter with absolute values. This window is exactly what \cite{BFI89} controls for a fixed class, and what the dispersion method controls for the class $N$ in the case $D=4$.
+\end{remark}
+
+\section{Numerical verification}\label{sec:num}
+The script \texttt{linnik\_heegner.py} computes $S_D(N)$ exactly (the table of $r_D$ by the divisor sum, the primes by a sieve), $\sS_D(N)$ by the Euler product over $\ell\le2\cdot10^6$ (tail $O(10^{-6})$), and the counts of primes $p<N$ with $N-p$ a norm and with $N-p$ a norm with $\Omega(N-p)\le2$, for eleven values $10^4\le N\le2\cdot10^5$ (even, odd, prime, $3^9$, $2^{16}$, $60060=2^2\cdot3\cdot5\cdot7\cdot11\cdot13$) and all nine $D$. Table~\ref{tab:num} gives the extremes.
+
+\begin{table}[htbp]
+\centering\scriptsize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{r|cc|rrc|c|cc}
+\toprule
+$D$ & $2\pi/\sqrt D$ & $1+c_D(N)$ & $S_D(N)$ & main term & ratio & ratio, $11$ values of $N$ & norm$/\pi$ & norm, $\Omega\le2$, $/\pi$\\
+\midrule
+$3$ & $3.6276$ & $1.5$ & $179946$ & $179317.7$ & $1.0035$ & $[0.9975,1.0192]$ & $0.500$ & $0.340$\\
+$4$ & $3.1416$ & $1$ & $36700$ & $36639.8$ & $1.0016$ & $[0.9798,1.0233]$ & $0.178$ & $0.126$\\
+$7$ & $2.3748$ & $7/6$ & $24814$ & $24870.0$ & $0.9977$ & $[0.9905,1.0132]$ & $0.244$ & $0.166$\\
+$8$ & $2.2214$ & $1$ & $55494$ & $54859.3$ & $1.0116$ & $[0.9624,1.0139]$ & $0.301$ & $0.187$\\
+$11$ & $1.8945$ & $0.9$ & $41198$ & $41450.8$ & $0.9939$ & $[0.9741,1.0195]$ & $0.259$ & $0.164$\\
+$19$ & $1.4415$ & $17/18$ & $25004$ & $25181.6$ & $0.9929$ & $[0.9646,1.0394]$ & $0.209$ & $0.138$\\
+$43$ & $0.9582$ & $43/42$ & $26338$ & $26328.1$ & $1.0004$ & $[0.9516,1.0170]$ & $0.223$ & $0.148$\\
+$67$ & $0.7676$ & $67/66$ & $20364$ & $20386.9$ & $0.9989$ & $[0.9505,1.0232]$ & $0.195$ & $0.136$\\
+$163$ & $0.4921$ & $163/162$ & $12798$ & $12705.7$ & $1.0073$ & $[0.9724,1.0406]$ & $0.149$ & $0.109$\\
+\bottomrule
+\end{tabular}
+\medskip
+\caption{$S_D(N)=\sum_{p<N}r_D(N-p)$ against $\frac{2\pi}{\sqrt D}\sS_D(N)\pi(N)$ at $N=2\cdot10^5$ ($\pi(N)=17984$), the range of the ratio over the eleven $N$ of the script, and the proportions of primes $p<2\cdot10^5$ with $N-p$ a norm, and a norm with at most two prime factors. The ratios deviate most at $N\approx10^4$ and for the larger $D$, where $\sS_D(N)\pi(N)$ is smallest. Script \texttt{linnik\_heegner.py}, file \texttt{results/linnik\_heegner.txt}; exact integer counts, floating point in the Euler products.}
+\label{tab:num}
+\end{table}
+
+Three features of the data. (a) The factor $1+c_D(N)$ is real: for $D=3$ the ratios without it are $0.508$, $1.499$, $1.008$, $1.501$, $1.496$, $1.006$, $0.509$, $0.502$, $0.510$, $1.002$, $1.505$ for the eleven $N$, i.e.\ $\frac12,\frac32,1$ according to $N\equiv1,2,0\pmod3$; for $D=7$ they are $0.836$ and $1.156$, i.e.\ $1\mp\frac16$; for $D=4$ and $8$ they are already $1$. (b) At odd $N$ and $D\equiv3\pmod8$ the count of $p$ with $N-p$ a norm with $\Omega\le2$ is $0$ or $1$ (the parity condition of Section~\ref{sec:intro}); at even $N$ it is between $0.11\,\pi(N)$ ($D=163$) and $0.34\,\pi(N)$ ($D=3$), against $0.13$--$0.50$ for norms with any number of prime factors. (c) The sieve densities of $\{N-p\}$ at $N=2\cdot10^5$, $D=4$: the proportion of $p$ with $(N-p,P(z))=1$ is $0.4160$, $0.2796$, $0.2112$ for $z=10,30,100$ against $\prod_{q<z,\,q\nmid N}(1-\frac1{q-1})=0.4167$, $0.2802$, $0.2122$ (dimension $1$), and the proportion with no inert prime factor below $y$ is $0.2910$, $0.2412$, $0.2100$ for $y=10^2,10^3,10^4$ against the half-dimensional product $0.2903$, $0.2362$, $0.2048$; at $z=10^3$ and $y=10^5$ the sifting range reaches $\sqrt N$ and the products no longer describe the counts ($1.098$ and $0.926$), which is the sieve limit, not a defect of the data.
+
+\section{What is proved and what is not}\label{sec:status}
+\begin{enumerate}[label=\textup{(\arabic*)},leftmargin=2.2em]
+\item The asymptotic formula for $S_D(N)$ with the explicit singular series, for all nine $D$, under Hypothesis $\mathrm H(N)$ (Theorem~\ref{thm:main}(i)); unconditionally for $D=4$ (Linnik). The new content is the uniform treatment, the ramified factor $1+c_D(N)$, and the identification of the exact input, a level $\sqrt N(\log N)^A$ for the single residue class $N$.
+\item The sieve dimension of $\{N-p\}$ is $1$ (trivial, and not the point); the dimension of the norm-weighted sequence is $1$ on average with a half-dimensional inert part; its level of distribution is not known, and in particular it is not given by the Bombieri--Vinogradov theorem (Proposition~\ref{prop:sieve}(ii)). Consequently no statement ``$N=p+P_k$ with $N-p$ a norm'' is proved here for any $k$, and the lower bound that a Chen-type argument would produce, $f_1(5)-\frac12\int F_1(\dots)$ in some form, has no meaning until the level is established; we have not written such a constant.
+\item What remains unconditional and new in the sieve direction is the shape of the problem: one obstacle of Parts I--IV, the dimension $2$, is gone; the other, the fixed $N$, is not, and it now sits in the residue class rather than in the Kloosterman argument. The natural next steps are (a) the dispersion method for $N_D$, $D\ne4$, which would make Theorem~\ref{thm:main} unconditional, and (b) the half-dimensional sieve of Iwaniec \cite{Iwaniec72,Iwaniec76} for the inert primes, combined with the linear sieve for the small primes, applied to the unweighted $\{N-p\}$ at the level $1/2$: it would give $N=p+m$ with $m$ free of small primes and of inert primes below $N^{1/2-\e}$, hence a norm up to at most one inert prime factor above $N^{1/2-\e}$, and the switching needed to remove that factor is a problem of the Chen type with the half-dimensional densities, whose constants we have not computed.
+\end{enumerate}
+
+\section*{Data and code}
+{\raggedright
+The script \texttt{linnik\_heegner.py} (Section~\ref{sec:num}; Python 3.12, numpy; about two minutes; exact integer counts) with its output \texttt{results/linnik\_heegner.txt} is in the directory \texttt{two-squares-part5} alongside Parts I--IV. All computations are evidence, not proof; the theorems do not depend on them.
+\par}
+
+\begin{thebibliography}{99}\raggedright
+\bibitem{BFI89} E. Bombieri, J. B. Friedlander and H. Iwaniec, Primes in arithmetic progressions to large moduli. III, J. Amer. Math. Soc. 2 (1989), 215--224.
+\bibitem{Bredihin} B. M. Bredihin, Binary additive problems of indeterminate type. II. Analogue of the problem of Hardy and Littlewood, Izv. Akad. Nauk SSSR Ser. Mat. 27 (1963), 577--612.
+\bibitem{Chen73} J. R. Chen, On the representation of a larger even integer as the sum of a prime and the product of at most two primes, Sci. Sinica 16 (1973), 157--176.
+\bibitem{ChenI} R. Chen, Sums of two squares with few prime factors via theta series of quaternary forms, preprint, version 3 (2026), doi:10.5281/zenodo.23826176.
+\bibitem{ChenII} R. Chen, Sums of two squares with few prime factors, II, preprint, version 3 (2026), doi:10.5281/zenodo.23866064.
+\bibitem{ChenIII} R. Chen, Sums of two squares with few prime factors, III, preprint (2026), doi:10.5281/zenodo.23826860.
+\bibitem{ChenIV} R. Chen, Sums of two squares and Heegner norms with few prime factors, IV, preprint (2026), doi:10.5281/zenodo.23866356.
+\bibitem{FI18} J. B. Friedlander and H. Iwaniec, On a theorem of Bredihin and Linnik, preprint (2018), arXiv:1807.06648.
+\bibitem{HR} H. Halberstam and H.-E. Richert, Sieve Methods, Academic Press, London, 1974.
+\bibitem{Hooley57} C. Hooley, On the representation of a number as the sum of two squares and a prime, Acta Math. 97 (1957), 189--210.
+\bibitem{Iwaniec72} H. Iwaniec, Primes of the type $\varphi(x,y)+A$ where $\varphi$ is a quadratic form, Acta Arith. 21 (1972), 203--234.
+\bibitem{Iwaniec76} H. Iwaniec, The half dimensional sieve, Acta Arith. 29 (1976), 69--95.
+\bibitem{Lichtman23} J. D. Lichtman, Primes in arithmetic progressions to large moduli, and Goldbach beyond the square-root barrier, preprint (2023), arXiv:2309.08522.
+\bibitem{Linnik} Yu. V. Linnik, The Dispersion Method in Binary Additive Problems, Translations of Mathematical Monographs 4, Amer. Math. Soc., Providence, 1963.
+\bibitem{Maynard20} J. Maynard, Primes in arithmetic progressions to large moduli III: Uniform residue classes, preprint (2020), arXiv:2006.08250.
+\bibitem{Richert69} H.-E. Richert, Selberg's sieve with weights, Mathematika 16 (1969), 1--22.
+\end{thebibliography}
+
+\end{document}
