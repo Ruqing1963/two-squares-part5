@@ -27,10 +27,20 @@ For D = 4 this is the Hardy–Littlewood problem N = p + x² + y², solved by Li
    distribution at N^θ is equivalent to the equidistribution of primes p ≡ N (mod qb) with q ≤ N^θ, b ≍ √N, in the single
    class N, which no known theorem gives for θ > 0. So no "N = p + P_k with N − p a norm" is proved, for any k, and the
    square-root barrier of Parts I–IV reappears in the residue class.
-3. **Numerics.** Table 1: S_D(N) against the main term for eleven N in [10⁴, 2·10⁵]; the proportion of primes p < N with
+3. **The sieve on the unweighted sequence (Section 3).** Sifting {N − p} by the inert primes below N^{1/2−ε} with
+   Iwaniec's half-dimensional sieve (sieving limit 1) and the Bombieri–Vinogradov level 1/2 gives, unconditionally,
+   ≫ N/(log N)^{3/2} primes p with N − p a norm up to at most two inert primes above N^{1/2−ε} (Theorem 3.1; N even
+   when 2 is inert). Removing those inert primes is a Chen-type comparison of constants: the exceptional set is of the
+   same order (Proposition 3.2), the crude Selberg bound loses by an order of magnitude, and the data (Table 2: at
+   N = 2·10⁵ the exceptional survivors are 21–51 % of all survivors) suggest the refined comparison may close; it is
+   not done here, and no "N = p + P_k with N − p a norm" is proved. The reversed problem N = N_D(x,y) + P_3 is
+   unconditional from the lattice-point level 1/2 and Richert's weighted sieve (Proposition 3.3), weaker than Linnik
+   for D = 4.
+4. **Numerics.** Table 1: S_D(N) against the main term for eleven N in [10⁴, 2·10⁵]; the proportion of primes p < N with
    N − p a norm (0.15–0.50 at N = 2·10⁵) and a norm with Ω ≤ 2 (0.11–0.34; zero at odd N for D ≡ 3 mod 8, where 2 is
    inert and an even norm is divisible by 4); sieve densities of {N − p} against the dimension-1 and dimension-1/2
-   products.
+   products. Table 2: the inert-prime sieve at N = 2·10⁵ (survivors against the product V, their structure n₁ / n₁q₀,
+   and the P₂ norms left when the primes below 100 are sifted too).
 
 ## Reproducing
 
