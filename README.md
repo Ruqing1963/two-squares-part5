@@ -15,7 +15,7 @@ For the nine discriminants D ∈ {3, 4, 7, 8, 11, 19, 43, 67, 163} of class numb
 rational prime and N_D the principal form, through S_D(N) = Σ_{p<N} r_D(N − p), r_D(n) = w_D Σ_{d|n} χ_{−D}(d).
 For D = 4 this is the Hardy–Littlewood problem N = p + x² + y², solved by Linnik with the dispersion method.
 
-1. **Theorem 1.1.** S_D(N) = (2π/√D) 𝔖_D(N) π(N) + O(N (log log N)²/(log N)²) with the singular series in closed form,
+1. **Theorem 1.2.** S_D(N) = (2π/√D) 𝔖_D(N) π(N) + O(N (log log N)²/(log N)²) with the singular series in closed form,
    𝔖_D(N) = (1 + c_D(N)) ∏_{ℓ|N}(1 − χ(ℓ)/ℓ) ∏_{ℓ∤N}(1 + χ(ℓ)/(ℓ(ℓ−1))), c_D(N) = −χ_{−D}(N)/(D−1) for odd D and 0 for
    D = 4, 8 (the factor at the ramified prime, from the second half of the hyperbola). Proved for all nine D by the
    divisor-switching argument of Friedlander–Iwaniec (arXiv:1807.06648) **under Hypothesis H(N)**: the
