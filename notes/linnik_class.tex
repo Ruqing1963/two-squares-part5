@@ -79,7 +79,7 @@ Thus the equidistribution of the representations among the classes holds uncondi
 $S_\psi(N)=o(N/\log N)$ as $N\to\infty$.
 \end{hypothesis}
 
-Assing, Blomer and Li \cite[Theorem~1.3]{ABL} prove, for a holomorphic or Maa\ss{} cuspidal newform for $\Gamma_0(M)$ with Hecke eigenvalues $\lambda(n)$, $\sum_{Y<n\le X}\Lambda(n)\lambda(f-n)\ll X^{1-\delta}$ for $f>X$, $X+f\asymp X$ (the case $\sigma=-1$ of their theorem, which they describe as the cuspidal analogue of the dual sum $\sum_{p<N}\tau(N-p)$ and which was out of reach before their work). With $f=N$, $Y=0$, $X=N-1$ their theorem bounds $\sum_{n<N}\Lambda(n)\lambda(N-n)$ by $N^{1-\delta}$, and partial summation gives $\mathrm T_\psi$ with a power saving, provided (i) the theorem extends to the weight-one forms $\vt_\psi$, which have the nebentypus $\chi_{-D}$ (their statement is for $\Gamma_0(M)$ with trivial character), and (ii) it holds for the truncations $n\le t$, $N/(\log N)^{A}\le t\le N$, i.e.\ with $X+f\ll X(\log X)^A$ instead of $X+f\asymp X$; we have checked neither. We therefore state:
+Assing, Blomer and Li \cite[Theorem~1.3]{ABL} prove, for a holomorphic or Maa\ss{} cuspidal newform for $\Gamma_0(M)$ with Hecke eigenvalues $\lambda(n)$, $\sum_{Y<n\le X}\Lambda(n)\lambda(f-n)\ll X^{1-\delta}$ for $f>X$, $X+f\asymp X$ (the case $\sigma=-1$ of their theorem, which they describe as the cuspidal analogue of the dual sum $\sum_{p<N}\tau(N-p)$ and which was out of reach before their work). With $f=N$, $Y=0$, $X=N-1$ their theorem bounds $\sum_{n<N}\Lambda(n)\lambda(N-n)$ by $N^{1-\delta}$, and partial summation gives $\mathrm T_\psi$ with a power saving, provided (i) the theorem extends to the weight-one forms $\vt_\psi$, which have the nebentypus $\chi_{-D}$ (their statement is for $\Gamma_0(M)$ with trivial character), and (ii) it holds for the truncations $n\le t$, $N/(\log N)^{A}\le t\le N$, i.e.\ with $X+f\ll X(\log X)^A$ instead of $X+f\asymp X$. Remark~\ref{rem:ABL} records what (i) requires; (ii) we have not checked. We therefore state:
 
 \begin{theorem}\label{thm:every}
 Under $\mathrm H(N)$ and $\mathrm T_\psi$ for all $\psi\ne1$, for every class $C$,
@@ -143,7 +143,56 @@ and the same with the exponent $\frac12$ for the coefficients of any fixed holom
 \end{conjecture}
 
 \begin{remark}
-(a) The half is a property of the circle, not of the class group: it comes from the modularity of $f$, which makes $F$ small at the rationals of height up to $\sqrt X$, and from the logarithmic distribution of the mass of $|P|^2$ over the denominators. It is a statement about the pair correlation of the primes weighted by the shifted convolutions $\sum_mc_\psi(m)c_\psi(m+h)$ of a cusp form, and a proof would combine the Montgomery--Hooley asymptotic with the spectral theory of these shifted convolutions; we have not attempted it. (b) For $h=1$ the analogue of $S_\psi$ does not exist (there is no cusp form), and for composite $D$ with several genera the genus characters give Eisenstein series, for which $F$ is large at the major arcs and the class deviation has a main term (Part~V, Section~7): the class equidistribution of Theorem~\ref{thm:almostall} is a phenomenon of the single genus. (c) For $h=3$, Theorem~\ref{thm:almostall} and Conjecture~\ref{conj:var} say that $\#\{N=p+x^2+xy+6y^2\}-\#\{N=p+2x^2+xy+3y^2\}=2S_c(N)$ is typically of size $\sqrt{2\kappa_{23}N/\log N}=0.92\sqrt{N/\log N}$, against a main term of size $1.31\,N/\log N$ for each.
+(a) The half is a property of the circle, not of the class group: it comes from the modularity of $f$, which makes $F$ small at the rationals of height up to $\sqrt X$, and from the logarithmic distribution of the mass of $|P|^2$ over the denominators. Section~\ref{subsec:reduction} reduces the conjecture to two statements about the primes alone and proves everything else. (b) For $h=1$ the analogue of $S_\psi$ does not exist (there is no cusp form), and for composite $D$ with several genera the genus characters give Eisenstein series, for which $F$ is large at the major arcs and the class deviation has a main term (Part~V, Section~7): the class equidistribution of Theorem~\ref{thm:almostall} is a phenomenon of the single genus. (c) For $h=3$, Theorem~\ref{thm:almostall} and Conjecture~\ref{conj:var} say that $\#\{N=p+x^2+xy+6y^2\}-\#\{N=p+2x^2+xy+3y^2\}=2S_c(N)$ is typically of size $\sqrt{2\kappa_{23}N/\log N}=0.92\sqrt{N/\log N}$, against a main term of size $1.31\,N/\log N$ for each.
+\end{remark}
+
+\subsection{What is proved about the variance}\label{subsec:reduction}
+We work with the smoothed objects $P(\alpha)=\sum_pe^{-p/X}e(p\alpha)$, $F(\alpha)=F_X(\alpha)=\sum_mc_\psi(m)e^{-m/X}e(m\alpha)$ and
+\begin{gather*}
+V(X):=\sum_Ne^{-2N/X}S_\psi(N)^2=\int_0^1|P|^2|F|^2,\\
+\mathrm{Diag}(X):=\sum_Ne^{-2N/X}\sum_{p<N}c_\psi(N-p)^2=\int_0^1|P|^2\int_0^1|F|^2,
+\end{gather*}
+both identities exact ($e^{-p/X}e^{-m/X}=e^{-N/X}$; the second is Parseval for each factor), so $V/\mathrm{Diag}$ is the correlation coefficient of $|P|^2$ and $|F|^2$ on the circle, and $\mathrm{Diag}\sim\frac{\kappa_\psi}2X\cdot\frac X{2\log X}$. For $B\ge3$ let
+\begin{gather*}
+Q=X^{1/2}(\log X)^{-B},\qquad K=(\log X)^{(B-1)/2},\\
+\mathfrak M=\bigcup_{q\le Q}\ \bigcup_{(a,q)=1}\Bigl[\frac aq-\frac KX,\frac aq+\frac KX\Bigr],\qquad \mathfrak m=[0,1)\setminus\mathfrak M
+\end{gather*}
+(the arcs are disjoint, $2K/X<Q^{-2}$).
+
+\begin{theorem}\label{thm:reduction}
+$\sup_{\alpha\in\mathfrak M}|F(\alpha)|\ll_{A}X^{-A}$ for every $A$; hence $V(X)=\int_{\mathfrak m}|P|^2|F|^2+O_A(X^{-A})$.
+\end{theorem}
+\begin{proof}
+Let $\alpha=\frac aq+\beta\in\mathfrak M$, $z=\alpha+iy$, $y=\frac1{2\pi X}$, so that $F(\alpha)=f(z)$, and $\gamma=\left(\begin{smallmatrix}a&b\\q&d\end{smallmatrix}\right)\in\mathrm{SL}_2(\Z)$, $z=\gamma w$. As in Lemma~\ref{lem:depletion}, $|f(z)|=|f|_1\gamma(w)|/(q|\beta+iy|)\le|f|_1\gamma(w)|/(qy)$ with
+\[
+\operatorname{Im}w=\frac{y}{q^2(\beta^2+y^2)}\ge\frac{2\pi X}{q^2(1+4\pi^2K^2)}\ge\frac{2\pi(\log X)^{2B}}{1+4\pi^2(\log X)^{B-1}}\gg(\log X)^{B+1},
+\]
+and $|f|_1\gamma(w)|\ll e^{-2\pi\operatorname{Im}w/D}$ for $\operatorname{Im}w\ge1$ (the expansion at the cusp $\gamma\infty$ has width $1$ or $D$ and polynomially bounded coefficients). So $|F(\alpha)|\ll X\exp(-c(\log X)^{B+1})$, and $\int_{\mathfrak M}|P|^2|F|^2\le\sup_{\mathfrak M}|F|^2\int_0^1|P|^2$.
+\end{proof}
+
+Thus the major arcs of order $X^{1/2-\e}$ contribute nothing to the variance, whatever the primes do there. Conjecture~\ref{conj:var} (in the smoothed form $V\sim\frac12\mathrm{Diag}$) follows from the two statements
+\begin{align*}
+&\textup{(M)}\quad \int_{\mathfrak M}|P|^2=\Bigl(\frac12+o(1)\Bigr)\int_0^1|P|^2\qquad(\text{for some fixed }B,\ \text{then }o(1)=O(\log\log X/\log X)),\\
+&\textup{(D)}\quad \int_{\mathfrak m}|P|^2|F|^2=(1+o(1))\int_{\mathfrak m}|P|^2\cdot\int_0^1|F|^2,
+\end{align*}
+and conversely (M) and the conjecture imply (D). Statement (M) is the Hardy--Littlewood prediction for the mass of the arcs: with $P^*(\frac aq+\beta)=\frac{\mu(q)}{\varphi(q)}T(\beta)$, $T(\beta)=\sum_{n\ge2}\frac{e^{-n/X}}{\log n}e(n\beta)$, one has $\int_{\mathfrak M}|P^*|^2=\sum_{q\le Q}\frac{\mu(q)^2}{\varphi(q)}\int_{|\beta|\le K/X}|T|^2=(\log Q+O(1))\frac X{2(\log X)^2}(1+O(K^{-1}))$, which is $(\frac12-\frac{B\log\log X}{\log X}+O(\frac1{\log X}))\int_0^1|P|^2$. A proof of (M) needs $\int_{\mathfrak M}|P-P^*|^2=o(X/\log X)$ for arcs of order $X^{1/2-\e}$. By Gallagher's lemma and the expansion of $e(an/q)$ in characters this is a mean value $\sum_{r\le Q}\frac r{\varphi(r)}\log\frac Qr\sum_{\chi\bmod r}^*|\psi(t+H,\chi)-\psi(t,\chi)|^2\ll H^2(\log X)^{-A}$ over intervals of length $H=X/2K$: a Barban--Davenport--Halberstam estimate in short intervals with the weight $r$ instead of $1/\varphi(r)$. The large sieve gives $(H+Q^2)H\log X$, the trivial size, and the Bombieri--Vinogradov theorem, Hooley's form of the Barban--Davenport--Halberstam theorem and the mean-square Hardy--Littlewood theorem of Lavrik and Mikawa for prime pairs all lose a power of $Q$ against this weight; under GRH the pointwise bound $P-P^*\ll(qX)^{1/2}(\log X)^2(1+X|\beta|)$ gives (M) for arcs of order $X^{1/3-\e}$ only, i.e.\ the mass $\frac13$. So (M) is open, unconditionally and under GRH. Statement (D) is a genuine correlation statement between the primes and the cusp form on the minor arcs, of the kind that the pair correlation hypothesis supplies in the theorem of Goldston and Montgomery \cite{GM} on the variance of the primes in short intervals, $\int_1^X(\psi(x+\delta x)-\psi(x)-\delta x)^2\dd x\sim\frac12\delta X^2\log\frac1\delta$: there the deficit $\log\frac1\delta$ against $\log X$ is the mass of the arcs of order $\delta^{-1}$ on which the short interval kernel vanishes, as here it is the mass of the arcs of order $\sqrt X$ on which $F$ vanishes, and the analogue of $\delta=X^{-1/2}$ gives the $\frac12$.
+
+Numerically (\texttt{linnik\_class\_split.py}, $D=23$, the arcs of order $c\sqrt X$ with $K=1$; the $c$ below are fixed, so the arcs include part of the transition zone of $\rho$):
+\begin{center}\footnotesize
+\begin{tabular}{r|c|cc|ccc}
+\toprule
+$X$ & $V/\mathrm{Diag}$ & $\int_{\mathfrak M}|P|^2/\int|P|^2$, $c=\frac14$ & HL value & (D)-ratio, $c=\frac18$ & $c=\frac14$ & $c=\frac12$\\
+\midrule
+$5\cdot10^4$ & $0.397$ & $0.4870$ & $0.4899$ & -- & $0.771$ & $0.866$\\
+$2\cdot10^5$ & $0.408$ & $0.4885$ & $0.4856$ & $0.709$ & $0.794$ & $0.879$\\
+$6\cdot10^5$ & $0.415$ & $0.4855$ & $0.4797$ & $0.727$ & $0.803$ & $0.883$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The share of $V$ on $\mathfrak M$ is $0.0000$ for $c=\frac18$ and $0.003$--$0.005$ for $c=\frac14$ (Theorem~\ref{thm:reduction}); the mass of $\mathfrak M$ agrees with the Hardy--Littlewood value to $0.006$ (statement (M) at these sizes); and the ratio in (D), $\int_{\mathfrak m}|P|^2|F|^2/(\int_{\mathfrak m}|P|^2\int|F|^2)$, is $0.71$--$0.88$ and increases with $X$ for each fixed $c$, as it must if the deficit is carried by the transition zone $c\sqrt X\le q\le C\sqrt X$, whose share of the mass of $|P|^2$ is $O(1/\log X)$. Fitting $V/\mathrm{Diag}\cdot(\log X+1.3325)=a\log X+b$ to the three values gives $a=0.504$ and $0.505$ on the two intervals.
+
+\begin{remark}[The dual Titchmarsh input for weight one]\label{rem:ABL}
+We checked how far the proof of \cite[Theorem~1.3]{ABL} uses the trivial nebentypus. The form $\varphi$ enters only through (i) the Rankin--Selberg bound $\sum_{n\le X}|\lambda(n)|^2\ll(NX)^\e X$, (ii) the Bessel transforms of their Lemma~7.5, and (iii) the Voronoi formula with additive twists, their Lemma~7.4, quoted from the reference [BMN] of their bibliography ``in the case of trivial nebentypus''; the Kloosterman sums produced by (iii) are then treated by their Theorem~2.4 through the Kuznetsov formula. For $\vt_\psi$, (i) holds, (ii) holds with $J_{k-1}=J_0$ (and the Ramanujan bound holds by Deligne--Serre). For (iii) with the nebentypus $\omega=\chi_{-D}$ and $(q,D)=1$ the computation in the proof of Lemma~\ref{lem:depletion} gives the Voronoi formula with the dual twist $e(-n\overline{aD}/q)$ and the additional factor $\omega(q)$, independent of $a$ but not of $q$, so that the sums of Kloosterman sums in their Section~8 acquire the weight $\omega(c)$: they become Kloosterman sums for the pair of cusps $(\infty,0)$ of $\Gamma_0(D)$ with the character $\omega$, and their Theorem~2.4 has to be re-proved with the Kuznetsov formula for this pair of cusps and nebentypus; for $D\mid q$ the Voronoi coefficients of their Lemma~7.4 depend on $a_1$ through a character and the Kloosterman sums become twisted. The tools for both exist (the Kuznetsov formula for general cusps and characters, the bound $\theta\le7/64$ for every nebentypus), but the extension is not in the literature as far as we know and we have not carried it out; Hypothesis~\ref{hyp:T} stays a hypothesis.
 \end{remark}
 
 \section*{Data and code}
@@ -155,6 +204,7 @@ and the same with the exponent $\frac12$ for the coefficients of any fixed holom
 \bibitem{ChenV} R. Chen, Sums of two squares and Heegner norms with few prime factors, V: ideal class groups, weight-one dihedral cusp forms, and the splitting of the scalloped norm, preprint (2026), doi:10.5281/zenodo.23923518.
 \bibitem{Montgomery} H. L. Montgomery, Primes in arithmetic progressions, Michigan Math. J. 17 (1970), 33--39.
 \bibitem{Hooley} C. Hooley, On the Barban--Davenport--Halberstam theorem I, J. reine angew. Math. 274/275 (1975), 206--223.
+\bibitem{GM} D. A. Goldston, H. L. Montgomery, Pair correlation of zeros and primes in short intervals, in: Analytic Number Theory and Diophantine Problems (Stillwater 1984), Progr. Math. 70, Birkh\"auser, Boston, 1987, 183--203.
 \bibitem{Pitt} N. J. E. Pitt, On an analogue of Titchmarsh's divisor problem for holomorphic cusp forms, J. Amer. Math. Soc. 26 (2013), 735--776.
 \end{thebibliography}
 \end{document}

@@ -59,6 +59,16 @@ S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedr
   Part V), but the mean square of S_ψ(N) is 0.41–0.43 of it and rising (0.433 at N ≈ 1.2·10⁷). Lemma 3.1: by modularity
   the exponential sum of ϑ_ψ is exponentially small at a/q for q² ≪ X, and these major arcs carry half the L² mass
   of the prime exponential sum. Conjecture: mean square ~ ½ κ_ψ π(N).
+* **Section 3.1 (what is proved):** with the smoothed V = Σ e^{−2N/X} S_ψ(N)² = ∫|P|²|F|² and the exact identity
+  Diag = ∫|P|²·∫|F|², Theorem 3.4 proves that the major arcs of order X^{1/2}(log X)^{−B} (width (log X)^{(B−1)/2}/X)
+  contribute O(X^{−A}) to V. The conjecture is reduced to (M) these arcs carry half the mass of |P|² (Hardy–Littlewood;
+  needs a short-interval BDH estimate with weight r for moduli up to √X, open even under GRH, which reaches X^{1/3}) and
+  (D) |P|² and |F|² decorrelate on the minor arcs (a pair-correlation statement, as in Goldston–Montgomery). Numerics
+  (`code/linnik_class_split.py`, X = 5·10⁴, 2·10⁵, 6·10⁵): mass of the arcs within 0.006 of HL; (D)-ratio 0.71–0.88,
+  increasing; V/Diag = 0.397, 0.408, 0.415, fitted slope 0.504, 0.505.
+* **Remark 3.5:** Assing–Blomer–Li's Theorem 1.3 uses the trivial nebentypus only through their Voronoi formula
+  (Lemma 7.4); for ω = χ_{−D} the Kloosterman sums acquire ω(c) (cusp pair (∞, 0)) or become twisted (D | q), so their
+  Theorem 2.4 must be re-proved with the Kuznetsov formula for that cusp pair with character. Not done; T_ψ stays a hypothesis.
 
 ## Reproducing
 
@@ -69,6 +79,7 @@ python linnik_class.py 23 4e6       # single classes, D = 23 (or 31); ~2 min; re
 python linnik_class_variance.py 23 4e6    # mean square vs diagonal, Wilton supremum
 python linnik_class_arcs.py 23 3e5        # depletion profile rho(q) and the major-arc model
 python linnik_class_smooth.py 23 3e4 1e5  # smoothed variance vs the beta-integrated model (~30 min)
+python linnik_class_split.py 23 2e5       # V split into major/minor arcs; env KS, CQS select K and Q/sqrt X
 ```
 
 Python ≥ 3.10 with numpy. Exact integer counts; floating point only in the Euler products. The paper compiles with
