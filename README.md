@@ -42,11 +42,33 @@ For D = 4 this is the Hardy–Littlewood problem N = p + x² + y², solved by Li
    products. Table 2: the inert-prime sieve at N = 2·10⁵ (survivors against the product V, their structure n₁ / n₁q₀,
    and the P₂ norms left when the primes below 100 are sifted too).
 
+## A single ideal class (`notes/linnik_class.tex`, working note, 5 pages)
+
+For a prime D with h(−D) > 1 and a class C, S_C(N) = Σ_{p<N} r_C(N − p) splits as S_gen + (w/h) Σ_{ψ≠1} ψ̄(C) S_ψ with
+S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedral cusp form of Part V.
+
+* The genus part is the Linnik problem for (w/h)(1*χ): under H(N) its main term is (2π/√D) 𝔖_D(N) π(N) for every h
+  (the class number cancels), the same for every class.
+* **Theorem 1.3 (unconditional):** Σ_{N≤X} |S_ψ(N)|² ≪ X² log X (Wilton-type bound for weight one + Parseval). So all
+  N ≤ X outside O(X^{1−2η} log X) have |S_C(N) − S_gen(N)| ≤ N^{1/2+η} for every class, and the classes are asymptotically
+  equidistributed for all N ≤ X but O((log X)⁴).
+* **Theorem 1.5:** under H(N) and the dual Titchmarsh bound S_ψ(N) = o(N/log N) (Assing–Blomer–Li, Theorem 1.3, if it
+  extends to weight one with nebentypus), every class has the asymptotic for every large N.
+* Numerics (D = 23, 31, N ≤ 4·10⁶): both classes match the genus formula to 10⁻⁴; S_c(N) ≈ 0.12 √N, unbiased.
+* **The variance (Section 3, Conjecture 3.2):** the diagonal Σ_p c_ψ(N−p)² is κ_ψ π(N) (Rankin–Selberg residue of
+  Part V), but the mean square of S_ψ(N) is 0.41–0.43 of it and rising (0.433 at N ≈ 1.2·10⁷). Lemma 3.1: by modularity
+  the exponential sum of ϑ_ψ is exponentially small at a/q for q² ≪ X, and these major arcs carry half the L² mass
+  of the prime exponential sum. Conjecture: mean square ~ ½ κ_ψ π(N).
+
 ## Reproducing
 
 ```
 cd code
 python linnik_heegner.py            # ~2 min; writes results/linnik_heegner.txt
+python linnik_class.py 23 4e6       # single classes, D = 23 (or 31); ~2 min; results/linnik_class_23.txt
+python linnik_class_variance.py 23 4e6    # mean square vs diagonal, Wilton supremum
+python linnik_class_arcs.py 23 3e5        # depletion profile rho(q) and the major-arc model
+python linnik_class_smooth.py 23 3e4 1e5  # smoothed variance vs the beta-integrated model (~30 min)
 ```
 
 Python ≥ 3.10 with numpy. Exact integer counts; floating point only in the Euler products. The paper compiles with

@@ -1,0 +1,160 @@
+﻿\documentclass[11pt]{amsart}
+\usepackage[margin=2.6cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,enumitem}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\HH}{\mathbb H}
+\newcommand{\sS}{\mathfrak S}
+\newcommand{\vt}{\vartheta}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\Cl}{\mathrm{Cl}}
+\newcommand{\gen}{\mathrm{gen}}
+\newcommand{\e}{\varepsilon}
+
+\title[The Linnik problem for a single ideal class]{The Linnik problem for a single ideal class:\\ equidistribution of the classes and the variance of the class deviation}
+\author{Ruqing Chen}
+\date{Working note, 7 November 2026}
+
+\begin{document}
+\begin{abstract}
+For a prime discriminant $-D$ with class number $h>1$ and a class $C$ of binary forms $Q_C$ of discriminant $-D$ we consider $S_C(N)=\sum_{p<N}r_C(N-p)$, the number of representations $N=p+Q_C(x,y)$. The class decomposition $r_C=r_\gen+\frac wh\sum_{\psi\ne1}\bar\psi(C)c_\psi$ of Part~V splits $S_C$ into the genus part, which is the Linnik problem for $\frac wh(1*\chi_{-D})$ and has, under the hypothesis $\mathrm H(N)$ of the first note, the main term $\frac{2\pi}{\sqrt D}\sS_D(N)\pi(N)$ \emph{independently of $h$ and of the class}, and the class deviations $S_\psi(N)=\sum_{p<N}c_\psi(N-p)$, sums of the coefficients of the weight-one dihedral cusp forms $\vt_\psi$ over the shifted primes. We prove unconditionally that $\sum_{N\le X}|S_\psi(N)|^2\ll X^2\log X$, so that for all $N\le X$ outside $O(X^{1-2\eta}\log X)$ exceptions the counts of the different classes differ by at most $N^{1/2+\eta}$, and the classes are asymptotically equidistributed for all $N\le X$ but $O((\log X)^4)$; under $\mathrm H(N)$ and the dual Titchmarsh bound of Assing--Blomer--Li for $\vt_\psi$ every class has the asymptotic formula for every large $N$. Numerically ($D=23,31$, $N\le4\cdot10^6$) both classes agree with the genus formula to $10^{-4}$ and $S_\psi(N)\approx0.12\sqrt N$. The second moment is not the diagonal: $\sum_{p<N}c_\psi(N-p)^2$ is $\kappa_\psi\pi(N)$ on average, with the Rankin--Selberg residue $\kappa_\psi$ of Part~V, while the mean square of $S_\psi(N)$ is $0.41$--$0.43$ of it and rising. We explain this: by modularity the exponential sum of $\vt_\psi$ is exponentially small at the rationals $a/q$ with $q^2\ll X$ (Lemma~\ref{lem:depletion}), and these major arcs carry half of the $L^2$ mass of the prime exponential sum; we conjecture that the mean square is $\sim\frac12\kappa_\psi\pi(N)$.
+\end{abstract}
+\maketitle
+
+\section{Setting and results}
+
+Let $D\equiv3\pmod4$ be a prime, $D>3$, $K=\Q(\sqrt{-D})$, $\chi=\chi_{-D}$, $w=2$, $h=h(-D)$ (odd), and for a class $C\in\Cl(K)$ let $r_C(n)=\#\{(x,y)\in\Z^2:\ Q_C(x,y)=n\}$ as in Part~V \cite{ChenV}. With $c_\psi(n)=\sum_{N\mathfrak a=n}\psi(\mathfrak a)$ ($\psi\in\widehat{\Cl}$, real, $c_{\bar\psi}=c_\psi$) and $r_\gen=\frac wh(1*\chi)$,
+\begin{equation}\label{eq:dec}
+r_C=r_\gen+\frac wh\sum_{\psi\ne1}\bar\psi(C)\,c_\psi,\qquad
+S_C(N):=\sum_{p<N}r_C(N-p)=S_\gen(N)+\frac wh\sum_{\psi\ne1}\bar\psi(C)\,S_\psi(N),
+\end{equation}
+where $S_\gen(N)=\sum_{p<N}r_\gen(N-p)$ and $S_\psi(N)=\sum_{p<N}c_\psi(N-p)$; $\vt_\psi=\sum c_\psi(n)e(nz)\in S_1(\Gamma_0(D),\chi)$ is the dihedral cusp form of $\psi$ (Part~V, Theorem~1.1). For $h=3$, $S_{C_0}=S_\gen+\frac43S_c$, $S_{C_1}=S_\gen-\frac23S_c$ with $c=c_\psi$, and $S_{C_0}-S_{C_1}=2S_c$: for $D=23$, $S_c(N)$ is half the difference between the numbers of representations $N=p+x^2+xy+6y^2$ and $N=p+2x^2+xy+3y^2$.
+
+\subsection{The genus part}
+Since $r_\gen=\frac wh(1*\chi)$ and the first note \cite{ChenL} treats $r_D=w_D(1*\chi)$ for $h=1$, its proof applies verbatim with $w_D$ replaced by $\frac wh$, and the constant becomes $\frac whL(1,\chi)=\frac{2\pi}{\sqrt D}$ by the class number formula:
+
+\begin{proposition}\label{prop:genus}
+Under the hypothesis $\mathrm H(N)$ of \cite[Hypothesis~1.1]{ChenL} (the level $\sqrt N(\log N)^A$ of Bombieri--Friedlander--Iwaniec for the single residue class $N$),
+\[
+S_\gen(N)=\frac{2\pi}{\sqrt D}\,\sS_D(N)\,\pi(N)+O\Bigl(N\Bigl(\frac{\log\log N}{\log N}\Bigr)^2\Bigr),\]\[\sS_D(N)=\Bigl(1-\frac{\chi(N)}{D-1}\Bigr)\prod_{\ell\mid N}\Bigl(1-\frac{\chi(\ell)}\ell\Bigr)\prod_{\ell\nmid N}\Bigl(1+\frac{\chi(\ell)}{\ell(\ell-1)}\Bigr).
+\]
+\end{proposition}
+The main term is the same as for the principal form of a field of class number one with the same $D$: the class number cancels between the genus average and the class number formula, exactly as the leading coefficient of the scalloped norms in Part~V. Every class has the local densities of the genus (there is one genus), so the singular series is the same for all classes, and \eqref{eq:dec} reduces the Linnik problem for a single class to the size of $S_\psi(N)$.
+
+\subsection{The class deviation}
+\begin{lemma}[Wilton-type bound]\label{lem:wilton}
+Let $f=\sum a(n)e(nz)\in S_1(\Gamma_0(D),\chi)$. Then, uniformly in $\alpha\in\mathbb R$ and $Y\ge2$, $\sum_{n\le Y}a(n)e(n\alpha)\ll_f\sqrt Y\log Y$, and $\sum_na(n)e^{-n/Y}e(n\alpha)=f(\alpha+\frac i{2\pi Y})\ll_f\sqrt Y$.
+\end{lemma}
+\begin{proof}
+The function $y^{1/2}|f(z)|$ is $\Gamma_0(D)$-invariant ($|\chi|=1$) and tends to $0$ at both cusps, so it is bounded on $\HH$: $|f(x+iy)|\le C_fy^{-1/2}$. This is the second statement. For the first, with $y=1/Y$, $\sum_{n\le Y}a(n)e(n\alpha)=\int_0^1f(\alpha+\beta+iy)K(\beta)\dd\beta$, $K(\beta)=\sum_{m\le Y}e^{2\pi m/Y}e(-m\beta)$; by partial summation against the Dirichlet kernels, whose $L^1$ norms are $\ll\log Y$, and since $e^{2\pi m/Y}$ is increasing and $\le e^{2\pi}$, $\|K\|_1\ll\log Y$.
+\end{proof}
+
+\begin{theorem}\label{thm:almostall}
+For every $\psi\ne1$ and $X\ge2$,
+\[
+\sum_{N\le X}|S_\psi(N)|^2\ll_DX^2\log X .
+\]
+Consequently, for every $\eta>0$, all $N\le X$ outside a set of $O_D(X^{1-2\eta}\log X)$ elements satisfy $|S_C(N)-S_\gen(N)|\le N^{1/2+\eta}$ for every class $C$; and for every $\e>0$, all $N\le X$ outside a set of $O_{D,\e}((\log X)^4)$ elements satisfy $|S_C(N)-S_\gen(N)|\le\e N/\log N$ for every class.
+\end{theorem}
+\begin{proof}
+For $N\le X$, $S_\psi(N)$ is the coefficient of $e(N\alpha)$ in $P(\alpha)F(\alpha)$ with $P(\alpha)=\sum_{p\le X}e(p\alpha)$ and $F(\alpha)=\sum_{1\le m\le X}c_\psi(m)e(m\alpha)$, since $p<N$ and $m=N-p$ are both $\le X$. By Parseval and Lemma~\ref{lem:wilton},
+\[
+\sum_{N\le X}|S_\psi(N)|^2\le\int_0^1|P(\alpha)F(\alpha)|^2\dd\alpha\le\|F\|_\infty^2\int_0^1|P|^2=\|F\|^2_\infty\,\pi(X)\ll X(\log X)^2\frac X{\log X}.
+\]
+By \eqref{eq:dec} the same bound holds for $S_C-S_\gen$. The number of $N\in(X/2,X]$ with $|S_C(N)-S_\gen(N)|>(X/2)^{1/2+\eta}$ is $\ll X^2\log X/X^{1+2\eta}$, and with $>\e X/(2\log X)$ it is $\ll(\log X)^3/\e^2$; summing over dyadic ranges gives the two counts.
+\end{proof}
+
+Thus the equidistribution of the representations among the classes holds unconditionally for almost all $N$, with a power saving, while the asymptotic formula itself, which is a statement about the genus part, needs $\mathrm H(N)$ already for $h=1$. For individual $N$ the class deviation needs an input of a different kind, a bound for the coefficients of a cusp form along $N-p$; this is the dual problem of Titchmarsh type.
+
+\begin{hypothesis}[$\mathrm{T}_\psi$]\label{hyp:T}
+$S_\psi(N)=o(N/\log N)$ as $N\to\infty$.
+\end{hypothesis}
+
+Assing, Blomer and Li \cite[Theorem~1.3]{ABL} prove, for a holomorphic or Maa\ss{} cuspidal newform for $\Gamma_0(M)$ with Hecke eigenvalues $\lambda(n)$, $\sum_{Y<n\le X}\Lambda(n)\lambda(f-n)\ll X^{1-\delta}$ for $f>X$, $X+f\asymp X$ (the case $\sigma=-1$ of their theorem, which they describe as the cuspidal analogue of the dual sum $\sum_{p<N}\tau(N-p)$ and which was out of reach before their work). With $f=N$, $Y=0$, $X=N-1$ their theorem bounds $\sum_{n<N}\Lambda(n)\lambda(N-n)$ by $N^{1-\delta}$, and partial summation gives $\mathrm T_\psi$ with a power saving, provided (i) the theorem extends to the weight-one forms $\vt_\psi$, which have the nebentypus $\chi_{-D}$ (their statement is for $\Gamma_0(M)$ with trivial character), and (ii) it holds for the truncations $n\le t$, $N/(\log N)^{A}\le t\le N$, i.e.\ with $X+f\ll X(\log X)^A$ instead of $X+f\asymp X$; we have checked neither. We therefore state:
+
+\begin{theorem}\label{thm:every}
+Under $\mathrm H(N)$ and $\mathrm T_\psi$ for all $\psi\ne1$, for every class $C$,
+\[
+S_C(N)=\frac{2\pi}{\sqrt D}\,\sS_D(N)\,\pi(N)\,(1+o(1)),
+\]
+the same main term for every class; in particular every large $N$ is $p+Q_C(x,y)$ for every class $C$, and the representations are equidistributed among the classes.
+\end{theorem}
+\begin{proof}
+Proposition~\ref{prop:genus}, \eqref{eq:dec}, $\mathrm T_\psi$, and $\sS_D(N)\gg1$ \cite[Theorem~1.2]{ChenL}.
+\end{proof}
+
+\section{Numerics}
+Table~\ref{tab:ratios} compares $S_{C_0}$, $S_{C_1}$ with the main term of Proposition~\ref{prop:genus} for $D=23$ and $31$, on $400$ random $N$ in each range (script \texttt{linnik\_class.py}, exact counts by FFT from the representation numbers). The class deviation is of square-root size, $\mathrm{rms}\,S_c(N)\approx0.12\sqrt N$ (a fit of $\log\mathrm{rms}$ against $\log N$ gives the exponent $0.46$ for both $D$), and it has no bias: its mean over $N\in[2\cdot10^6,4\cdot10^6)$ is $0.000\sqrt N$ separately for $\chi(N)=1,-1,0$.
+
+\begin{table}[htbp]
+\centering\footnotesize\setlength{\tabcolsep}{5pt}
+\begin{tabular}{r|rrrr|rrrr}
+\toprule
+ & \multicolumn{4}{c|}{$D=23$} & \multicolumn{4}{c}{$D=31$}\\
+$N$ & $S_{C_0}/\mathrm{main}$ & $S_{C_1}/\mathrm{main}$ & $\frac{\mathrm{rms}\,S_c}{\sqrt N}$ & $\frac{E\,S_c^2}{\kappa_D\pi(N)}$ & $S_{C_0}/\mathrm{main}$ & $S_{C_1}/\mathrm{main}$ & $\frac{\mathrm{rms}\,S_c}{\sqrt N}$ & $\frac{E\,S_c^2}{\kappa_D\pi(N)}$\\
+\midrule
+$[10^5,2\cdot10^5)$ & $1.0001$ & $1.0001$ & $0.126$ & $0.405$ & $0.9997$ & $0.9998$ & $0.131$ & $0.414$\\
+$[3\cdot10^5,6\cdot10^5)$ & $1.0002$ & $0.9999$ & $0.125$ & $0.414$ & $1.0000$ & $1.0003$ & $0.126$ & $0.422$\\
+$[10^6,2\cdot10^6)$ & $1.0005$ & $1.0003$ & $0.119$ & $0.423$ & $1.0001$ & $1.0000$ & $0.119$ & $0.430$\\
+$[2\cdot10^6,4\cdot10^6)$ & $0.9999$ & $1.0000$ & $0.113$ & $0.427$ & $1.0002$ & $0.9999$ & $0.119$ & $0.432$\\
+\bottomrule
+\end{tabular}
+\medskip
+\caption{The Linnik problem for the two classes of $D=23$ ($x^2+xy+6y^2$, $2x^2+xy+3y^2$) and $D=31$ ($x^2+xy+8y^2$, $2x^2+xy+4y^2$): the counts against $\frac{2\pi}{\sqrt D}\sS_D(N)\pi(N)$ (means over $400$ random $N$; standard deviations $0.002$--$0.03$), the class deviation $S_c=\frac12(S_{C_0}-S_{C_1})$, and its mean square over the whole range against $\kappa_D\pi(N)$, $\kappa_{23}=0.421799$, $\kappa_{31}=0.430026$ (\texttt{linnik\_class\_variance.py}). The diagonal $\sum_{p<N}c(N-p)^2$ is $\kappa_D\pi(N)$ to $10^{-4}$ in every range; for $D=23$ and $N\in[8\cdot10^6,1.6\cdot10^7)$ the last column is $0.419$ for $\chi(N)=1$, $0.448$ for $\chi(N)=-1$, $0.433$ for $\chi(N)=0$.}
+\label{tab:ratios}
+\end{table}
+
+\section{The variance of the class deviation}
+The diagonal of $S_\psi(N)^2$ is $\sum_{p<N}c_\psi(N-p)^2$, and since $\sum_{m\le x}c_\psi(m)^2=\kappa_\psi x+O(x^{4/5})$ with the residue $\kappa_\psi$ of Part~V, Theorem~1.3(iii), its average over $N\le X$ is $\kappa_\psi\pi(N)$ (Table~\ref{tab:ratios}: to $10^{-4}$). The mean square of $S_\psi(N)$ is much smaller, $0.41$--$0.43\,\kappa_\psi\pi(N)$, increasing slowly with $N$. The off-diagonal correlations $\sum_{p\ne p'}c_\psi(N-p)c_\psi(N-p')$ are therefore negative on average and of the size of the diagonal. The mechanism is visible on the circle.
+
+\begin{lemma}[Depletion at the major arcs]\label{lem:depletion}
+Let $f\in S_1(\Gamma_0(D),\chi)$, $F_X(\alpha)=\sum_na(n)e^{-n/X}e(n\alpha)=f(\alpha+\frac i{2\pi X})$, and $(a,q)=1$. Then
+\[
+|F_X(a/q)|\ll_f\frac Xq\exp\Bigl(-\frac{4\pi^2X}{Dq^2}\Bigr)\quad(D\nmid q),\qquad |F_X(a/q)|\ll_f\frac Xq\exp\Bigl(-\frac{4\pi^2X}{q^2}\Bigr)\quad(D\mid q).
+\]
+\end{lemma}
+\begin{proof}
+Let $\gamma=\left(\begin{smallmatrix}a&b\\q&d\end{smallmatrix}\right)\in\mathrm{SL}_2(\Z)$ and $z=a/q+iy=\gamma w$, so that $w=-d/q+i/(q^2y)$ and $|qw+d|=1/(qy)$. Then $f(z)=(qw+d)\,(f|_1\gamma)(w)$. If $D\mid q$, $\gamma\in\Gamma_0(D)$ and $f|_1\gamma=\chi(d)f$; if $D\nmid q$, $\gamma$ maps $\infty$ to a cusp equivalent to $0$, and $f|_1\gamma$ is the expansion of $f$ at $0$, $\sum_{n\ge1}b(n)e(nw/D)$ ($f|W_D=-if$ for the dihedral forms, Part~V, Theorem~1.1). In both cases $|f|_1\gamma(w)|\ll e^{-2\pi\operatorname{Im}w/D'}$ with $D'=D$ or $1$, and $\operatorname{Im}w=1/(q^2y)=2\pi X/q^2$.
+\end{proof}
+
+So $F_X$ vanishes to exponential precision at every $a/q$ with $q^2\le\delta X/\log X$, whereas its mean square over $[0,1]$ is $\sum c_\psi(n)^2e^{-2n/X}\sim\frac12\kappa_\psi X$. Numerically, with $\rho(q)$ the mean of $|F_X(a/q)|^2$ over $(a,q)=1$ divided by this mean square ($D=23$, $X=3\cdot10^5$, \texttt{linnik\_class\_arcs.py}): $\rho(q)<10^{-4}$ for $q^2<0.26X$, then $0.008$, $0.04$, $0.12$, $0.50$ at $q^2/X=0.45$, $0.59$, $0.77$, $1.34$, an overshoot to $1.50$ at $q^2/X\approx7$, and $\rho\to1$ (e.g.\ $1.07$ at $q^2/X=36$).
+
+The prime exponential sum does the opposite: $|P(a/q+\beta)|^2\approx\frac{\mu(q)^2}{\varphi(q)^2}|T(\beta)|^2$ with $\int|T|^2\approx X/(\log X)^2$, so the arcs at the $\varphi(q)$ fractions $a/q$ carry the $L^2$ mass $\frac{\mu(q)^2}{\varphi(q)}\frac X{(\log X)^2}$, and the arcs with $q\le Q$ carry $\frac{X}{(\log X)^2}\sum_{q\le Q}\frac{\mu(q)^2}{\varphi(q)}=\frac X{(\log X)^2}(\log Q+1.3325+o(1))$, out of the total $\pi(X)\approx X/\log X$. (The mean square of the primes in the residue classes modulo $q$, summed over $q\le Q$, is asymptotically known for $Q\le X$ by the theorem of Barban--Davenport--Halberstam in the form of Montgomery \cite{Montgomery} and Hooley \cite{Hooley}; it is the quantity that measures how much of the mass of $|P|^2$ the major arcs carry.) The arcs with $q\le\sqrt X$ carry half the mass, and on them $F$ is exponentially small. Writing $\int|P|^2|F|^2$ as the diagonal minus the deficit on the major arcs gives the prediction
+\[
+\frac{E\,|S_\psi(N)|^2}{\kappa_\psi\pi(N)}\approx1-\frac{\sum_q\mu(q)^2\varphi(q)^{-1}(1-\rho(q))}{\log X+1.3325}=\frac{\frac12\log X+O(1)}{\log X+1.3325},
+\]
+which for $X=3\cdot10^5$ evaluates to $1-7.449/13.94=0.466$, against the measured $0.41$--$0.42$ in the ranges around $3\cdot10^5$ (the model neglects the variation of $F$ across the width of the arcs and the local structure at $D$; the measured ratio is $0.412$ for $\chi(N)=1$ and $0.442$ for $\chi(N)=-1$, the diagonal itself being $0.955$ and $1.045$ times $\kappa_D\pi(N)$ there because $m=N-p$ avoids the class $N$ modulo $D$). The constant $\frac12$ is robust: the transition region and the overshoot change only the $O(1)$, and fitting $V(\log N+1.3325)=a\log N+b$ to the four ranges of Table~\ref{tab:ratios} gives $a=0.52$ for $D=23$, and the constant $b=V(\log N+1.3325)-\frac12\log N$ is $-0.59$, $-0.57$, $-0.53$, $-0.52$, $-0.52$ at $N\approx1.5\cdot10^5$, $4.5\cdot10^5$, $1.5\cdot10^6$, $3\cdot10^6$, $1.2\cdot10^7$: stable, as the limit $\frac12$ requires (a different limit $a$ would make $b$ drift linearly in $\log N$).
+
+\begin{conjecture}\label{conj:var}
+For every $\psi\ne1$, as $X\to\infty$,
+\[
+\sum_{X<N\le2X}|S_\psi(N)|^2\sim\frac12\,\kappa_\psi\sum_{X<N\le2X}\pi(N),
+\]
+and the same with the exponent $\frac12$ for the coefficients of any fixed holomorphic cusp form (with $\kappa_\psi$ replaced by its Rankin--Selberg residue, normalised to weight one): the class deviation of the Linnik problem has half the variance of a sum of independent terms.
+\end{conjecture}
+
+\begin{remark}
+(a) The half is a property of the circle, not of the class group: it comes from the modularity of $f$, which makes $F$ small at the rationals of height up to $\sqrt X$, and from the logarithmic distribution of the mass of $|P|^2$ over the denominators. It is a statement about the pair correlation of the primes weighted by the shifted convolutions $\sum_mc_\psi(m)c_\psi(m+h)$ of a cusp form, and a proof would combine the Montgomery--Hooley asymptotic with the spectral theory of these shifted convolutions; we have not attempted it. (b) For $h=1$ the analogue of $S_\psi$ does not exist (there is no cusp form), and for composite $D$ with several genera the genus characters give Eisenstein series, for which $F$ is large at the major arcs and the class deviation has a main term (Part~V, Section~7): the class equidistribution of Theorem~\ref{thm:almostall} is a phenomenon of the single genus. (c) For $h=3$, Theorem~\ref{thm:almostall} and Conjecture~\ref{conj:var} say that $\#\{N=p+x^2+xy+6y^2\}-\#\{N=p+2x^2+xy+3y^2\}=2S_c(N)$ is typically of size $\sqrt{2\kappa_{23}N/\log N}=0.92\sqrt{N/\log N}$, against a main term of size $1.31\,N/\log N$ for each.
+\end{remark}
+
+\section*{Data and code}
+{\raggedright \texttt{code/linnik\_class.py} (Table~\ref{tab:ratios}, outputs \texttt{results/linnik\_class\_23.txt}, \texttt{\_31.txt}), \texttt{code/linnik\_class\_variance.py} (mean square, diagonal, the Wilton supremum: $\sup_\alpha|\sum_{m\le Y}c(m)e(m\alpha)|=1.51\sqrt Y$, $1.56\sqrt Y$, $1.58\sqrt Y$ at $Y=10^5,10^6,4\cdot10^6$ for $D=23$), \texttt{code/linnik\_class\_arcs.py} (the depletion profile $\rho(q)$ and the model), \texttt{code/linnik\_class\_smooth.py} (the smoothed variance against the $\beta$-integrated model).\par}
+
+\begin{thebibliography}{9}\raggedright
+\bibitem{ABL} E. Assing, V. Blomer, J. Li, Uniform Titchmarsh divisor problems, arXiv:2005.13915 (2020).
+\bibitem{ChenL} R. Chen, The Linnik problem for the norms of the imaginary quadratic fields of class number one, working note (two-squares-part5), 2026.
+\bibitem{ChenV} R. Chen, Sums of two squares and Heegner norms with few prime factors, V: ideal class groups, weight-one dihedral cusp forms, and the splitting of the scalloped norm, preprint (2026), doi:10.5281/zenodo.23923518.
+\bibitem{Montgomery} H. L. Montgomery, Primes in arithmetic progressions, Michigan Math. J. 17 (1970), 33--39.
+\bibitem{Hooley} C. Hooley, On the Barban--Davenport--Halberstam theorem I, J. reine angew. Math. 274/275 (1975), 206--223.
+\bibitem{Pitt} N. J. E. Pitt, On an analogue of Titchmarsh's divisor problem for holomorphic cusp forms, J. Amer. Math. Soc. 26 (2013), 735--776.
+\end{thebibliography}
+\end{document}

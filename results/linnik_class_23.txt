@@ -1,0 +1,16 @@
+D = 23, h = 3: forms [(1, 1, 6), (2, 1, 3)], tables to 4000000 [50s]
+convolutions done [51s]
+N in [10000, 20000): S_0/main = 0.9995 (sd 0.0264), S_1/main = 1.0017 (sd 0.0212), S_gen/main = 1.0010 (sd 0.0195);  rms S_c = 16.9, rms S_c/sqrt(N) = 0.138, rms S_c/(N/log N) = 0.01085, mean S_c/sqrt N = -0.009
+N in [30000, 60000): S_0/main = 1.0012 (sd 0.0163), S_1/main = 1.0010 (sd 0.0143), S_gen/main = 1.0010 (sd 0.0124);  rms S_c = 30.0, rms S_c/sqrt(N) = 0.142, rms S_c/(N/log N) = 0.00715, mean S_c/sqrt N = +0.002
+N in [100000, 200000): S_0/main = 1.0001 (sd 0.0100), S_1/main = 1.0001 (sd 0.0080), S_gen/main = 1.0001 (sd 0.0074);  rms S_c = 48.7, rms S_c/sqrt(N) = 0.126, rms S_c/(N/log N) = 0.00387, mean S_c/sqrt N = -0.003
+N in [300000, 600000): S_0/main = 1.0002 (sd 0.0062), S_1/main = 0.9999 (sd 0.0054), S_gen/main = 1.0000 (sd 0.0050);  rms S_c = 83.8, rms S_c/sqrt(N) = 0.125, rms S_c/(N/log N) = 0.00242, mean S_c/sqrt N = +0.000
+N in [1000000, 2000000): S_0/main = 1.0005 (sd 0.0041), S_1/main = 1.0003 (sd 0.0031), S_gen/main = 1.0004 (sd 0.0030);  rms S_c = 145.7, rms S_c/sqrt(N) = 0.119, rms S_c/(N/log N) = 0.00138, mean S_c/sqrt N = +0.002
+N in [2000000, 4000000): S_0/main = 0.9999 (sd 0.0028), S_1/main = 1.0000 (sd 0.0024), S_gen/main = 1.0000 (sd 0.0022);  rms S_c = 196.4, rms S_c/sqrt(N) = 0.113, rms S_c/(N/log N) = 0.00098, mean S_c/sqrt N = -0.002
+N in [2000000, 4000000): S_0/main = 1.0001 (sd 0.0028), S_1/main = 1.0002 (sd 0.0025), S_gen/main = 1.0002 (sd 0.0023);  rms S_c = 191.9, rms S_c/sqrt(N) = 0.111, rms S_c/(N/log N) = 0.00095, mean S_c/sqrt N = -0.004
+
+fit rms |S_c(N)| ~ N^theta: theta = 0.457  (main term ~ N/log N)
+
+mean of S_c(N)/sqrt(N) over N in [2000000, 4000000) by the residue of N mod 23 (quadratic character):
+   chi(N) = +1: mean +0.000, sd 0.111, n = 136646
+   chi(N) = -1: mean -0.000, sd 0.115, n = 136647
+   chi(N) = +0: mean +0.000, sd 0.112, n = 12422
