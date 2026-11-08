@@ -42,7 +42,7 @@ For D = 4 this is the Hardy–Littlewood problem N = p + x² + y², solved by Li
    products. Table 2: the inert-prime sieve at N = 2·10⁵ (survivors against the product V, their structure n₁ / n₁q₀,
    and the P₂ norms left when the primes below 100 are sifted too).
 
-## A single ideal class (`notes/linnik_class.tex`, working note, 14 pages)
+## A single ideal class (`notes/linnik_class.tex`, working note, 15 pages)
 
 For a prime D with h(−D) > 1 and a class C, S_C(N) = Σ_{p<N} r_C(N − p) splits as S_gen + (w/h) Σ_{ψ≠1} ψ̄(C) S_ψ with
 S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedral cusp form of Part V.
@@ -76,7 +76,7 @@ S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedr
   (Proposition 3.6), so Σ_{N≤X} |S^λ_ψ(N)|² ≪ X^{2+θ+ε} and the class deviation of every sieve functional of level θ < 1 is
   O(N^{1/2+θ/2+η}) for almost all N, unconditionally (Theorem 3.7): a sieve result for the genus holds for each class,
   for almost all N (the switching step of Chen's argument needs a Vinogradov-type bound for Σ Λ(m)c_ψ(m)e(mα), not
-  covered). Major arcs of order X^{1/2−θ} keep the depletion (Proposition 3.13). Remark 3.12: there is no class-group
+  covered). Major arcs of order X^{1/2−θ} keep the depletion (Proposition 3.14). Remark 3.13: there is no class-group
   grading of the parity obstruction (c(q₁q₂) = (−1)² only on integers with non-principal prime factors; the mean of c on
   every Ω-stratum is 0), only a Chebyshev bias of order (log N)^{−3/2} with alternating sign in Ω. Numerics
   (`code/goldbach_class_parity.py`, D = 23, 31, N ≤ 4·10⁶, Table 2): the variance ratio rises monotonically with the
@@ -97,13 +97,19 @@ S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedr
   factor at D counts the D − 2 admissible residue pairs, hence (D−2), not (D−1)). Numerics in
   `results/goldbach_class_parity_{23,31}.txt`: G/(𝔖₂ li₂) and G_C/main within 1–2 % of 1 (Chebyshev bias of the principal
   primes), and the ratio of the split-pair counts for χ(N) = +1 against −1 matches (D−3)/(D−1), not (D−2)/D.
-* **Remark 3.14 (quadratic class weights):** the cross-class coincidence r_{C₀}(m)r_{C₁}(m) vanishes on primes and is 8 on
+* **Corollary 3.12 (odd N):** for odd N and p > 2, N − p is even, so Ω ≥ 2 (Ω ≥ 3 when 2 is inert). The same argument with
+  Proposition 3.8 at the frequency 2α (4α) gives, for almost all odd N and every class, Σ_{p+2q=N} r_C(2q) =
+  (4/h)(1 − χ(N)/(D−2))𝔖₂(N)J₂(N) when D ≡ 7 mod 8, and Σ_{p+4q=N} r_C(4q) = (2/h)(…)𝔖₂(N)J₄(N) when D ≡ 3 mod 8,
+  J_a(N) = ∫ du/(log u log(N − au)) ~ N/(a log² N). So for almost all N, even or odd, N = p + Q_C(x,y) with Q_C(x,y) a
+  prime, a P₂ or a P₃ (the least Ω the 2-adic constraint allows), for every class, unconditionally; only the problem for
+  every individual N remains. Numerics (D = 23, 31, odd N): counts within 1 % of the main term.
+* **Remark 3.15 (quadratic class weights):** the cross-class coincidence r_{C₀}(m)r_{C₁}(m) vanishes on primes and is 8 on
   the semiprimes with two non-principal factors, so r_{C₀} − ½ r_{C₀}r_{C₁} keeps the primes and kills 2/3 of the semiprime
   weight (the "prime purity" on the Chen set rises, numbers in the remark). This is bookkeeping: the weight is the
   coefficient of the weight-two form ϑ_{C₀}ϑ_{C₁}, it is negative on products of three non-principal primes, the
   semiprimes with two principal factors keep weight 8, and Selberg's parity obstruction concerns the information a
   sieve has (distribution in progressions), which pointwise identities do not change.
-* **Remark 3.15:** Assing–Blomer–Li's Theorem 1.3 uses the trivial nebentypus only through their Voronoi formula
+* **Remark 3.16:** Assing–Blomer–Li's Theorem 1.3 uses the trivial nebentypus only through their Voronoi formula
   (Lemma 7.4); for ω = χ_{−D} the Kloosterman sums acquire ω(c) (cusp pair (∞, 0)) or become twisted (D | q), so their
   Theorem 2.4 must be re-proved with the Kuznetsov formula for that cusp pair with character. Not done; T_ψ stays a hypothesis.
 

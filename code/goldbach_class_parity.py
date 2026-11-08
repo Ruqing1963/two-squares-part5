@@ -198,6 +198,46 @@ def main():
             say(f"     ratio of the split-pair counts chi(N)=+1 : chi(N)=-1 = {R[1] / R[-1]:.4f};  (D-3)/(D-1) = {(D - 3) / (D - 1):.4f}"
                 f" [local factor 1 - chi(N)/(D-2)],  (D-2)/D = {(D - 2) / D:.4f} [1 - chi(N)/(D-1)]")
 
+    # odd N (D = 7 mod 8): sum_{p+2q=N} r_C(2q) against (4/3)(1 - chi(N)/(D-2)) SS_2(N) J_2(N), J_2 = int du/(log u log(N-2u))
+    if D % 8 == 7:
+        say("\nOdd N: sum_{p+2q=N} r_C(2q) (q odd prime) against (4/3)(1 - chi(N)/(D-2)) SS_2(N) J_2(N), 4000 random odd N per range;"
+            "\n  also #{p+2q=N} against SS_2(N) J_2(N).")
+        u2 = np.zeros(NMAX + 1)
+        pr = np.nonzero(isp)[0]
+        pr = pr[(pr > 2) & (2 * pr <= NMAX)]
+        u2[2 * pr] = 1.0
+        H0 = conv(r0 * u2)
+        H1 = conv(r1 * u2)
+        Hall = conv(u2)
+
+        def J2(N):
+            f = lambda u: 1.0 / (log(u) * log(N - 2 * u))
+            v, _ = quad(f, 2, (N - 2) / 2, limit=200)
+            return v
+        rng = np.random.default_rng(11)
+        for lo, hi in RANGES:
+            if lo >= NMAX:
+                continue
+            hi = min(hi, NMAX + 1)
+            Ns = rng.integers(lo // 2, hi // 2, size=4000) * 2 + 1
+            rows = {1: [], -1: [], 0: []}
+            base = []
+            for N in Ns:
+                N = int(N)
+                ss = singular_series_2(N, spf) * J2(N)
+                chiN = kron_D(N)
+                fac = (4 / 3) * (1 - chiN / (D - 2)) * ss
+                base.append(Hall[N] / ss)
+                rows[chiN].append((H0[N] / fac, H1[N] / fac))
+            base = np.array(base)
+            say(f"  N in [{lo}, {hi}): #/(SS_2 J_2) = {base.mean():.4f} [{base.std() / sqrt(len(base)):.4f}]")
+            for t in (1, -1, 0):
+                a = np.array(rows[t])
+                if len(a) == 0:
+                    continue
+                say(f"     chi(N) = {t:+d} (n = {len(a)}): C_0/main = {a[:, 0].mean():.4f} [{a[:, 0].std() / sqrt(len(a)):.4f}],"
+                    f"  C_1/main = {a[:, 1].mean():.4f} [{a[:, 1].std() / sqrt(len(a)):.4f}]")
+
     # cross-class coincidence C(m) = r_0(m) r_1(m) on the Chen set (beta = 3), by Omega: C = 0 on primes, 8 on the semiprimes
     # with two non-principal split factors (density 4/9), 0 on the other semiprimes. 'HBT' weights w_0 = r_0 - C/2,
     # w_1 = r_1 - C/4 keep the primes and kill those semiprimes; purity = share of the weight on Omega = 1.
