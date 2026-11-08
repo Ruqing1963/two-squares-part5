@@ -1,5 +1,5 @@
 """
-Sieve weights and Omega-strata of the class deviation (Section 3.3 of notes/linnik_class.tex), D = 23 (h = 3), D = 31.
+Sieve weights and Omega-strata of the class deviation (Section 3.3 of paper/two_squares_part7.tex, Part VII), D = 23 (h = 3), D = 31.
 
 For a weight u(m) on m = N - p and the two classes C_0 (principal form), C_1 of D (h = 3) we compute, for all N <= NMAX,
     S_C^u(N) = sum_{p<N} u(N-p) r_C(N-p),   S_c^u(N) = sum_{p<N} u(N-p) c(N-p),   Diag^u(N) = sum_{p<N} u(N-p) c(N-p)^2,

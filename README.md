@@ -1,6 +1,10 @@
-# Sums of two squares and Heegner norms with few prime factors, V: a prime plus a Heegner norm
+# Sums of two squares and Heegner norms with few prime factors, VII: the Linnik problem for a single ideal class
 
-First-stage draft (not archived). Part V of the series after Parts I–IV
+This repository holds Part VII of the series (draft), `paper/two_squares_part7.tex` (+ PDF, 17 pages; formerly
+`notes/linnik_class.tex`, theorem numbers unchanged), described in the section "A single ideal class" below, and the
+earlier unarchived draft on the class-number-one case, `paper/linnik_heegner.tex`, cited in Part VII for the genus part.
+That draft was once titled "V: a prime plus a Heegner norm"; Part V of the series is now `two-squares-classgroup`
+(doi:10.5281/zenodo.23923518), and the draft is not a numbered part. It followed Parts I–IV
 ([two-squares-theta-level](https://github.com/Ruqing1963/two-squares-theta-level),
 [two-squares-mean-square](https://github.com/Ruqing1963/two-squares-mean-square),
 [two-squares-short-intervals](https://github.com/Ruqing1963/two-squares-short-intervals),
@@ -42,7 +46,7 @@ For D = 4 this is the Hardy–Littlewood problem N = p + x² + y², solved by Li
    products. Table 2: the inert-prime sieve at N = 2·10⁵ (survivors against the product V, their structure n₁ / n₁q₀,
    and the P₂ norms left when the primes below 100 are sifted too).
 
-## A single ideal class (`notes/linnik_class.tex`, working note, 16 pages)
+## A single ideal class: Part VII (`paper/two_squares_part7.tex`, 17 pages)
 
 For a prime D with h(−D) > 1 and a class C, S_C(N) = Σ_{p<N} r_C(N − p) splits as S_gen + (w/h) Σ_{ψ≠1} ψ̄(C) S_ψ with
 S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedral cusp form of Part V.
