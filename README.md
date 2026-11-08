@@ -66,6 +66,11 @@ S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedr
   (D) |P|² and |F|² decorrelate on the minor arcs (a pair-correlation statement, as in Goldston–Montgomery). Numerics
   (`code/linnik_class_split.py`, X = 5·10⁴, 2·10⁵, 6·10⁵): mass of the arcs within 0.006 of HL; (D)-ratio 0.71–0.88,
   increasing; V/Diag = 0.397, 0.408, 0.415, fitted slope 0.504, 0.505.
+* **Section 3.2 (class number five):** two dihedral modes S_1, S_2 (D = 47, 79; `code/linnik_class_h5.py`, N ≤ 4·10⁶).
+  Each shows the same deficit (mean square 0.42–0.45 of its diagonal), the cross diagonal Σ c_1 c_2(N − p) is below
+  10⁻⁴ π(N) (no pole of the cross Rankin–Selberg series), corr(S_1, S_2) = 0.02–0.04 and slowly decreasing; the class
+  deviations then have variances (2/25)(a_1²κ_1 + a_2²κ_2)π(N) with golden-ratio weights a_j (ratio 1.307 predicted,
+  1.309 measured, for C₁^{±1} against C₁^{±2} at D = 47), up to the factor ½ of Conjecture 3.2.
 * **Remark 3.5:** Assing–Blomer–Li's Theorem 1.3 uses the trivial nebentypus only through their Voronoi formula
   (Lemma 7.4); for ω = χ_{−D} the Kloosterman sums acquire ω(c) (cusp pair (∞, 0)) or become twisted (D | q), so their
   Theorem 2.4 must be re-proved with the Kuznetsov formula for that cusp pair with character. Not done; T_ψ stays a hypothesis.
@@ -80,6 +85,7 @@ python linnik_class_variance.py 23 4e6    # mean square vs diagonal, Wilton supr
 python linnik_class_arcs.py 23 3e5        # depletion profile rho(q) and the major-arc model
 python linnik_class_smooth.py 23 3e4 1e5  # smoothed variance vs the beta-integrated model (~30 min)
 python linnik_class_split.py 23 2e5       # V split into major/minor arcs; env KS, CQS select K and Q/sqrt X
+python linnik_class_h5.py 47 4e6          # class number five: two modes, ~1 min; results/linnik_class_h5_47.txt (or 79)
 ```
 
 Python ≥ 3.10 with numpy. Exact integer counts; floating point only in the Euler products. The paper compiles with

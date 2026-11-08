@@ -191,12 +191,33 @@ $6\cdot10^5$ & $0.415$ & $0.4855$ & $0.4797$ & $0.727$ & $0.803$ & $0.883$\\
 \end{center}
 The share of $V$ on $\mathfrak M$ is $0.0000$ for $c=\frac18$ and $0.003$--$0.005$ for $c=\frac14$ (Theorem~\ref{thm:reduction}); the mass of $\mathfrak M$ agrees with the Hardy--Littlewood value to $0.006$ (statement (M) at these sizes); and the ratio in (D), $\int_{\mathfrak m}|P|^2|F|^2/(\int_{\mathfrak m}|P|^2\int|F|^2)$, is $0.71$--$0.88$ and increases with $X$ for each fixed $c$, as it must if the deficit is carried by the transition zone $c\sqrt X\le q\le C\sqrt X$, whose share of the mass of $|P|^2$ is $O(1/\log X)$. Fitting $V/\mathrm{Diag}\cdot(\log X+1.3325)=a\log X+b$ to the three values gives $a=0.504$ and $0.505$ on the two intervals.
 
+\subsection{Several modes: class number five}\label{subsec:h5}
+For $h=5$ there are two pairs $\{\psi_j,\overline\psi_j\}$, $\psi_j(C_1)=e(j/5)$, and two real sequences $c_j=c_{\psi_j}$ with $S_C-S_\mathrm{gen}=\frac25\sum_{j=1,2}a_j(C)S_j$, $a_j(C_1^k)=2\cos\frac{2\pi jk}5$, i.e.\ $a=(2,2)$, $(\phi^{-1},-\phi)$, $(-\phi,\phi^{-1})$ for the three forms ($\phi$ the golden ratio). The cross diagonal $\sum_{p<N}c_1(N-p)c_2(N-p)$ is $o(\pi(N))$: $\sum_nc_1(n)c_2(n)n^{-s}$ is, up to a factor holomorphic at $s=1$, $L(s,\psi_1\psi_2)L(s,\psi_1\overline\psi_2)$ with both characters non-trivial, so it has no pole. The smoothed covariance is $\int|P|^2\operatorname{Re}F_1\overline{F_2}$, Theorem~\ref{thm:reduction} applies to each $F_j$, and the natural extension of Conjecture~\ref{conj:var} is that $E\,S_1S_2=o(\pi(N))$ (on the minor arcs $F_1\overline{F_2}$ has mean $o(1)$ times $\int|F_1||F_2|$ and should decorrelate from $|P|^2$ as in (D)), so that
+\[
+E\,(S_C(N)-S_\mathrm{gen}(N))^2\sim\frac2{25}\bigl(a_1(C)^2\kappa_1+a_2(C)^2\kappa_2\bigr)\pi(N):
+\]
+the variances of the classes are fixed combinations of the two residues with golden-ratio weights, e.g.\ in the ratio $\frac{\phi^{-2}\kappa_1+\phi^2\kappa_2}{\phi^2\kappa_1+\phi^{-2}\kappa_2}=1.307$ for $C_1^{\pm1}$ against $C_1^{\pm2}$ at $D=47$. Numerically (\texttt{linnik\_class\_h5.py}, $N\le4\cdot10^6$, $\kappa_j$ the mean of $c_j^2$; the diagonals are $\kappa_j\pi(N)$ to $3\cdot10^{-4}$):
+\begin{center}\footnotesize
+\begin{tabular}{r|cc|cc|cc}
+\toprule
+& \multicolumn{2}{c|}{$D=47$, $\kappa=0.6146,\ 0.8820$} & \multicolumn{2}{c|}{$D=79$, $\kappa=0.5043,\ 0.8965$} & \multicolumn{2}{c}{$\mathrm{corr}(S_1,S_2)$}\\
+$N$ & $\frac{E\,S_1^2}{\kappa_1\pi}$ & $\frac{E\,S_2^2}{\kappa_2\pi}$ & $\frac{E\,S_1^2}{\kappa_1\pi}$ & $\frac{E\,S_2^2}{\kappa_2\pi}$ & $47$ & $79$\\
+\midrule
+$[10^5,2\cdot10^5)$ & $0.421$ & $0.421$ & $0.439$ & $0.434$ & $0.026$ & $0.038$\\
+$[3\cdot10^5,6\cdot10^5)$ & $0.425$ & $0.423$ & $0.442$ & $0.438$ & $0.025$ & $0.036$\\
+$[10^6,2\cdot10^6)$ & $0.433$ & $0.431$ & $0.448$ & $0.443$ & $0.021$ & $0.029$\\
+$[2\cdot10^6,4\cdot10^6)$ & $0.435$ & $0.434$ & $0.450$ & $0.446$ & $0.019$ & $0.029$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Both modes show the same deficit as for $h=3$, independently of the size of $\kappa_j$, and slightly less of it for the larger $D$ (the depleted arcs of Lemma~\ref{lem:depletion} are $q^2\ll X/D$). The cross diagonal is below $10^{-4}\pi(N)$; the correlation of $S_1$ and $S_2$ is small and positive and decreases slowly, consistent with $o(1)$ at a logarithmic rate but not decisive. The mean squares of the three class deviations agree with the uncorrelated combination $\frac4{25}(a_1^2E\,S_1^2+a_2^2E\,S_2^2)$ to within $1.5$--$4\%$ (the remainder being the covariance), and the measured ratio for $C_1^{\pm1}$ against $C_1^{\pm2}$ at $D=47$ is $1.309$.
+
 \begin{remark}[The dual Titchmarsh input for weight one]\label{rem:ABL}
 We checked how far the proof of \cite[Theorem~1.3]{ABL} uses the trivial nebentypus. The form $\varphi$ enters only through (i) the Rankin--Selberg bound $\sum_{n\le X}|\lambda(n)|^2\ll(NX)^\e X$, (ii) the Bessel transforms of their Lemma~7.5, and (iii) the Voronoi formula with additive twists, their Lemma~7.4, quoted from the reference [BMN] of their bibliography ``in the case of trivial nebentypus''; the Kloosterman sums produced by (iii) are then treated by their Theorem~2.4 through the Kuznetsov formula. For $\vt_\psi$, (i) holds, (ii) holds with $J_{k-1}=J_0$ (and the Ramanujan bound holds by Deligne--Serre). For (iii) with the nebentypus $\omega=\chi_{-D}$ and $(q,D)=1$ the computation in the proof of Lemma~\ref{lem:depletion} gives the Voronoi formula with the dual twist $e(-n\overline{aD}/q)$ and the additional factor $\omega(q)$, independent of $a$ but not of $q$, so that the sums of Kloosterman sums in their Section~8 acquire the weight $\omega(c)$: they become Kloosterman sums for the pair of cusps $(\infty,0)$ of $\Gamma_0(D)$ with the character $\omega$, and their Theorem~2.4 has to be re-proved with the Kuznetsov formula for this pair of cusps and nebentypus; for $D\mid q$ the Voronoi coefficients of their Lemma~7.4 depend on $a_1$ through a character and the Kloosterman sums become twisted. The tools for both exist (the Kuznetsov formula for general cusps and characters, the bound $\theta\le7/64$ for every nebentypus), but the extension is not in the literature as far as we know and we have not carried it out; Hypothesis~\ref{hyp:T} stays a hypothesis.
 \end{remark}
 
 \section*{Data and code}
-{\raggedright \texttt{code/linnik\_class.py} (Table~\ref{tab:ratios}, outputs \texttt{results/linnik\_class\_23.txt}, \texttt{\_31.txt}), \texttt{code/linnik\_class\_variance.py} (mean square, diagonal, the Wilton supremum: $\sup_\alpha|\sum_{m\le Y}c(m)e(m\alpha)|=1.51\sqrt Y$, $1.56\sqrt Y$, $1.58\sqrt Y$ at $Y=10^5,10^6,4\cdot10^6$ for $D=23$), \texttt{code/linnik\_class\_arcs.py} (the depletion profile $\rho(q)$ and the model), \texttt{code/linnik\_class\_smooth.py} (the smoothed variance against the $\beta$-integrated model).\par}
+{\raggedright \texttt{code/linnik\_class.py} (Table~\ref{tab:ratios}, outputs \texttt{results/linnik\_class\_23.txt}, \texttt{\_31.txt}), \texttt{code/linnik\_class\_variance.py} (mean square, diagonal, the Wilton supremum: $\sup_\alpha|\sum_{m\le Y}c(m)e(m\alpha)|=1.51\sqrt Y$, $1.56\sqrt Y$, $1.58\sqrt Y$ at $Y=10^5,10^6,4\cdot10^6$ for $D=23$), \texttt{code/linnik\_class\_arcs.py} (the depletion profile $\rho(q)$ and the model), \texttt{code/linnik\_class\_smooth.py} (the smoothed variance against the $\beta$-integrated model), \texttt{code/linnik\_class\_split.py} (the major/minor split of Section~\ref{subsec:reduction}), \texttt{code/linnik\_class\_h5.py} (class number five, outputs \texttt{results/linnik\_class\_h5\_47.txt}, \texttt{\_79.txt}).\par}
 
 \begin{thebibliography}{9}\raggedright
 \bibitem{ABL} E. Assing, V. Blomer, J. Li, Uniform Titchmarsh divisor problems, arXiv:2005.13915 (2020).
