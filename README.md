@@ -42,7 +42,7 @@ For D = 4 this is the Hardy–Littlewood problem N = p + x² + y², solved by Li
    products. Table 2: the inert-prime sieve at N = 2·10⁵ (survivors against the product V, their structure n₁ / n₁q₀,
    and the P₂ norms left when the primes below 100 are sifted too).
 
-## A single ideal class (`notes/linnik_class.tex`, working note, 15 pages)
+## A single ideal class (`notes/linnik_class.tex`, working note, 16 pages)
 
 For a prime D with h(−D) > 1 and a class C, S_C(N) = Σ_{p<N} r_C(N − p) splits as S_gen + (w/h) Σ_{ψ≠1} ψ̄(C) S_ψ with
 S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedral cusp form of Part V.
@@ -55,12 +55,18 @@ S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedr
 * **Theorem 1.5:** under H(N) and the dual Titchmarsh bound S_ψ(N) = o(N/log N) (Assing–Blomer–Li, Theorem 1.3, if it
   extends to weight one with nebentypus), every class has the asymptotic for every large N.
 * Numerics (D = 23, 31, N ≤ 4·10⁶): both classes match the genus formula to 10⁻⁴; S_c(N) ≈ 0.12 √N, unbiased.
-* **The variance (Section 3, Conjecture 3.2):** the diagonal Σ_p c_ψ(N−p)² is κ_ψ π(N) (Rankin–Selberg residue of
+* **The variance (Section 3, Conjecture 3.3):** the diagonal Σ_p c_ψ(N−p)² is κ_ψ π(N) (Rankin–Selberg residue of
   Part V), but the mean square of S_ψ(N) is 0.41–0.43 of it and rising (0.433 at N ≈ 1.2·10⁷). Lemma 3.1: by modularity
   the exponential sum of ϑ_ψ is exponentially small at a/q for q² ≪ X, and these major arcs carry half the L² mass
   of the prime exponential sum. Conjecture: mean square ~ ½ κ_ψ π(N).
+* **Proposition 3.2 (scaling profile):** the Fricke expansion at a/q, averaged over a, gives exactly
+  ρ(q) = Φ_D(Y) + O((1+Y)² log²(2+Y)/φ(q)), Φ_D(Y) = (κY)^{−1} Σ c_ψ(n)² e^{−n/Y}, Y = Dq²/(8π²X) (D ∤ q) or q²/(8π²X)
+  (D | q). At X = 3·10⁵ it matches the measured ρ to ±0.002 everywhere (`code/linnik_class_arcs.py`,
+  `results/linnik_class_arcs_23.txt`); the overshoot 1.50 is max Φ₂₃ = 1.503 at q²/X = 6.5 (c(1)² = c(2)² = c(3)² = 1
+  against κ = 0.42). Mellin: ∫(1_{Y>1} − Φ_D) dY/Y = γ − c₀/κ (−1.866 for D = 23), which puts the β = 0 major-arc
+  model in closed form (constant 0.25 against the measured −0.52: the arc width, not the profile, is what the model misses).
 * **Section 3.1 (what is proved):** with the smoothed V = Σ e^{−2N/X} S_ψ(N)² = ∫|P|²|F|² and the exact identity
-  Diag = ∫|P|²·∫|F|², Theorem 3.4 proves that the major arcs of order X^{1/2}(log X)^{−B} (width (log X)^{(B−1)/2}/X)
+  Diag = ∫|P|²·∫|F|², Theorem 3.5 proves that the major arcs of order X^{1/2}(log X)^{−B} (width (log X)^{(B−1)/2}/X)
   contribute O(X^{−A}) to V. The conjecture is reduced to (M) these arcs carry half the mass of |P|² (Hardy–Littlewood;
   needs a short-interval BDH estimate with weight r for moduli up to √X, open even under GRH, which reaches X^{1/3}) and
   (D) |P|² and |F|² decorrelate on the minor arcs (a pair-correlation statement, as in Goldston–Montgomery). Numerics
@@ -70,46 +76,46 @@ S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedr
   Each shows the same deficit (mean square 0.42–0.45 of its diagonal), the cross diagonal Σ c_1 c_2(N − p) is below
   10⁻⁴ π(N) (no pole of the cross Rankin–Selberg series), corr(S_1, S_2) = 0.02–0.04 and slowly decreasing; the class
   deviations then have variances (2/25)(a_1²κ_1 + a_2²κ_2)π(N) with golden-ratio weights a_j (ratio 1.307 predicted,
-  1.309 measured, for C₁^{±1} against C₁^{±2} at D = 47), up to the factor ½ of Conjecture 3.2.
+  1.309 measured, for C₁^{±1} against C₁^{±2} at D = 47), up to the factor ½ of Conjecture 3.3.
 * **Section 3.3 (sieve weights, towards Chen in a single class):** for sieve weights λ_d of level X^θ on N − p, the
-  class deviation is a combination of dilates ϑ_ψ(sdz) (Hecke, Lemma 3.5), each with the Wilton bound d^{−1/2+ε}√Y log Y
-  (Proposition 3.6), so Σ_{N≤X} |S^λ_ψ(N)|² ≪ X^{2+θ+ε} and the class deviation of every sieve functional of level θ < 1 is
-  O(N^{1/2+θ/2+η}) for almost all N, unconditionally (Theorem 3.7): a sieve result for the genus holds for each class,
+  class deviation is a combination of dilates ϑ_ψ(sdz) (Hecke, Lemma 3.6), each with the Wilton bound d^{−1/2+ε}√Y log Y
+  (Proposition 3.7), so Σ_{N≤X} |S^λ_ψ(N)|² ≪ X^{2+θ+ε} and the class deviation of every sieve functional of level θ < 1 is
+  O(N^{1/2+θ/2+η}) for almost all N, unconditionally (Theorem 3.8): a sieve result for the genus holds for each class,
   for almost all N (the switching step of Chen's argument needs a Vinogradov-type bound for Σ Λ(m)c_ψ(m)e(mα), not
-  covered). Major arcs of order X^{1/2−θ} keep the depletion (Proposition 3.14). Remark 3.13: there is no class-group
+  covered). Major arcs of order X^{1/2−θ} keep the depletion (Proposition 3.15). Remark 3.14: there is no class-group
   grading of the parity obstruction (c(q₁q₂) = (−1)² only on integers with non-principal prime factors; the mean of c on
   every Ω-stratum is 0), only a Chebyshev bias of order (log N)^{−3/2} with alternating sign in Ω. Numerics
   (`code/goldbach_class_parity.py`, D = 23, 31, N ≤ 4·10⁶, Table 2): the variance ratio rises monotonically with the
   sifting, unsifted 0.41–0.43, sharp sieve by the primes below N^{1/6}, N^{1/4}, N^{1/3}: 0.41–0.45, 0.43–0.46,
   0.45–0.50, strata Ω = 1, 2, 3: 0.54–0.61, 0.62–0.68, 0.73–0.81; the classes stay equidistributed in every stratum.
-* **Proposition 3.8 (Vinogradov–Siegel–Walfisz for ϑ_ψ):** Σ_{n≤X} Λ(n)c_ψ(n)e(nα) ≪ X(log X)^{−A} uniformly in α.
+* **Proposition 3.9 (Vinogradov–Siegel–Walfisz for ϑ_ψ):** Σ_{n≤X} Λ(n)c_ψ(n)e(nα) ≪ X(log X)^{−A} uniformly in α.
   Major arcs: the twists L(s, ϑ_ψ ⊗ ξ) are the Hecke L-functions L_K(s, ψ·(ξ∘N)), and ψ·(ξ∘N) is never real because h is
   odd (Ψ(𝔭)/Ψ(𝔭̄) = ψ(𝔭)² ≠ 1), so there is no Siegel zero and Siegel–Walfisz for K is effective. Minor arcs: Vaughan's
   identity, the Hecke inversion c(mn) = Σ_{g|(m,n)} μ(g)χ(g)c(m/g)c(n/g), Wilton for type I, the standard bilinear
-  bound for type II. Corollary 3.9: the same for the strata Ω(m) = k and for Chen's switching set q₁q₂q₃ (peel off the
+  bound for type II. Corollary 3.10: the same for the strata Ω(m) = k and for Chen's switching set q₁q₂q₃ (peel off the
   largest prime; the square-divisible part is O(X^{1−1/k})).
-* **Theorem 3.10:** Σ_{N≤X} |S^{(k)}_ψ(N)|² ≪ X³(log X)^{−A}, likewise for the switching sum with prime or sieve weights on
+* **Theorem 3.11:** Σ_{N≤X} |S^{(k)}_ψ(N)|² ≪ X³(log X)^{−A}, likewise for the switching sum with prime or sieve weights on
   N − m: the class deviation of every Ω-stratum and of Chen's switching step is ≤ N(log N)^{−A} for all N but
   O(X(log X)^{−A}). So, for almost all N, Chen's theorem in a single class is equivalent to Chen's theorem for the genus.
-* **Theorem 3.11 (binary Goldbach in a single ideal class, almost all even N, unconditional):** G_C(N) = Σ_{p+q=N} r_C(q) =
+* **Theorem 3.12 (binary Goldbach in a single ideal class, almost all even N, unconditional):** G_C(N) = Σ_{p+q=N} r_C(q) =
   (2/h)(1 − χ(N)/(D−2)) 𝔖₂(N) li₂(N) + O(N(log N)^{−A}) for all even N ≤ X but O(X(log X)^{−A}), the same main term for
   every class (genus part: van der Corput–Chudakov–Estermann with the weight 1 + χ(q), a character mod D; the local
   factor at D counts the D − 2 admissible residue pairs, hence (D−2), not (D−1)). Numerics in
   `results/goldbach_class_parity_{23,31}.txt`: G/(𝔖₂ li₂) and G_C/main within 1–2 % of 1 (Chebyshev bias of the principal
   primes), and the ratio of the split-pair counts for χ(N) = +1 against −1 matches (D−3)/(D−1), not (D−2)/D.
-* **Corollary 3.12 (odd N):** for odd N and p > 2, N − p is even, so Ω ≥ 2 (Ω ≥ 3 when 2 is inert). The same argument with
-  Proposition 3.8 at the frequency 2α (4α) gives, for almost all odd N and every class, Σ_{p+2q=N} r_C(2q) =
+* **Corollary 3.13 (odd N):** for odd N and p > 2, N − p is even, so Ω ≥ 2 (Ω ≥ 3 when 2 is inert). The same argument with
+  Proposition 3.9 at the frequency 2α (4α) gives, for almost all odd N and every class, Σ_{p+2q=N} r_C(2q) =
   (4/h)(1 − χ(N)/(D−2))𝔖₂(N)J₂(N) when D ≡ 7 mod 8, and Σ_{p+4q=N} r_C(4q) = (2/h)(…)𝔖₂(N)J₄(N) when D ≡ 3 mod 8,
   J_a(N) = ∫ du/(log u log(N − au)) ~ N/(a log² N). So for almost all N, even or odd, N = p + Q_C(x,y) with Q_C(x,y) a
   prime, a P₂ or a P₃ (the least Ω the 2-adic constraint allows), for every class, unconditionally; only the problem for
   every individual N remains. Numerics (D = 23, 31, odd N): counts within 1 % of the main term.
-* **Remark 3.15 (quadratic class weights):** the cross-class coincidence r_{C₀}(m)r_{C₁}(m) vanishes on primes and is 8 on
+* **Remark 3.16 (quadratic class weights):** the cross-class coincidence r_{C₀}(m)r_{C₁}(m) vanishes on primes and is 8 on
   the semiprimes with two non-principal factors, so r_{C₀} − ½ r_{C₀}r_{C₁} keeps the primes and kills 2/3 of the semiprime
   weight (the "prime purity" on the Chen set rises, numbers in the remark). This is bookkeeping: the weight is the
   coefficient of the weight-two form ϑ_{C₀}ϑ_{C₁}, it is negative on products of three non-principal primes, the
   semiprimes with two principal factors keep weight 8, and Selberg's parity obstruction concerns the information a
   sieve has (distribution in progressions), which pointwise identities do not change.
-* **Remark 3.16:** Assing–Blomer–Li's Theorem 1.3 uses the trivial nebentypus only through their Voronoi formula
+* **Remark 3.17:** Assing–Blomer–Li's Theorem 1.3 uses the trivial nebentypus only through their Voronoi formula
   (Lemma 7.4); for ω = χ_{−D} the Kloosterman sums acquire ω(c) (cusp pair (∞, 0)) or become twisted (D | q), so their
   Theorem 2.4 must be re-proved with the Kuznetsov formula for that cusp pair with character. Not done; T_ψ stays a hypothesis.
 

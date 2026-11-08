@@ -52,8 +52,18 @@ def sqfree(q):
     return True
 
 
+c2 = c[1:] ** 2
+nn = np.arange(1, M + 1, dtype=float)
+
+
+def Phi(Y):
+    """scaling profile Phi_D(Y) = (1/(kappa Y)) sum_n c(n)^2 e^{-n/Y} (Fricke expansion at the cusp a/q, averaged over a)"""
+    return np.sum(c2 * np.exp(-nn / Y)) / (kap * Y)
+
+
 rows = []
-qs = sorted(set([int(round(v)) for v in np.geomspace(1, 6 * sqrt(X), 60)]))
+qs = sorted(set([int(round(v)) for v in np.geomspace(1, 6 * sqrt(X), 60)] + [D * k for k in range(1, int(6 * sqrt(X) / D) + 1, 3)]))
+print("   Phi: Y = D q^2/(8 pi^2 X) for D not| q, Y = q^2/(8 pi^2 X) for D | q (cusp infinity, width 1)")
 for q in qs:
     if not sqfree(q):
         continue
@@ -62,8 +72,32 @@ for q in qs:
     F = np.fft.fft(res)            # F[a] = sum_r res[r] e(-a r/q)
     a_ok = [a for a in range(q) if gcd(a, q) == 1]
     rho = np.mean(np.abs(F[a_ok]) ** 2) / norm
-    rows.append((q, rho))
-    print(f"   q = {q:6d}, q^2/X = {q * q / X:8.4f}: rho(q) = {rho:.4f}")
+    Y = (q * q if q % D == 0 else D * q * q) / (8 * pi ** 2 * X)
+    ph = Phi(Y)
+    if q % D != 0:
+        rows.append((q, rho))
+    print(f"   q = {q:6d}{' (D|q)' if q % D == 0 else '      '}, q^2/X = {q * q / X:8.4f}, Y = {Y:8.4f}: rho(q) = {rho:.4f},"
+          f"  Phi(Y) = {ph:.4f}")
+# the maximum of Phi and the Mellin identity  int_0^inf (1_{Y>1} - Phi(Y)) dY/Y = gamma - c_0/kappa,
+# c_0 the constant term of sum c(n)^2 n^{-s} = kappa/(s-1) + c_0 + ..., i.e. c_0 = lim (sum_{n<=x} c(n)^2/n - kappa log x)
+Ys = np.geomspace(0.05, 200, 400)
+ph = np.array([Phi(Y) for Y in Ys])
+i = np.argmax(ph)
+print(f"max Phi = {ph[i]:.4f} at Y = {Ys[i]:.3f} (q^2/X = {Ys[i] * 8 * pi ** 2 / D:.2f} for D not| q)")
+cs = np.cumsum(c2 / nn)
+xs = np.array([M // 8, M // 4, M // 2, M])
+c0s = cs[xs - 1] - kap * np.log(xs)
+print("c_0 estimates  sum_{n<=x} c^2/n - kappa log x at x = " + ", ".join(f"{x}: {v:.5f}" for x, v in zip(xs, c0s)))
+c0 = c0s[-1]
+# J = int_0^1 (1 - Phi) dY/Y ... in t = 1/Y: J = int_0^1 (1 - t G/kappa) dt/t - int_1^inf G/kappa dt, G(t) = sum c^2 e^{-nt}
+ts = np.geomspace(1.0 / (M / 40), 60, 3000)          # t >= 40/M: e^{-n t} negligible beyond n = M
+G = np.array([np.sum(c2 * np.exp(-nn * t)) for t in ts])
+lt = np.log(ts)
+f1 = np.where(ts < 1, 1 - ts * G / kap, 0.0)
+f2 = np.where(ts >= 1, ts * G / kap, 0.0)
+J = np.trapz(f1, lt) - np.trapz(f2, lt)
+gam = 0.5772156649015329
+print(f"Mellin identity: int (1_(Y>1) - Phi) dY/Y = {J:.4f}   gamma - c_0/kappa = {gam - c0 / kap:.4f}   (kappa = {kap:.6f}, c_0 = {c0:.5f})")
 # predicted variance ratio, interpolating rho in q^2/X
 qq = np.array([r[0] for r in rows], float)
 rr = np.array([r[1] for r in rows])
