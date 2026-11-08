@@ -97,7 +97,13 @@ S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedr
   factor at D counts the D − 2 admissible residue pairs, hence (D−2), not (D−1)). Numerics in
   `results/goldbach_class_parity_{23,31}.txt`: G/(𝔖₂ li₂) and G_C/main within 1–2 % of 1 (Chebyshev bias of the principal
   primes), and the ratio of the split-pair counts for χ(N) = +1 against −1 matches (D−3)/(D−1), not (D−2)/D.
-* **Remark 3.14:** Assing–Blomer–Li's Theorem 1.3 uses the trivial nebentypus only through their Voronoi formula
+* **Remark 3.14 (quadratic class weights):** the cross-class coincidence r_{C₀}(m)r_{C₁}(m) vanishes on primes and is 8 on
+  the semiprimes with two non-principal factors, so r_{C₀} − ½ r_{C₀}r_{C₁} keeps the primes and kills 2/3 of the semiprime
+  weight (the "prime purity" on the Chen set rises, numbers in the remark). This is bookkeeping: the weight is the
+  coefficient of the weight-two form ϑ_{C₀}ϑ_{C₁}, it is negative on products of three non-principal primes, the
+  semiprimes with two principal factors keep weight 8, and Selberg's parity obstruction concerns the information a
+  sieve has (distribution in progressions), which pointwise identities do not change.
+* **Remark 3.15:** Assing–Blomer–Li's Theorem 1.3 uses the trivial nebentypus only through their Voronoi formula
   (Lemma 7.4); for ω = χ_{−D} the Kloosterman sums acquire ω(c) (cusp pair (∞, 0)) or become twisted (D | q), so their
   Theorem 2.4 must be re-proved with the Kuznetsov formula for that cusp pair with character. Not done; T_ψ stays a hypothesis.
 

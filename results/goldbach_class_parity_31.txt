@@ -1,4 +1,4 @@
-D = 31, h = 3, forms [(1, 1, 8), (2, 1, 4)], tables and spf/Omega to 4000000 [62s]
+D = 31, h = 3, forms [(1, 1, 8), (2, 1, 4)], tables and spf/Omega to 4000000 [60s]
 
 Columns: mean numbers of ideals of norm N - p in C_0 and in C_1 (r_C/2); class shares E S_{C_0}/E(S_{C_0}+2S_{C_1}), E S_{C_1}/E(...) (1/3 each if equidistributed);
   bias = mean S_c / rms S_c; Diag^u / pi(N) (= kappa^u); variance ratio E (S_c^u)^2 / E Diag^u (0.42-0.43 for u = 1, Conjecture 3.2: 1/2).
@@ -77,6 +77,29 @@ Goldbach stratum (even N): G_C(N) = sum_{p+q=N} r_C(q) against the main term (2/
      chi(N) = +0 (n = 135): G_C0/main = 0.9981 [0.0008],  G_C1/main = 1.0000 [0.0005],  split share (G_C0+2G_C1)/(4G) vs (1-chi/(D-2))/2: 0.5004 vs 0.5000
      ratio of the split-pair counts chi(N)=+1 : chi(N)=-1 = 0.9332;  (D-3)/(D-1) = 0.9333 [local factor 1 - chi(N)/(D-2)],  (D-2)/D = 0.9355 [1 - chi(N)/(D-1)]
 
+Cross-class coincidence C(m) = r_0(m) r_1(m) on the Chen set spf(N-p) >= N^{1/3}, means over N of sum_p ... by Omega(N-p):
+  predicted: C = 0 on Omega = 1; on Omega = 2, C-sum / r_0-sum = 4/3 and (C/4)-sum / r_1-sum = 1/3; w_0 = r_0 - C/2, w_1 = r_1 - C/4.
+  N in [100000, 200000): z = 46.4
+     Omega = 1, 2, 3:  r_0-sums     837.8     478.4      2.0;  r_1-sums     844.8     472.6      1.1;  C-sums    0.0     650.4      0.8
+     Omega = 2: C/r_0 = 1.3594 (4/3 = 1.3333),  (C/4)/r_1 = 0.3440 (1/3 = 0.3333)
+     HBT weights w_0 by Omega:     837.8     153.2      1.6;  w_1:     844.8     310.0      0.9
+     prime purity (share of Omega = 1): C_0 0.636 -> 0.844 with w_0;  C_1 0.641 -> 0.731 with w_1
+  N in [300000, 600000): z = 66.9
+     Omega = 1, 2, 3:  r_0-sums    2078.5    1244.7      4.2;  r_1-sums    2088.1    1231.7      4.2;  C-sums    0.0    1804.9     10.2
+     Omega = 2: C/r_0 = 1.4501 (4/3 = 1.3333),  (C/4)/r_1 = 0.3663 (1/3 = 0.3333)
+     HBT weights w_0 by Omega:    2078.5     342.2     -0.9;  w_1:    2088.1     780.5      1.7
+     prime purity (share of Omega = 1): C_0 0.625 -> 0.859 with w_0;  C_1 0.628 -> 0.727 with w_1
+  N in [1000000, 2000000): z = 100.0
+     Omega = 1, 2, 3:  r_0-sums    5741.0    3543.4     18.3;  r_1-sums    5757.8    3522.3     17.4;  C-sums    0.0    5194.9     78.5
+     Omega = 2: C/r_0 = 1.4661 (4/3 = 1.3333),  (C/4)/r_1 = 0.3687 (1/3 = 0.3333)
+     HBT weights w_0 by Omega:    5741.0     945.9    -20.9;  w_1:    5757.8    2223.6     -2.2
+     prime purity (share of Omega = 1): C_0 0.617 -> 0.861 with w_0;  C_1 0.619 -> 0.722 with w_1
+  N in [2000000, 4000000): z = 126.0
+     Omega = 1, 2, 3:  r_0-sums   10370.6    5721.5      5.8;  r_1-sums   10386.2    5704.8      3.6;  C-sums    0.0    7521.6      2.4
+     Omega = 2: C/r_0 = 1.3146 (4/3 = 1.3333),  (C/4)/r_1 = 0.3296 (1/3 = 0.3333)
+     HBT weights w_0 by Omega:   10370.6    1960.7      4.6;  w_1:   10386.2    3824.4      3.0
+     prime purity (share of Omega = 1): C_0 0.644 -> 0.841 with w_0;  C_1 0.645 -> 0.731 with w_1
+
 Distribution of c(m) on m < 4000000 with spf(m) >= 126.0, by Omega(m)  (c = (r_0 - r_1)/2):
   Omega = 1: n = 283116,  mean c = -0.0004,  mean c^2 = 0.9998,  c=-1: 0.3335, c=+0: 0.4999, c=+2: 0.1666
   Omega = 2: n = 177097,  mean c = +0.0008,  mean c^2 = 0.9249,  c=-2: 0.1022, c=+0: 0.7703, c=+1: 0.1014, c=+4: 0.0258
@@ -84,4 +107,4 @@ Distribution of c(m) on m < 4000000 with spf(m) >= 126.0, by Omega(m)  (c = (r_0
   (Omega = 1: c = +2 on the principal split primes, -1 on the non-principal ones, 0 on the inert ones, densities 1/6, 1/3, 1/2;
    Omega = 2, both primes split: c = c(q_1) c(q_2) = +4, -2, +1 with densities 1/9, 4/9, 4/9 of the split pairs; the mean is 0 on every stratum.)
 
-[192s]
+[226s]

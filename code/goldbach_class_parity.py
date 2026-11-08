@@ -198,6 +198,39 @@ def main():
             say(f"     ratio of the split-pair counts chi(N)=+1 : chi(N)=-1 = {R[1] / R[-1]:.4f};  (D-3)/(D-1) = {(D - 3) / (D - 1):.4f}"
                 f" [local factor 1 - chi(N)/(D-2)],  (D-2)/D = {(D - 2) / D:.4f} [1 - chi(N)/(D-1)]")
 
+    # cross-class coincidence C(m) = r_0(m) r_1(m) on the Chen set (beta = 3), by Omega: C = 0 on primes, 8 on the semiprimes
+    # with two non-principal split factors (density 4/9), 0 on the other semiprimes. 'HBT' weights w_0 = r_0 - C/2,
+    # w_1 = r_1 - C/4 keep the primes and kill those semiprimes; purity = share of the weight on Omega = 1.
+    say("\nCross-class coincidence C(m) = r_0(m) r_1(m) on the Chen set spf(N-p) >= N^{1/3}, means over N of sum_p ... by Omega(N-p):"
+        "\n  predicted: C = 0 on Omega = 1; on Omega = 2, C-sum / r_0-sum = 4/3 and (C/4)-sum / r_1-sum = 1/3;"
+        " w_0 = r_0 - C/2, w_1 = r_1 - C/4.")
+    for lo, hi in RANGES:
+        if lo >= NMAX:
+            continue
+        hi = min(hi, NMAX + 1)
+        z = lo ** (1.0 / 3)
+        u = (spf >= z).astype(float)
+        u[0] = 0.0
+        Ns = np.arange(lo, hi)
+        R0, R1, CC = {}, {}, {}
+        for k in (1, 2, 3):
+            uk = u * strata[k]
+            R0[k] = conv(r0 * uk)[Ns].mean()
+            R1[k] = conv(r1 * uk)[Ns].mean()
+            CC[k] = conv(r0 * r1 * uk)[Ns].mean()
+        W0 = {k: R0[k] - CC[k] / 2 for k in (1, 2, 3)}
+        W1 = {k: R1[k] - CC[k] / 4 for k in (1, 2, 3)}
+        say(f"  N in [{lo}, {hi}): z = {z:.1f}")
+        say(f"     Omega = 1, 2, 3:  r_0-sums {R0[1]:9.1f} {R0[2]:9.1f} {R0[3]:8.1f};  r_1-sums {R1[1]:9.1f} {R1[2]:9.1f} {R1[3]:8.1f};"
+            f"  C-sums {CC[1]:6.1f} {CC[2]:9.1f} {CC[3]:8.1f}")
+        say(f"     Omega = 2: C/r_0 = {CC[2] / R0[2]:.4f} (4/3 = 1.3333),  (C/4)/r_1 = {CC[2] / 4 / R1[2]:.4f} (1/3 = 0.3333)")
+        say(f"     HBT weights w_0 by Omega: {W0[1]:9.1f} {W0[2]:9.1f} {W0[3]:8.1f};  w_1: {W1[1]:9.1f} {W1[2]:9.1f} {W1[3]:8.1f}")
+        pur0 = R0[1] / (R0[1] + R0[2] + R0[3])
+        pur0h = W0[1] / (W0[1] + W0[2] + W0[3])
+        pur1 = R1[1] / (R1[1] + R1[2] + R1[3])
+        pur1h = W1[1] / (W1[1] + W1[2] + W1[3])
+        say(f"     prime purity (share of Omega = 1): C_0 {pur0:.3f} -> {pur0h:.3f} with w_0;  C_1 {pur1:.3f} -> {pur1h:.3f} with w_1")
+
     # the distribution of c(m) on the sifted strata (the 'parity grading')
     lo = RANGES[-1][0]
     z = lo ** (1.0 / 3)
