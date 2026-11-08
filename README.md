@@ -42,7 +42,7 @@ For D = 4 this is the Hardy–Littlewood problem N = p + x² + y², solved by Li
    products. Table 2: the inert-prime sieve at N = 2·10⁵ (survivors against the product V, their structure n₁ / n₁q₀,
    and the P₂ norms left when the primes below 100 are sifted too).
 
-## A single ideal class (`notes/linnik_class.tex`, working note, 13 pages)
+## A single ideal class (`notes/linnik_class.tex`, working note, 14 pages)
 
 For a prime D with h(−D) > 1 and a class C, S_C(N) = Σ_{p<N} r_C(N − p) splits as S_gen + (w/h) Σ_{ψ≠1} ψ̄(C) S_ψ with
 S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedral cusp form of Part V.
