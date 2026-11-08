@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the paper."
+title: "Sums of two squares and Heegner norms with few prime factors, VII: the Linnik problem for a single ideal class, the equidistribution of the classes and the variance of the class deviation"
+type: software
+authors:
+  - family-names: Chen
+    given-names: Ruqing
+    affiliation: "GUT Geoservice Inc., Montreal, Canada"
+    email: ruqing@hotmail.com
+doi: 10.5281/zenodo.24064281
+date-released: 2026-11-08
+version: "1.0"
+url: "https://doi.org/10.5281/zenodo.24064281"
+license: MIT
+repository-code: "https://github.com/Ruqing1963/two-squares-linnik-class"
+keywords:
+  - Linnik problem
+  - ideal class groups
+  - binary quadratic forms
+  - weight-one dihedral forms
+  - exponential sums over primes
+  - circle method
+  - sieve methods
+  - Goldbach problem
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Chen
+      given-names: Ruqing
+  title: "Sums of two squares and Heegner norms with few prime factors, VII: the Linnik problem for a single ideal class, the equidistribution of the classes and the variance of the class deviation"
+  year: 2026
+  doi: 10.5281/zenodo.24064281
+  notes: "Part VII of the series (draft)"

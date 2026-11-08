@@ -1,6 +1,6 @@
 # Sums of two squares and Heegner norms with few prime factors, VII: the Linnik problem for a single ideal class
 
-This repository holds Part VII of the series (draft), `paper/two_squares_part7.tex` (+ PDF, 17 pages; formerly
+Archived at Zenodo: doi:10.5281/zenodo.24064281 (reserved). This repository holds Part VII of the series (draft), `paper/two_squares_part7.tex` (+ PDF, 17 pages; formerly
 `notes/linnik_class.tex`, theorem numbers unchanged), described in the section "A single ideal class" below, and the
 earlier unarchived draft on the class-number-one case, `paper/linnik_heegner.tex`, cited in Part VII for the genus part.
 That draft was once titled "V: a prime plus a Heegner norm"; Part V of the series is now `two-squares-classgroup`
