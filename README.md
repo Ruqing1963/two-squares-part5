@@ -42,7 +42,7 @@ For D = 4 this is the Hardy–Littlewood problem N = p + x² + y², solved by Li
    products. Table 2: the inert-prime sieve at N = 2·10⁵ (survivors against the product V, their structure n₁ / n₁q₀,
    and the P₂ norms left when the primes below 100 are sifted too).
 
-## A single ideal class (`notes/linnik_class.tex`, working note, 5 pages)
+## A single ideal class (`notes/linnik_class.tex`, working note, 10 pages)
 
 For a prime D with h(−D) > 1 and a class C, S_C(N) = Σ_{p<N} r_C(N − p) splits as S_gen + (w/h) Σ_{ψ≠1} ψ̄(C) S_ψ with
 S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedral cusp form of Part V.
@@ -71,7 +71,18 @@ S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedr
   10⁻⁴ π(N) (no pole of the cross Rankin–Selberg series), corr(S_1, S_2) = 0.02–0.04 and slowly decreasing; the class
   deviations then have variances (2/25)(a_1²κ_1 + a_2²κ_2)π(N) with golden-ratio weights a_j (ratio 1.307 predicted,
   1.309 measured, for C₁^{±1} against C₁^{±2} at D = 47), up to the factor ½ of Conjecture 3.2.
-* **Remark 3.5:** Assing–Blomer–Li's Theorem 1.3 uses the trivial nebentypus only through their Voronoi formula
+* **Section 3.3 (sieve weights, towards Chen in a single class):** for sieve weights λ_d of level X^θ on N − p, the
+  class deviation is a combination of dilates ϑ_ψ(sdz) (Hecke, Lemma 3.5), each with the Wilton bound d^{−1/2+ε}√Y log Y
+  (Proposition 3.6), so Σ_{N≤X} |S^λ_ψ(N)|² ≪ X^{2+θ+ε} and the class deviation of every sieve functional of level θ < 1 is
+  O(N^{1/2+θ/2+η}) for almost all N, unconditionally (Theorem 3.7): a sieve result for the genus holds for each class,
+  for almost all N (the switching step of Chen's argument needs a Vinogradov-type bound for Σ Λ(m)c_ψ(m)e(mα), not
+  covered). Major arcs of order X^{1/2−θ} keep the depletion (Proposition 3.9). Remark 3.8: there is no class-group
+  grading of the parity obstruction (c(q₁q₂) = (−1)² only on integers with non-principal prime factors; the mean of c on
+  every Ω-stratum is 0), only a Chebyshev bias of order (log N)^{−3/2} with alternating sign in Ω. Numerics
+  (`code/goldbach_class_parity.py`, D = 23, 31, N ≤ 4·10⁶, Table 2): the variance ratio rises monotonically with the
+  sifting, unsifted 0.41–0.43, sharp sieve by the primes below N^{1/6}, N^{1/4}, N^{1/3}: 0.41–0.45, 0.43–0.46,
+  0.45–0.50, strata Ω = 1, 2, 3: 0.54–0.61, 0.62–0.68, 0.73–0.81; the classes stay equidistributed in every stratum.
+* **Remark 3.10:** Assing–Blomer–Li's Theorem 1.3 uses the trivial nebentypus only through their Voronoi formula
   (Lemma 7.4); for ω = χ_{−D} the Kloosterman sums acquire ω(c) (cusp pair (∞, 0)) or become twisted (D | q), so their
   Theorem 2.4 must be re-proved with the Kuznetsov formula for that cusp pair with character. Not done; T_ψ stays a hypothesis.
 
@@ -86,6 +97,7 @@ python linnik_class_arcs.py 23 3e5        # depletion profile rho(q) and the maj
 python linnik_class_smooth.py 23 3e4 1e5  # smoothed variance vs the beta-integrated model (~30 min)
 python linnik_class_split.py 23 2e5       # V split into major/minor arcs; env KS, CQS select K and Q/sqrt X
 python linnik_class_h5.py 47 4e6          # class number five: two modes, ~1 min; results/linnik_class_h5_47.txt (or 79)
+python goldbach_class_parity.py 23 4e6    # sieve weights and Omega-strata of the class deviation, ~3 min; results/goldbach_class_parity_23.txt (or 31)
 ```
 
 Python ≥ 3.10 with numpy. Exact integer counts; floating point only in the Euler products. The paper compiles with

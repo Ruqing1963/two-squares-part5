@@ -1,0 +1,64 @@
+D = 31, h = 3, forms [(1, 1, 8), (2, 1, 4)], tables and spf/Omega to 4000000 [61s]
+
+Columns: mean numbers of ideals of norm N - p in C_0 and in C_1 (r_C/2); class shares E S_{C_0}/E(S_{C_0}+2S_{C_1}), E S_{C_1}/E(...) (1/3 each if equidistributed);
+  bias = mean S_c / rms S_c; Diag^u / pi(N) (= kappa^u); variance ratio E (S_c^u)^2 / E Diag^u (0.42-0.43 for u = 1, Conjecture 3.2: 1/2).
+
+N in [100000, 200000):
+  u = 1                        mean S_0/2 =    7800.0  S_1/2 =    7800.0   shares C_0, C_1: 0.3333 0.3333   bias +0.000   Diag/pi(N) = 0.4300   E S_c^2 / E Diag = 0.414
+  Omega(N-p) = 1               mean S_0/2 =     419.0  S_1/2 =     422.8   shares C_0, C_1: 0.3313 0.3343   bias -0.143   Diag/pi(N) = 0.0915   E S_c^2 / E Diag = 0.576
+  Omega(N-p) = 2               mean S_0/2 =    1145.0  S_1/2 =    1134.3   shares C_0, C_1: 0.3354 0.3323   bias +0.296   Diag/pi(N) = 0.1487   E S_c^2 / E Diag = 0.637
+  Omega(N-p) = 3               mean S_0/2 =    1529.3  S_1/2 =    1543.7   shares C_0, C_1: 0.3313 0.3344   bias -0.466   Diag/pi(N) = 0.0882   E S_c^2 / E Diag = 0.780
+  spf >= z = 46.4 (beta = 3)   mean S_0/2 =     659.2  S_1/2 =     659.2   shares C_0, C_1: 0.3333 0.3333   bias -0.001   Diag/pi(N) = 0.1410   E S_c^2 / E Diag = 0.466
+    ... and Omega = 1          mean S_0/2 =     418.9  S_1/2 =     422.4   shares C_0, C_1: 0.3315 0.3343   bias -0.131   Diag/pi(N) = 0.0915   E S_c^2 / E Diag = 0.573
+    ... and Omega = 2          mean S_0/2 =     239.2  S_1/2 =     236.3   shares C_0, C_1: 0.3361 0.3320   bias +0.138   Diag/pi(N) = 0.0492   E S_c^2 / E Diag = 0.651
+  spf >= z = 17.8 (beta = 4)   mean S_0/2 =     801.4  S_1/2 =     801.0   shares C_0, C_1: 0.3334 0.3333   bias +0.013   Diag/pi(N) = 0.1581   E S_c^2 / E Diag = 0.448
+  spf >= z = 6.8 (beta = 6)    mean S_0/2 =    1109.3  S_1/2 =    1109.4   shares C_0, C_1: 0.3333 0.3333   bias -0.001   Diag/pi(N) = 0.1844   E S_c^2 / E Diag = 0.430
+
+N in [300000, 600000):
+  u = 1                        mean S_0/2 =   21248.3  S_1/2 =   21248.3   shares C_0, C_1: 0.3333 0.3333   bias -0.000   Diag/pi(N) = 0.4300   E S_c^2 / E Diag = 0.422
+  Omega(N-p) = 1               mean S_0/2 =    1039.5  S_1/2 =    1044.5   shares C_0, C_1: 0.3323 0.3339   bias -0.118   Diag/pi(N) = 0.0832   E S_c^2 / E Diag = 0.575
+  Omega(N-p) = 2               mean S_0/2 =    2952.0  S_1/2 =    2934.5   shares C_0, C_1: 0.3347 0.3327   bias +0.294   Diag/pi(N) = 0.1458   E S_c^2 / E Diag = 0.645
+  Omega(N-p) = 3               mean S_0/2 =    4087.7  S_1/2 =    4113.4   shares C_0, C_1: 0.3319 0.3340   bias -0.479   Diag/pi(N) = 0.0939   E S_c^2 / E Diag = 0.813
+  spf >= z = 66.9 (beta = 3)   mean S_0/2 =    1663.8  S_1/2 =    1662.0   shares C_0, C_1: 0.3336 0.3332   bias +0.037   Diag/pi(N) = 0.1274   E S_c^2 / E Diag = 0.477
+    ... and Omega = 1          mean S_0/2 =    1039.2  S_1/2 =    1044.0   shares C_0, C_1: 0.3323 0.3338   bias -0.113   Diag/pi(N) = 0.0832   E S_c^2 / E Diag = 0.574
+    ... and Omega = 2          mean S_0/2 =     622.3  S_1/2 =     615.9   shares C_0, C_1: 0.3357 0.3322   bias +0.191   Diag/pi(N) = 0.0441   E S_c^2 / E Diag = 0.687
+  spf >= z = 23.4 (beta = 4)   mean S_0/2 =    1954.6  S_1/2 =    1954.5   shares C_0, C_1: 0.3333 0.3333   bias +0.002   Diag/pi(N) = 0.1498   E S_c^2 / E Diag = 0.449
+  spf >= z = 8.2 (beta = 6)    mean S_0/2 =    2220.2  S_1/2 =    2220.2   shares C_0, C_1: 0.3333 0.3333   bias -0.000   Diag/pi(N) = 0.1609   E S_c^2 / E Diag = 0.439
+
+N in [1000000, 2000000):
+  u = 1                        mean S_0/2 =   64326.6  S_1/2 =   64326.6   shares C_0, C_1: 0.3333 0.3333   bias -0.000   Diag/pi(N) = 0.4300   E S_c^2 / E Diag = 0.429
+  Omega(N-p) = 1               mean S_0/2 =    2870.8  S_1/2 =    2879.4   shares C_0, C_1: 0.3327 0.3337   bias -0.120   Diag/pi(N) = 0.0758   E S_c^2 / E Diag = 0.596
+  Omega(N-p) = 2               mean S_0/2 =    8429.2  S_1/2 =    8401.4   shares C_0, C_1: 0.3341 0.3330   bias +0.267   Diag/pi(N) = 0.1420   E S_c^2 / E Diag = 0.668
+  Omega(N-p) = 3               mean S_0/2 =   12095.3  S_1/2 =   12134.6   shares C_0, C_1: 0.3326 0.3337   bias -0.419   Diag/pi(N) = 0.0987   E S_c^2 / E Diag = 0.783
+  spf >= z = 100.0 (beta = 3)  mean S_0/2 =    4651.4  S_1/2 =    4648.7   shares C_0, C_1: 0.3335 0.3333   bias +0.033   Diag/pi(N) = 0.1172   E S_c^2 / E Diag = 0.497
+    ... and Omega = 1          mean S_0/2 =    2870.5  S_1/2 =    2878.9   shares C_0, C_1: 0.3327 0.3337   bias -0.117   Diag/pi(N) = 0.0758   E S_c^2 / E Diag = 0.595
+    ... and Omega = 2          mean S_0/2 =    1771.7  S_1/2 =    1761.1   shares C_0, C_1: 0.3347 0.3327   bias +0.182   Diag/pi(N) = 0.0413   E S_c^2 / E Diag = 0.704
+  spf >= z = 31.6 (beta = 4)   mean S_0/2 =    5719.3  S_1/2 =    5718.0   shares C_0, C_1: 0.3334 0.3333   bias +0.015   Diag/pi(N) = 0.1448   E S_c^2 / E Diag = 0.461
+  spf >= z = 10.0 (beta = 6)   mean S_0/2 =    6721.5  S_1/2 =    6721.5   shares C_0, C_1: 0.3333 0.3333   bias -0.000   Diag/pi(N) = 0.1608   E S_c^2 / E Diag = 0.447
+
+N in [2000000, 4000000):
+  u = 1                        mean S_0/2 =  122196.1  S_1/2 =  122196.1   shares C_0, C_1: 0.3333 0.3333   bias +0.000   Diag/pi(N) = 0.4300   E S_c^2 / E Diag = 0.432
+  Omega(N-p) = 1               mean S_0/2 =    5185.7  S_1/2 =    5194.0   shares C_0, C_1: 0.3330 0.3335   bias -0.087   Diag/pi(N) = 0.0721   E S_c^2 / E Diag = 0.590
+  Omega(N-p) = 2               mean S_0/2 =   15524.8  S_1/2 =   15495.8   shares C_0, C_1: 0.3337 0.3331   bias +0.211   Diag/pi(N) = 0.1399   E S_c^2 / E Diag = 0.629
+  Omega(N-p) = 3               mean S_0/2 =   22656.7  S_1/2 =   22704.1   shares C_0, C_1: 0.3329 0.3336   bias -0.375   Diag/pi(N) = 0.1009   E S_c^2 / E Diag = 0.730
+  spf >= z = 126.0 (beta = 3)  mean S_0/2 =    8049.0  S_1/2 =    8047.3   shares C_0, C_1: 0.3334 0.3333   bias +0.015   Diag/pi(N) = 0.1119   E S_c^2 / E Diag = 0.500
+    ... and Omega = 1          mean S_0/2 =    5185.3  S_1/2 =    5193.1   shares C_0, C_1: 0.3330 0.3335   bias -0.081   Diag/pi(N) = 0.0720   E S_c^2 / E Diag = 0.589
+    ... and Omega = 2          mean S_0/2 =    2860.7  S_1/2 =    2852.4   shares C_0, C_1: 0.3340 0.3330   bias +0.108   Diag/pi(N) = 0.0397   E S_c^2 / E Diag = 0.682
+  spf >= z = 37.6 (beta = 4)   mean S_0/2 =   10855.1  S_1/2 =   10853.6   shares C_0, C_1: 0.3334 0.3333   bias +0.012   Diag/pi(N) = 0.1447   E S_c^2 / E Diag = 0.461
+  spf >= z = 11.2 (beta = 6)   mean S_0/2 =   12662.8  S_1/2 =   12662.6   shares C_0, C_1: 0.3333 0.3333   bias +0.001   Diag/pi(N) = 0.1595   E S_c^2 / E Diag = 0.449
+
+Summary: E S_c^2 / E Diag by range and weight
+  N from    u=1   Om=1   Om=2   Om=3    b=6    b=4    b=3  b3,Om1  b3,Om2
+  100000  0.414  0.576  0.637  0.780  0.430  0.448  0.466   0.573   0.651
+  300000  0.422  0.575  0.645  0.813  0.439  0.449  0.477   0.574   0.687
+ 1000000  0.429  0.596  0.668  0.783  0.447  0.461  0.497   0.595   0.704
+ 2000000  0.432  0.590  0.629  0.730  0.449  0.461  0.500   0.589   0.682
+
+Distribution of c(m) on m < 4000000 with spf(m) >= 126.0, by Omega(m)  (c = (r_0 - r_1)/2):
+  Omega = 1: n = 283116,  mean c = -0.0004,  mean c^2 = 0.9998,  c=-1: 0.3335, c=+0: 0.4999, c=+2: 0.1666
+  Omega = 2: n = 177097,  mean c = +0.0008,  mean c^2 = 0.9249,  c=-2: 0.1022, c=+0: 0.7703, c=+1: 0.1014, c=+4: 0.0258
+  Omega = 3: n = 339,  mean c = +0.0708,  mean c^2 = 1.6814,  c=-4: 0.0177, c=-3: 0.0236, c=-1: 0.0501, c=+0: 0.8260, c=+1: 0.0029, c=+2: 0.0531, c=+4: 0.0059, c=+6: 0.0177, c=+8: 0.0029
+  (Omega = 1: c = +2 on the principal split primes, -1 on the non-principal ones, 0 on the inert ones, densities 1/6, 1/3, 1/2;
+   Omega = 2, both primes split: c = c(q_1) c(q_2) = +4, -2, +1 with densities 1/9, 4/9, 4/9 of the split pairs; the mean is 0 on every stratum.)
+
+[183s]

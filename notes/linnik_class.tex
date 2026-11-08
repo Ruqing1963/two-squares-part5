@@ -26,7 +26,7 @@
 
 \begin{document}
 \begin{abstract}
-For a prime discriminant $-D$ with class number $h>1$ and a class $C$ of binary forms $Q_C$ of discriminant $-D$ we consider $S_C(N)=\sum_{p<N}r_C(N-p)$, the number of representations $N=p+Q_C(x,y)$. The class decomposition $r_C=r_\gen+\frac wh\sum_{\psi\ne1}\bar\psi(C)c_\psi$ of Part~V splits $S_C$ into the genus part, which is the Linnik problem for $\frac wh(1*\chi_{-D})$ and has, under the hypothesis $\mathrm H(N)$ of the first note, the main term $\frac{2\pi}{\sqrt D}\sS_D(N)\pi(N)$ \emph{independently of $h$ and of the class}, and the class deviations $S_\psi(N)=\sum_{p<N}c_\psi(N-p)$, sums of the coefficients of the weight-one dihedral cusp forms $\vt_\psi$ over the shifted primes. We prove unconditionally that $\sum_{N\le X}|S_\psi(N)|^2\ll X^2\log X$, so that for all $N\le X$ outside $O(X^{1-2\eta}\log X)$ exceptions the counts of the different classes differ by at most $N^{1/2+\eta}$, and the classes are asymptotically equidistributed for all $N\le X$ but $O((\log X)^4)$; under $\mathrm H(N)$ and the dual Titchmarsh bound of Assing--Blomer--Li for $\vt_\psi$ every class has the asymptotic formula for every large $N$. Numerically ($D=23,31$, $N\le4\cdot10^6$) both classes agree with the genus formula to $10^{-4}$ and $S_\psi(N)\approx0.12\sqrt N$. The second moment is not the diagonal: $\sum_{p<N}c_\psi(N-p)^2$ is $\kappa_\psi\pi(N)$ on average, with the Rankin--Selberg residue $\kappa_\psi$ of Part~V, while the mean square of $S_\psi(N)$ is $0.41$--$0.43$ of it and rising. We explain this: by modularity the exponential sum of $\vt_\psi$ is exponentially small at the rationals $a/q$ with $q^2\ll X$ (Lemma~\ref{lem:depletion}), and these major arcs carry half of the $L^2$ mass of the prime exponential sum; we conjecture that the mean square is $\sim\frac12\kappa_\psi\pi(N)$.
+For a prime discriminant $-D$ with class number $h>1$ and a class $C$ of binary forms $Q_C$ of discriminant $-D$ we consider $S_C(N)=\sum_{p<N}r_C(N-p)$, the number of representations $N=p+Q_C(x,y)$. The class decomposition $r_C=r_\gen+\frac wh\sum_{\psi\ne1}\bar\psi(C)c_\psi$ of Part~V splits $S_C$ into the genus part, which is the Linnik problem for $\frac wh(1*\chi_{-D})$ and has, under the hypothesis $\mathrm H(N)$ of the first note, the main term $\frac{2\pi}{\sqrt D}\sS_D(N)\pi(N)$ \emph{independently of $h$ and of the class}, and the class deviations $S_\psi(N)=\sum_{p<N}c_\psi(N-p)$, sums of the coefficients of the weight-one dihedral cusp forms $\vt_\psi$ over the shifted primes. We prove unconditionally that $\sum_{N\le X}|S_\psi(N)|^2\ll X^2\log X$, so that for all $N\le X$ outside $O(X^{1-2\eta}\log X)$ exceptions the counts of the different classes differ by at most $N^{1/2+\eta}$, and the classes are asymptotically equidistributed for all $N\le X$ but $O((\log X)^4)$; under $\mathrm H(N)$ and the dual Titchmarsh bound of Assing--Blomer--Li for $\vt_\psi$ every class has the asymptotic formula for every large $N$. Numerically ($D=23,31$, $N\le4\cdot10^6$) both classes agree with the genus formula to $10^{-4}$ and $S_\psi(N)\approx0.12\sqrt N$. The second moment is not the diagonal: $\sum_{p<N}c_\psi(N-p)^2$ is $\kappa_\psi\pi(N)$ on average, with the Rankin--Selberg residue $\kappa_\psi$ of Part~V, while the mean square of $S_\psi(N)$ is $0.41$--$0.43$ of it and rising. We explain this: by modularity the exponential sum of $\vt_\psi$ is exponentially small at the rationals $a/q$ with $q^2\ll X$ (Lemma~\ref{lem:depletion}), and these major arcs carry half of the $L^2$ mass of the prime exponential sum; we conjecture that the mean square is $\sim\frac12\kappa_\psi\pi(N)$. Under sieve weights of level $X^\theta$ on $N-p$ (towards Chen's theorem in a single class) the class deviation stays negligible for almost all $N$, unconditionally and for every $\theta<1$ (Theorem~\ref{thm:sifted}), and the depletion survives on the arcs of order $X^{1/2-\theta}$; numerically the sharp sieve by the primes below $N^{1/3}$ raises the variance ratio to $0.45$--$0.50$ and the strata $\Omega(N-p)=1,2,3$ to $0.54$--$0.81$, while the classes stay equidistributed in every stratum: there is no class-group grading of the parity obstruction, only a Chebyshev bias of lower order.
 \end{abstract}
 \maketitle
 
@@ -212,12 +212,103 @@ $[2\cdot10^6,4\cdot10^6)$ & $0.435$ & $0.434$ & $0.450$ & $0.446$ & $0.019$ & $0
 \end{center}
 Both modes show the same deficit as for $h=3$, independently of the size of $\kappa_j$, and slightly less of it for the larger $D$ (the depleted arcs of Lemma~\ref{lem:depletion} are $q^2\ll X/D$). The cross diagonal is below $10^{-4}\pi(N)$; the correlation of $S_1$ and $S_2$ is small and positive and decreases slowly, consistent with $o(1)$ at a logarithmic rate but not decisive. The mean squares of the three class deviations agree with the uncorrelated combination $\frac4{25}(a_1^2E\,S_1^2+a_2^2E\,S_2^2)$ to within $1.5$--$4\%$ (the remainder being the covariance), and the measured ratio for $C_1^{\pm1}$ against $C_1^{\pm2}$ at $D=47$ is $1.309$.
 
+\subsection{Sieve weights: towards Chen's theorem in a single class}\label{subsec:sieve}
+For $N=p+Q_C(x,y)$ with $Q_C(x,y)$ an almost prime one sifts $m=N-p$ with weights $\lambda_d$, $d\mid P(z)$, and the class decomposition \eqref{eq:dec} applies term by term:
+\begin{gather*}
+S^\lambda_C(N):=\sum_{p<N}\Bigl(\sum_{d\mid N-p}\lambda_d\Bigr)r_C(N-p)=S^\lambda_\gen(N)+\frac wh\sum_{\psi\ne1}\bar\psi(C)\,S^\lambda_\psi(N),\\
+S^\lambda_\psi(N)=\sum_{p<N}\Bigl(\sum_{d\mid N-p}\lambda_d\Bigr)c_\psi(N-p).
+\end{gather*}
+The genus part is the sieve problem for the sequence $\{N-p\}$ with the divisor-type weight $\frac wh(1*\chi)$, in which the class group plays no role; the class deviation is again a cusp-form sum, and the Hecke relations make it a combination of dilates of $\vt_\psi$. Throughout, $\lambda_d$ is supported on squarefree $d\le X^\theta$ with $(d,D)=1$ and $|\lambda_d|\le1$ (the Rosser--Iwaniec weights and the weights of the fundamental lemma are of this kind).
+
+\begin{lemma}[Dilation]\label{lem:dilation}
+For squarefree $d$ with $(d,D)=1$,
+\[
+\sum_{k\ge1}c_\psi(dk)\,e(kz)=\sum_{s\mid d}\mu(s)\chi(s)\,c_\psi(d/s)\,\vt_\psi(sz).
+\]
+\end{lemma}
+\begin{proof}
+For a prime $\ell\nmid D$ the Hecke relation $c_\psi(\ell k)=c_\psi(\ell)c_\psi(k)-\chi(\ell)c_\psi(k/\ell)$ (with $c_\psi(k/\ell)=0$ if $\ell\nmid k$) reads $U_\ell\vt_\psi=c_\psi(\ell)\vt_\psi-\chi(\ell)\vt_\psi(\ell z)$, and $U_\ell$ commutes with $f(z)\mapsto f(\ell'z)$ for $\ell'\ne\ell$. Applying $U_\ell$ for the primes $\ell\mid d$ in turn and using $c_\psi(d/s)=\prod_{\ell\mid d/s}c_\psi(\ell)$ gives the formula.
+\end{proof}
+
+\begin{proposition}[Wilton bound for the dilates]\label{prop:wiltond}
+For squarefree $d$ with $(d,D)=1$, uniformly in $\alpha$ and $Y\ge2$,
+\begin{gather*}
+F_d(\alpha;Y):=\sum_{k\le Y/d}c_\psi(dk)\,e(dk\alpha)\ll_D d^{-1/2+\e}\sqrt Y\log Y,\\
+\sum_{k}c_\psi(dk)e^{-dk/Y}e(dk\alpha)\ll_Dd^{-1/2+\e}\sqrt Y .
+\end{gather*}
+\end{proposition}
+\begin{proof}
+By Lemma~\ref{lem:dilation}, $F_d(\alpha;Y)=\sum_{s\mid d}\mu(s)\chi(s)c_\psi(d/s)\sum_{j\le Y/(ds)}c_\psi(j)e(jds\alpha)$, each inner sum is $\ll(Y/ds)^{1/2}\log Y$ by Lemma~\ref{lem:wilton} (uniformly in the frequency $ds\alpha$), and $|c_\psi(n)|\le\tau(n)$, $\sum_{s\mid d}1\ll d^\e$. The same for the smooth sums with the second statement of Lemma~\ref{lem:wilton}.
+\end{proof}
+
+\begin{theorem}\label{thm:sifted}
+Let $\lambda_d$ be as above, of level $X^\theta$, $0\le\theta<1$. Then for every $\psi\ne1$
+\[
+\sum_{N\le X}|S^\lambda_\psi(N)|^2\ll_{D,\e}X^{2+\theta+\e},
+\]
+and for every $\eta>0$ all $N\le X$ outside a set of $O(X^{1-2\eta+\e})$ elements satisfy, for every class $C$,
+\[
+S^\lambda_C(N)=S^\lambda_\gen(N)+O(N^{1/2+\theta/2+\eta}).
+\]
+\end{theorem}
+\begin{proof}
+As in Theorem~\ref{thm:almostall}, $S^\lambda_\psi(N)$ is the coefficient of $e(N\alpha)$ in $P(\alpha)F^\lambda(\alpha)$ with
+\[
+F^\lambda(\alpha)=\sum_{m\le X}\Bigl(\sum_{d\mid m}\lambda_d\Bigr)c_\psi(m)e(m\alpha)=\sum_d\lambda_dF_d(\alpha;X),
+\]
+so by Parseval and Proposition~\ref{prop:wiltond}
+\[
+\sum_{N\le X}|S^\lambda_\psi(N)|^2\le\|F^\lambda\|_\infty^2\,\pi(X)\ll\Bigl(\sum_{d\le X^\theta}d^{-1/2+\e}\Bigr)^2X(\log X)^2\,\pi(X)\ll X^{2+\theta+3\e}.
+\]
+The exceptional set is counted dyadically as in Theorem~\ref{thm:almostall}.
+\end{proof}
+
+Since the main term of a sieve of dimension one on $\{N-p\}$ is of size $N/(\log N)^2$, the class deviation is negligible for almost all $N$ for \emph{every} sieve of level $\theta<1$: whatever a sieve proves about $N=p+Q(x,y)$ with $Q(x,y)$ in the genus (an upper bound, a lower bound, the Chen-type combination of sieve functionals) holds for each class separately, for almost all $N$, with the main term divided by $h$. Two things are not covered. The genus problem itself: for almost all $N$ the input is a level of distribution of the primes with the weight $(1*\chi)(N-p)$ on average over $N$, which we have not worked out (for individual $N$ it is Hypothesis~$\mathrm H(N)$, Proposition~\ref{prop:genus}). And the switching step of Chen's argument, which counts $N-m$ prime for $m=q_1q_2q_3$: there the class weight $c_\psi(m)$ sits on the almost primes and the sieve on $N-m$, the roles of $P$ and $F$ are exchanged, and the Parseval argument needs the Vinogradov-type bound $\sum_{m\le X}\Lambda(m)c_\psi(m)e(m\alpha)\ll X(\log X)^{-A}$ uniformly in $\alpha$ (type~I sums are Proposition~\ref{prop:wiltond}, which is strong up to $d\le X^{1-\e}$; the type~II sums need the Hecke relation $c_\psi(mn)=\sum_{g\mid(m,n)}\mu(g)\chi(g)c_\psi(m/g)c_\psi(n/g)$ and the Rankin--Selberg bound). For holomorphic forms of full level this is the theorem of Fouvry and Ganguly \cite{FG}; for weight one with nebentypus it is not in the literature as far as we know.
+
+\begin{remark}[No class-group grading of the parity obstruction]\label{rem:parity}
+On the integers $m$ all of whose prime factors are split and non-principal one has $c_\psi(m)=(-1)^{\Omega(m)}$ for $h=3$ ($c_\psi(q)=-1$ for such $q$), so that the primes $q$ in this set are counted by $r_{C_1}$ only ($r_{C_0}(q)=0$, $r_{C_1}(q)=2$) and the semiprimes $q_1q_2$ twice as much by $r_{C_0}$ as by $r_{C_1}$ ($4$ against $2$): the ideals $\mathfrak q_1\bar{\mathfrak q}_2$, $\bar{\mathfrak q}_1\mathfrak q_2$ are principal. One might hope that this grading separates the primes from the semiprimes in a single class and so circumvents the parity obstruction of Chen's theorem. It does not: the condition ``non-principal prime factors'' is itself a class-group condition, invisible to a sieve over $\Z$, and on the full stratum $\Omega(m)=k$ the mean of $c_\psi$ is zero for every $k$ (Chebotarev and multiplicativity: $c_\psi(q)=2,-1,0$ with densities $\frac16,\frac13,\frac12$ for $h=3$, and $c_\psi(q_1q_2)=4,-2,1$ with densities $\frac19,\frac49,\frac49$ of the split pairs). The strata $\Omega(N-p)=k$ of $S_{C}(N)$ are therefore equidistributed among the classes like $S_C$ itself (Table~\ref{tab:strata}: shares within $0.002$ of $\frac13$), and the stratum $\Omega(N-p)=1$, the Goldbach pairs $N=p+q$ with $q=Q_C(x,y)$, is one third of the Goldbach pairs with $q$ split for every class. What the strata do show is a Chebyshev bias of lower order: $\sum_{q\le x}c_\psi(q)\approx-\sqrt x/\log x$ by the explicit formula (the prime squares, $c_\psi(q^2)=c_\psi(q)^2-\chi(q)$ with mean $1$, enter $\sum_{n\le x}\Lambda(n)c_\psi(n)$ with a positive sign), the squares $q^2$ and the products with the small non-principal primes ($c_\psi(2)=c_\psi(3)=-1$ for $D=23$) propagate it with alternating signs to the strata, and the bias $E\,S^{(k)}_\psi/\mathrm{rms}\,S^{(k)}_\psi$ is negative, positive, negative for $k=1,2,3$ (Table~\ref{tab:strata}: $-0.1$, $+0.3$, $-0.5$ at $N\approx10^5$), of relative order $(\log N)^{-3/2}$; it decreases slowly for $k=2,3$ and is flat within the noise for $k=1$ at these sizes. In the shares it is visible as $0.332$--$0.333$ for $C_0$ on the Goldbach stratum (fewer principal primes) and $0.334$--$0.335$ on the semiprimes.
+\end{remark}
+
+\begin{proposition}[Major arcs under sieve weights]\label{prop:siftedarcs}
+Let $\lambda_d$ be of level $X^\theta$ and let $\mathfrak M_\theta$ be the arcs of Section~\ref{subsec:reduction} with $Q_\theta=X^{1/2-\theta}(\log X)^{-B}$ in place of $Q$; put
+\[
+F^\lambda(\alpha)=\sum_d\lambda_d\sum_kc_\psi(dk)e^{-dk/X}e(dk\alpha).
+\] Then $\sup_{\mathfrak M_\theta}|F^\lambda|\ll_AX^{-A}$.
+\end{proposition}
+\begin{proof}
+By Lemma~\ref{lem:dilation}, $F^\lambda$ is a sum of $\ll X^{\theta+\e}$ terms $\vt_\psi(sd(\alpha+\frac i{2\pi X}))$ with $sd\le d^2\le X^{2\theta}$ and bounded coefficients. With $X'=X/(sd)$, $\alpha'=sd\alpha=\frac{a'}{q'}+\beta'$, $q'\le q$, $|\beta'|\le sdK/X=K/X'$, the proof of Theorem~\ref{thm:reduction} applies to $\vt_\psi(\alpha'+\frac i{2\pi X'})$ as soon as $X'/q'^2\ge X/(X^{2\theta}q^2)\ge(\log X)^{2B}$, which is $q\le Q_\theta$.
+\end{proof}
+
+So a sieve of level $X^\theta$ keeps the depletion of Lemma~\ref{lem:depletion} on the arcs of order $X^{1/2-\theta}$, and the reduction of Conjecture~\ref{conj:var} carries over to $S^\lambda_\psi$ with the arcs $\mathfrak M_\theta$, which carry the mass $(\frac12-\theta)\int|P|^2$ by Hardy--Littlewood. Beyond $Q_\theta$ the dilates $\vt_\psi(nz)$ with $n\ge X/q^2$ are no longer small at $a/q$, and their share of $\|F^\lambda\|_2^2$ (the dilate $\vt_\psi(nz)$ carries $\asymp\|\vt_\psi\|_2^2/n$) is what the major arcs see. For the sharp sieve $(m,P(z))=1$, $z=X^{1/\beta}$, i.e.\ $\lambda_d=\mu(d)$ on $d\mid P(z)$ without truncation, the weight $\sum_{d\mid P(z),\,d\ge T}1/d$ of the undepleted dilates at $a/q$, $T=X/q^2$, is a positive proportion of $\sum_{d\mid P(z)}1/d=\prod_{\ell<z}(1+\ell^{-1})$ whenever $\log T\ll\log z$, so the variance ratio should exceed $\frac12$ by an amount that grows with the sifting, $\frac12+O(1/\beta)$ in the limit, and tend to $1$ for the strata $\Omega(m)=k$, which have no modular structure at all (there $F$ at $a/q$ is governed by the distribution of $c_\psi$ over the primes in residue classes modulo $q$, a square-root cancellation under GRH, the same order as on the minor arcs). The data confirm the ordering (Table~\ref{tab:strata}, script \texttt{goldbach\_class\_parity.py}): in every range and for both $D$ the ratio rises monotonically from the unsifted $0.41$--$0.43$ through $\beta=6,4,3$ to the strata $\Omega=1,2,3$. The sifted sets with $\beta=3$ ($N-p$ free of prime factors below $N^{1/3}$: the Chen set, $\Omega(N-p)\le2$ up to a few $\Omega=3$) are at $0.45$--$0.50$, i.e.\ their class deviation has lost about half of the depletion at these sizes, and the strata are at $0.54$--$0.81$, well above the unsifted value but still far from $1$; the ratios for $\Omega=1,2$ increase with $N$, the one for $\Omega=3$ does not yet. The classes stay equidistributed in every sifted set and every stratum (shares within $0.002$ of $\frac13$, the deviation being the Chebyshev bias of Remark~\ref{rem:parity}), and the sieve adds no bias to the class deviation (the bias of the sifted sets is $\le0.04$ of the rms, the strata carry the alternating Chebyshev bias).
+
+\begin{table}[htbp]
+\centering\footnotesize\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{r|ccccccc|ccccccc}
+\toprule
+& \multicolumn{7}{c|}{$D=23$: $E\,(S^u_c)^2/E\,\mathrm{Diag}^u$} & \multicolumn{7}{c}{$D=31$}\\
+$N$ from & $u=1$ & $\beta=6$ & $\beta=4$ & $\beta=3$ & $\Omega=1$ & $\Omega=2$ & $\Omega=3$ & $u=1$ & $\beta=6$ & $\beta=4$ & $\beta=3$ & $\Omega=1$ & $\Omega=2$ & $\Omega=3$\\
+\midrule
+$10^5$ & $0.405$ & $0.414$ & $0.428$ & $0.446$ & $0.541$ & $0.616$ & $0.813$ & $0.414$ & $0.430$ & $0.448$ & $0.466$ & $0.576$ & $0.637$ & $0.780$\\
+$3\cdot10^5$ & $0.414$ & $0.422$ & $0.436$ & $0.466$ & $0.554$ & $0.636$ & $0.814$ & $0.422$ & $0.439$ & $0.449$ & $0.477$ & $0.575$ & $0.645$ & $0.813$\\
+$10^6$ & $0.423$ & $0.431$ & $0.454$ & $0.476$ & $0.587$ & $0.647$ & $0.775$ & $0.429$ & $0.447$ & $0.461$ & $0.497$ & $0.596$ & $0.668$ & $0.783$\\
+$2\cdot10^6$ & $0.427$ & $0.436$ & $0.457$ & $0.485$ & $0.612$ & $0.679$ & $0.774$ & $0.432$ & $0.449$ & $0.461$ & $0.500$ & $0.590$ & $0.629$ & $0.730$\\
+\midrule
+\multicolumn{15}{l}{bias $E\,S^u_c/\mathrm{rms}\,S^u_c$ on the strata $\Omega=1,2,3$ ($D=23$; $D=31$):}\\
+$10^5$ & \multicolumn{7}{l|}{$-0.119$, $+0.298$, $-0.505$} & \multicolumn{7}{l}{$-0.143$, $+0.296$, $-0.466$}\\
+$2\cdot10^6$ & \multicolumn{7}{l|}{$-0.128$, $+0.269$, $-0.411$} & \multicolumn{7}{l}{$-0.087$, $+0.211$, $-0.375$}\\
+\bottomrule
+\end{tabular}
+\medskip
+\caption{The variance ratio of the class deviation under sieve weights $u(N-p)$, means over all $N$ in $[N_0,2N_0)$ (\texttt{goldbach\_class\_parity.py}): $u=1$ (Table~\ref{tab:ratios}), $u=1_{(m,P(z))=1}$ with $z=N_0^{1/\beta}$, and the strata $u=1_{\Omega(m)=k}$. The diagonal $E\,\mathrm{Diag}^u=E\sum_pu(N-p)c(N-p)^2$ is $\kappa^u\pi(N)$ with $\kappa^u=0.42$, $0.17$, $0.14$, $0.11$--$0.13$, $0.07$--$0.09$, $0.14$--$0.15$, $0.09$--$0.10$ in the order of the columns ($D=23$). The class shares are within $0.002$ of $\frac13$ in every row. The sifted strata $\beta=3$, $\Omega=1$ and $\beta=3$, $\Omega=2$ (the Goldbach pairs and the Chen semiprimes with large prime factors) are at $0.54$--$0.61$ and $0.64$--$0.69$ for $D=23$.}
+\label{tab:strata}
+\end{table}
+
 \begin{remark}[The dual Titchmarsh input for weight one]\label{rem:ABL}
 We checked how far the proof of \cite[Theorem~1.3]{ABL} uses the trivial nebentypus. The form $\varphi$ enters only through (i) the Rankin--Selberg bound $\sum_{n\le X}|\lambda(n)|^2\ll(NX)^\e X$, (ii) the Bessel transforms of their Lemma~7.5, and (iii) the Voronoi formula with additive twists, their Lemma~7.4, quoted from the reference [BMN] of their bibliography ``in the case of trivial nebentypus''; the Kloosterman sums produced by (iii) are then treated by their Theorem~2.4 through the Kuznetsov formula. For $\vt_\psi$, (i) holds, (ii) holds with $J_{k-1}=J_0$ (and the Ramanujan bound holds by Deligne--Serre). For (iii) with the nebentypus $\omega=\chi_{-D}$ and $(q,D)=1$ the computation in the proof of Lemma~\ref{lem:depletion} gives the Voronoi formula with the dual twist $e(-n\overline{aD}/q)$ and the additional factor $\omega(q)$, independent of $a$ but not of $q$, so that the sums of Kloosterman sums in their Section~8 acquire the weight $\omega(c)$: they become Kloosterman sums for the pair of cusps $(\infty,0)$ of $\Gamma_0(D)$ with the character $\omega$, and their Theorem~2.4 has to be re-proved with the Kuznetsov formula for this pair of cusps and nebentypus; for $D\mid q$ the Voronoi coefficients of their Lemma~7.4 depend on $a_1$ through a character and the Kloosterman sums become twisted. The tools for both exist (the Kuznetsov formula for general cusps and characters, the bound $\theta\le7/64$ for every nebentypus), but the extension is not in the literature as far as we know and we have not carried it out; Hypothesis~\ref{hyp:T} stays a hypothesis.
 \end{remark}
 
 \section*{Data and code}
-{\raggedright \texttt{code/linnik\_class.py} (Table~\ref{tab:ratios}, outputs \texttt{results/linnik\_class\_23.txt}, \texttt{\_31.txt}), \texttt{code/linnik\_class\_variance.py} (mean square, diagonal, the Wilton supremum: $\sup_\alpha|\sum_{m\le Y}c(m)e(m\alpha)|=1.51\sqrt Y$, $1.56\sqrt Y$, $1.58\sqrt Y$ at $Y=10^5,10^6,4\cdot10^6$ for $D=23$), \texttt{code/linnik\_class\_arcs.py} (the depletion profile $\rho(q)$ and the model), \texttt{code/linnik\_class\_smooth.py} (the smoothed variance against the $\beta$-integrated model), \texttt{code/linnik\_class\_split.py} (the major/minor split of Section~\ref{subsec:reduction}), \texttt{code/linnik\_class\_h5.py} (class number five, outputs \texttt{results/linnik\_class\_h5\_47.txt}, \texttt{\_79.txt}).\par}
+{\raggedright \texttt{code/linnik\_class.py} (Table~\ref{tab:ratios}, outputs \texttt{results/linnik\_class\_23.txt}, \texttt{\_31.txt}), \texttt{code/linnik\_class\_variance.py} (mean square, diagonal, the Wilton supremum: $\sup_\alpha|\sum_{m\le Y}c(m)e(m\alpha)|=1.51\sqrt Y$, $1.56\sqrt Y$, $1.58\sqrt Y$ at $Y=10^5,10^6,4\cdot10^6$ for $D=23$), \texttt{code/linnik\_class\_arcs.py} (the depletion profile $\rho(q)$ and the model), \texttt{code/linnik\_class\_smooth.py} (the smoothed variance against the $\beta$-integrated model), \texttt{code/linnik\_class\_split.py} (the major/minor split of Section~\ref{subsec:reduction}), \texttt{code/linnik\_class\_h5.py} (class number five, outputs \texttt{results/linnik\_class\_h5\_47.txt}, \texttt{\_79.txt}), \texttt{code/goldbach\_class\_parity.py} (Section~\ref{subsec:sieve}: sieve weights and $\Omega$-strata, outputs \texttt{results/goldbach\_class\_parity\_23.txt}, \texttt{\_31.txt}).\par}
 
 \begin{thebibliography}{9}\raggedright
 \bibitem{ABL} E. Assing, V. Blomer, J. Li, Uniform Titchmarsh divisor problems, arXiv:2005.13915 (2020).
@@ -225,6 +316,7 @@ We checked how far the proof of \cite[Theorem~1.3]{ABL} uses the trivial nebenty
 \bibitem{ChenV} R. Chen, Sums of two squares and Heegner norms with few prime factors, V: ideal class groups, weight-one dihedral cusp forms, and the splitting of the scalloped norm, preprint (2026), doi:10.5281/zenodo.23923518.
 \bibitem{Montgomery} H. L. Montgomery, Primes in arithmetic progressions, Michigan Math. J. 17 (1970), 33--39.
 \bibitem{Hooley} C. Hooley, On the Barban--Davenport--Halberstam theorem I, J. reine angew. Math. 274/275 (1975), 206--223.
+\bibitem{FG} \'E. Fouvry, S. Ganguly, Strong orthogonality between the M\"obius function, additive characters and Fourier coefficients of cusp forms, Compos. Math. 150 (2014), 763--797.
 \bibitem{GM} D. A. Goldston, H. L. Montgomery, Pair correlation of zeros and primes in short intervals, in: Analytic Number Theory and Diophantine Problems (Stillwater 1984), Progr. Math. 70, Birkh\"auser, Boston, 1987, 183--203.
 \bibitem{Pitt} N. J. E. Pitt, On an analogue of Titchmarsh's divisor problem for holomorphic cusp forms, J. Amer. Math. Soc. 26 (2013), 735--776.
 \end{thebibliography}
