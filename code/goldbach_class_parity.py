@@ -23,8 +23,39 @@ import time
 from math import sqrt, log
 import numpy as np
 from scipy.fft import rfft, irfft, next_fast_len
+from scipy.integrate import quad
 
 from linnik_class import r_form, sieve, FORMS
+
+C2 = 0.6601618158468696          # twin prime constant prod_{l>2} (1 - 1/(l-1)^2)
+
+
+def kron_D(n):
+    """(-D/n) for prime D = 3 mod 4 and n > 0: the Legendre symbol (n/D)"""
+    n = int(n) % D
+    if n == 0:
+        return 0
+    return 1 if pow(n, (D - 1) // 2, D) == 1 else -1
+
+
+def singular_series_2(N, spf):
+    """SS_2(N) = 2 C_2 prod_{l | N, l > 2} (l-1)/(l-2) for even N (ordered Goldbach pairs p + q = N)"""
+    val = 2 * C2
+    m = N
+    while m > 1:
+        l = int(spf[m])
+        if l > 2:
+            val *= (l - 1) / (l - 2)
+        while m % l == 0:
+            m //= l
+    return val
+
+
+def li2(N):
+    """int_2^{N-2} dt / (log t log(N - t))"""
+    f = lambda t: 1.0 / (log(t) * log(N - t))
+    v1, _ = quad(f, 2, N / 2, limit=200)
+    return 2 * v1
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 RES = os.path.join(HERE, '..', 'results')
@@ -130,6 +161,42 @@ def main():
     for row in table:
         say(f"{row['lo']:8d} {row['all']:6.3f} {row['om1']:6.3f} {row['om2']:6.3f} {row['om3']:6.3f} {row['b6']:6.3f} {row['b4']:6.3f}"
             f" {row['b3']:6.3f} {row['b3om1']:7.3f} {row['b3om2']:7.3f}")
+
+    # Goldbach pairs with q = Q_C(x, y): G_C(N) = sum_{p+q=N} r_C(q) against (2/h)(1 - chi(N)/(D-2)) SS_2(N) li_2(N)
+    say("\nGoldbach stratum (even N): G_C(N) = sum_{p+q=N} r_C(q) against the main term (2/3)(1 - chi(N)/(D-2)) SS_2(N) li_2(N),"
+        "\n  G(N) = #{p+q=N} against SS_2(N) li_2(N); 4000 random even N per range; means (sd of the mean in brackets).")
+    G0 = conv(r0 * strata[1])
+    G1 = conv(r1 * strata[1])
+    Gall = conv(isp)
+    rng = np.random.default_rng(7)
+    for lo, hi in RANGES:
+        if lo >= NMAX:
+            continue
+        hi = min(hi, NMAX + 1)
+        Ns = rng.integers(lo // 2, hi // 2, size=4000) * 2
+        rows = {1: [], -1: [], 0: []}
+        base = []
+        for N in Ns:
+            N = int(N)
+            ss = singular_series_2(N, spf) * li2(N)
+            chiN = kron_D(N)
+            fac = (2 / 3) * (1 - chiN / (D - 2)) * ss
+            base.append(Gall[N] / ss)
+            rows[chiN].append((G0[N] / fac, G1[N] / fac, (G0[N] + 2 * G1[N]) / 4 / ss))
+        base = np.array(base)
+        say(f"  N in [{lo}, {hi}): G/(SS_2 li_2) = {base.mean():.4f} [{base.std() / sqrt(len(base)):.4f}]")
+        R = {}
+        for t in (1, -1, 0):
+            a = np.array(rows[t])
+            if len(a) == 0:
+                continue
+            R[t] = a[:, 2].mean()
+            say(f"     chi(N) = {t:+d} (n = {len(a)}): G_C0/main = {a[:, 0].mean():.4f} [{a[:, 0].std() / sqrt(len(a)):.4f}],"
+                f"  G_C1/main = {a[:, 1].mean():.4f} [{a[:, 1].std() / sqrt(len(a)):.4f}],  split share (G_C0+2G_C1)/(4G) vs (1-chi/(D-2))/2:"
+                f" {a[:, 2].mean() / base.mean():.4f} vs {(1 - t / (D - 2)) / 2:.4f}")
+        if 1 in R and -1 in R:
+            say(f"     ratio of the split-pair counts chi(N)=+1 : chi(N)=-1 = {R[1] / R[-1]:.4f};  (D-3)/(D-1) = {(D - 3) / (D - 1):.4f}"
+                f" [local factor 1 - chi(N)/(D-2)],  (D-2)/D = {(D - 2) / D:.4f} [1 - chi(N)/(D-1)]")
 
     # the distribution of c(m) on the sifted strata (the 'parity grading')
     lo = RANGES[-1][0]

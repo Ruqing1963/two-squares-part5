@@ -42,7 +42,7 @@ For D = 4 this is the Hardy–Littlewood problem N = p + x² + y², solved by Li
    products. Table 2: the inert-prime sieve at N = 2·10⁵ (survivors against the product V, their structure n₁ / n₁q₀,
    and the P₂ norms left when the primes below 100 are sifted too).
 
-## A single ideal class (`notes/linnik_class.tex`, working note, 10 pages)
+## A single ideal class (`notes/linnik_class.tex`, working note, 13 pages)
 
 For a prime D with h(−D) > 1 and a class C, S_C(N) = Σ_{p<N} r_C(N − p) splits as S_gen + (w/h) Σ_{ψ≠1} ψ̄(C) S_ψ with
 S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedral cusp form of Part V.
@@ -76,13 +76,28 @@ S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedr
   (Proposition 3.6), so Σ_{N≤X} |S^λ_ψ(N)|² ≪ X^{2+θ+ε} and the class deviation of every sieve functional of level θ < 1 is
   O(N^{1/2+θ/2+η}) for almost all N, unconditionally (Theorem 3.7): a sieve result for the genus holds for each class,
   for almost all N (the switching step of Chen's argument needs a Vinogradov-type bound for Σ Λ(m)c_ψ(m)e(mα), not
-  covered). Major arcs of order X^{1/2−θ} keep the depletion (Proposition 3.9). Remark 3.8: there is no class-group
+  covered). Major arcs of order X^{1/2−θ} keep the depletion (Proposition 3.13). Remark 3.12: there is no class-group
   grading of the parity obstruction (c(q₁q₂) = (−1)² only on integers with non-principal prime factors; the mean of c on
   every Ω-stratum is 0), only a Chebyshev bias of order (log N)^{−3/2} with alternating sign in Ω. Numerics
   (`code/goldbach_class_parity.py`, D = 23, 31, N ≤ 4·10⁶, Table 2): the variance ratio rises monotonically with the
   sifting, unsifted 0.41–0.43, sharp sieve by the primes below N^{1/6}, N^{1/4}, N^{1/3}: 0.41–0.45, 0.43–0.46,
   0.45–0.50, strata Ω = 1, 2, 3: 0.54–0.61, 0.62–0.68, 0.73–0.81; the classes stay equidistributed in every stratum.
-* **Remark 3.10:** Assing–Blomer–Li's Theorem 1.3 uses the trivial nebentypus only through their Voronoi formula
+* **Proposition 3.8 (Vinogradov–Siegel–Walfisz for ϑ_ψ):** Σ_{n≤X} Λ(n)c_ψ(n)e(nα) ≪ X(log X)^{−A} uniformly in α.
+  Major arcs: the twists L(s, ϑ_ψ ⊗ ξ) are the Hecke L-functions L_K(s, ψ·(ξ∘N)), and ψ·(ξ∘N) is never real because h is
+  odd (Ψ(𝔭)/Ψ(𝔭̄) = ψ(𝔭)² ≠ 1), so there is no Siegel zero and Siegel–Walfisz for K is effective. Minor arcs: Vaughan's
+  identity, the Hecke inversion c(mn) = Σ_{g|(m,n)} μ(g)χ(g)c(m/g)c(n/g), Wilton for type I, the standard bilinear
+  bound for type II. Corollary 3.9: the same for the strata Ω(m) = k and for Chen's switching set q₁q₂q₃ (peel off the
+  largest prime; the square-divisible part is O(X^{1−1/k})).
+* **Theorem 3.10:** Σ_{N≤X} |S^{(k)}_ψ(N)|² ≪ X³(log X)^{−A}, likewise for the switching sum with prime or sieve weights on
+  N − m: the class deviation of every Ω-stratum and of Chen's switching step is ≤ N(log N)^{−A} for all N but
+  O(X(log X)^{−A}). So, for almost all N, Chen's theorem in a single class is equivalent to Chen's theorem for the genus.
+* **Theorem 3.11 (binary Goldbach in a single ideal class, almost all even N, unconditional):** G_C(N) = Σ_{p+q=N} r_C(q) =
+  (2/h)(1 − χ(N)/(D−2)) 𝔖₂(N) li₂(N) + O(N(log N)^{−A}) for all even N ≤ X but O(X(log X)^{−A}), the same main term for
+  every class (genus part: van der Corput–Chudakov–Estermann with the weight 1 + χ(q), a character mod D; the local
+  factor at D counts the D − 2 admissible residue pairs, hence (D−2), not (D−1)). Numerics in
+  `results/goldbach_class_parity_{23,31}.txt`: G/(𝔖₂ li₂) and G_C/main within 1–2 % of 1 (Chebyshev bias of the principal
+  primes), and the ratio of the split-pair counts for χ(N) = +1 against −1 matches (D−3)/(D−1), not (D−2)/D.
+* **Remark 3.14:** Assing–Blomer–Li's Theorem 1.3 uses the trivial nebentypus only through their Voronoi formula
   (Lemma 7.4); for ω = χ_{−D} the Kloosterman sums acquire ω(c) (cusp pair (∞, 0)) or become twisted (D | q), so their
   Theorem 2.4 must be re-proved with the Kuznetsov formula for that cusp pair with character. Not done; T_ψ stays a hypothesis.
 
@@ -97,7 +112,7 @@ python linnik_class_arcs.py 23 3e5        # depletion profile rho(q) and the maj
 python linnik_class_smooth.py 23 3e4 1e5  # smoothed variance vs the beta-integrated model (~30 min)
 python linnik_class_split.py 23 2e5       # V split into major/minor arcs; env KS, CQS select K and Q/sqrt X
 python linnik_class_h5.py 47 4e6          # class number five: two modes, ~1 min; results/linnik_class_h5_47.txt (or 79)
-python goldbach_class_parity.py 23 4e6    # sieve weights and Omega-strata of the class deviation, ~3 min; results/goldbach_class_parity_23.txt (or 31)
+python goldbach_class_parity.py 23 4e6    # sieve weights, Omega-strata, Goldbach pairs in a class vs the main term, ~4 min; results/goldbach_class_parity_23.txt (or 31)
 ```
 
 Python ≥ 3.10 with numpy. Exact integer counts; floating point only in the Euler products. The paper compiles with

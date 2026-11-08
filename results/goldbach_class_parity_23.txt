@@ -1,4 +1,4 @@
-D = 23, h = 3, forms [(1, 1, 6), (2, 1, 3)], tables and spf/Omega to 4000000 [73s]
+D = 23, h = 3, forms [(1, 1, 6), (2, 1, 3)], tables and spf/Omega to 4000000 [76s]
 
 Columns: mean numbers of ideals of norm N - p in C_0 and in C_1 (r_C/2); class shares E S_{C_0}/E(S_{C_0}+2S_{C_1}), E S_{C_1}/E(...) (1/3 each if equidistributed);
   bias = mean S_c / rms S_c; Diag^u / pi(N) (= kappa^u); variance ratio E (S_c^u)^2 / E Diag^u (0.42-0.43 for u = 1, Conjecture 3.2: 1/2).
@@ -54,6 +54,29 @@ Summary: E S_c^2 / E Diag by range and weight
  1000000  0.423  0.587  0.647  0.775  0.431  0.454  0.476   0.585   0.681
  2000000  0.427  0.612  0.679  0.774  0.436  0.457  0.485   0.611   0.694
 
+Goldbach stratum (even N): G_C(N) = sum_{p+q=N} r_C(q) against the main term (2/3)(1 - chi(N)/(D-2)) SS_2(N) li_2(N),
+  G(N) = #{p+q=N} against SS_2(N) li_2(N); 4000 random even N per range; means (sd of the mean in brackets).
+  N in [100000, 200000): G/(SS_2 li_2) = 0.9933 [0.0002]
+     chi(N) = +1 (n = 1935): G_C0/main = 0.9847 [0.0009],  G_C1/main = 0.9919 [0.0006],  split share (G_C0+2G_C1)/(4G) vs (1-chi/(D-2))/2: 0.4744 vs 0.4762
+     chi(N) = -1 (n = 1876): G_C0/main = 0.9853 [0.0009],  G_C1/main = 0.9931 [0.0006],  split share (G_C0+2G_C1)/(4G) vs (1-chi/(D-2))/2: 0.5224 vs 0.5238
+     chi(N) = +0 (n = 189): G_C0/main = 0.9830 [0.0025],  G_C1/main = 0.9956 [0.0015],  split share (G_C0+2G_C1)/(4G) vs (1-chi/(D-2))/2: 0.4991 vs 0.5000
+     ratio of the split-pair counts chi(N)=+1 : chi(N)=-1 = 0.9081;  (D-3)/(D-1) = 0.9091 [local factor 1 - chi(N)/(D-2)],  (D-2)/D = 0.9130 [1 - chi(N)/(D-1)]
+  N in [300000, 600000): G/(SS_2 li_2) = 0.9961 [0.0002]
+     chi(N) = +1 (n = 1867): G_C0/main = 0.9928 [0.0006],  G_C1/main = 0.9969 [0.0004],  split share (G_C0+2G_C1)/(4G) vs (1-chi/(D-2))/2: 0.4759 vs 0.4762
+     chi(N) = -1 (n = 1941): G_C0/main = 0.9923 [0.0006],  G_C1/main = 0.9963 [0.0004],  split share (G_C0+2G_C1)/(4G) vs (1-chi/(D-2))/2: 0.5232 vs 0.5238
+     chi(N) = +0 (n = 192): G_C0/main = 0.9918 [0.0015],  G_C1/main = 0.9967 [0.0009],  split share (G_C0+2G_C1)/(4G) vs (1-chi/(D-2))/2: 0.4995 vs 0.5000
+     ratio of the split-pair counts chi(N)=+1 : chi(N)=-1 = 0.9096;  (D-3)/(D-1) = 0.9091 [local factor 1 - chi(N)/(D-2)],  (D-2)/D = 0.9130 [1 - chi(N)/(D-1)]
+  N in [1000000, 2000000): G/(SS_2 li_2) = 0.9979 [0.0001]
+     chi(N) = +1 (n = 1883): G_C0/main = 0.9950 [0.0004],  G_C1/main = 0.9982 [0.0002],  split share (G_C0+2G_C1)/(4G) vs (1-chi/(D-2))/2: 0.4758 vs 0.4762
+     chi(N) = -1 (n = 1937): G_C0/main = 0.9957 [0.0003],  G_C1/main = 0.9981 [0.0002],  split share (G_C0+2G_C1)/(4G) vs (1-chi/(D-2))/2: 0.5235 vs 0.5238
+     chi(N) = +0 (n = 180): G_C0/main = 0.9942 [0.0011],  G_C1/main = 0.9996 [0.0007],  split share (G_C0+2G_C1)/(4G) vs (1-chi/(D-2))/2: 0.4999 vs 0.5000
+     ratio of the split-pair counts chi(N)=+1 : chi(N)=-1 = 0.9089;  (D-3)/(D-1) = 0.9091 [local factor 1 - chi(N)/(D-2)],  (D-2)/D = 0.9130 [1 - chi(N)/(D-1)]
+  N in [2000000, 4000000): G/(SS_2 li_2) = 0.9985 [0.0001]
+     chi(N) = +1 (n = 1858): G_C0/main = 0.9962 [0.0003],  G_C1/main = 0.9993 [0.0002],  split share (G_C0+2G_C1)/(4G) vs (1-chi/(D-2))/2: 0.4761 vs 0.4762
+     chi(N) = -1 (n = 1965): G_C0/main = 0.9966 [0.0003],  G_C1/main = 0.9987 [0.0002],  split share (G_C0+2G_C1)/(4G) vs (1-chi/(D-2))/2: 0.5236 vs 0.5238
+     chi(N) = +0 (n = 177): G_C0/main = 0.9955 [0.0007],  G_C1/main = 1.0007 [0.0005],  split share (G_C0+2G_C1)/(4G) vs (1-chi/(D-2))/2: 0.5002 vs 0.5000
+     ratio of the split-pair counts chi(N)=+1 : chi(N)=-1 = 0.9093;  (D-3)/(D-1) = 0.9091 [local factor 1 - chi(N)/(D-2)],  (D-2)/D = 0.9130 [1 - chi(N)/(D-1)]
+
 Distribution of c(m) on m < 4000000 with spf(m) >= 126.0, by Omega(m)  (c = (r_0 - r_1)/2):
   Omega = 1: n = 283116,  mean c = -0.0006,  mean c^2 = 0.9984,  c=-1: 0.3332, c=+0: 0.5005, c=+2: 0.1663
   Omega = 2: n = 177097,  mean c = +0.0010,  mean c^2 = 0.9805,  c=-2: 0.1126, c=+0: 0.7371, c=+1: 0.1248, c=+4: 0.0252
@@ -61,4 +84,4 @@ Distribution of c(m) on m < 4000000 with spf(m) >= 126.0, by Omega(m)  (c = (r_0
   (Omega = 1: c = +2 on the principal split primes, -1 on the non-principal ones, 0 on the inert ones, densities 1/6, 1/3, 1/2;
    Omega = 2, both primes split: c = c(q_1) c(q_2) = +4, -2, +1 with densities 1/9, 4/9, 4/9 of the split pairs; the mean is 0 on every stratum.)
 
-[193s]
+[202s]
