@@ -64,7 +64,9 @@ S_ψ(N) = Σ_{p<N} c_ψ(N − p), c_ψ the coefficients of the weight-one dihedr
   (D | q). At X = 3·10⁵ it matches the measured ρ to ±0.002 everywhere (`code/linnik_class_arcs.py`,
   `results/linnik_class_arcs_23.txt`); the overshoot 1.50 is max Φ₂₃ = 1.503 at q²/X = 6.5 (c(1)² = c(2)² = c(3)² = 1
   against κ = 0.42). Mellin: ∫(1_{Y>1} − Φ_D) dY/Y = γ − c₀/κ (−1.866 for D = 23), which puts the β = 0 major-arc
-  model in closed form (constant 0.25 against the measured −0.52: the arc width, not the profile, is what the model misses).
+  model in closed form. The model's O(1/log X) term is not reliable: normalised by Σ_{q≤X} μ²/φ = log X + 1.33 it gives
+  0.46–0.47, normalised by the true ∫|P|²/∫|T|² (≈ log X − log 2 − γ) it gives 0.24–0.32 (β-integrated 0.29–0.33),
+  against the exact 0.39–0.41. The arcs overlap where q ≍ √X, so neither normalisation is right; the ½ is unaffected.
 * **Section 3.1 (what is proved):** with the smoothed V = Σ e^{−2N/X} S_ψ(N)² = ∫|P|²|F|² and the exact identity
   Diag = ∫|P|²·∫|F|², Theorem 3.5 proves that the major arcs of order X^{1/2}(log X)^{−B} (width (log X)^{(B−1)/2}/X)
   contribute O(X^{−A}) to V. The conjecture is reduced to (M) these arcs carry half the mass of |P|² (Hardy–Littlewood;
