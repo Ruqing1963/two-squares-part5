@@ -142,7 +142,10 @@ Let $D\nmid q$, $\gamma=\left(\begin{smallmatrix}a&b\\q&d\end{smallmatrix}\right
 \[
 |F_X(a/q)|=\frac1{q\eta\sqrt D}\Bigl|\sum_nc_\psi(n)\,e\Bigl(-\frac{n\,\overline{aD}}q\Bigr)e^{-2\pi n/(Dq^2\eta)}\Bigr|,
 \]
-since $v\equiv-\overline{Da}\pmod q$. Averaging over $(a,q)=1$ gives $\frac1{Dq^2\eta^2}\sum_{n_1,n_2}c_\psi(n_1)c_\psi(n_2)e^{-2\pi(n_1+n_2)/(Dq^2\eta)}\frac{c_q(n_1-n_2)}{\varphi(q)}$ with the Ramanujan sum $c_q$. The diagonal is $\frac{X}{2Y}\sum_nc_\psi(n)^2e^{-n/Y}$, and $\kappa_\psi\sum_me^{-2m/X}=\frac{\kappa_\psi X}2(1+O(X^{-1}))$; off the diagonal $|c_q(h)|\le(h,q)\le|h|$ and $|c_\psi(n)|\le\tau(n)$ give the error term. For $D\mid q$, $\gamma\in\Gamma_0(D)$, $|\vt_\psi|_1\gamma|=|\vt_\psi|$, and the same computation runs with the width $1$ in place of $D$.
+since $v\equiv-\overline{Da}\pmod q$. Averaging over $(a,q)=1$ gives, with the Ramanujan sum $c_q$,
+\[
+\frac1{Dq^2\eta^2}\sum_{n_1,n_2}c_\psi(n_1)c_\psi(n_2)e^{-2\pi(n_1+n_2)/(Dq^2\eta)}\frac{c_q(n_1-n_2)}{\varphi(q)}.
+\] The diagonal is $\frac{X}{2Y}\sum_nc_\psi(n)^2e^{-n/Y}$, and $\kappa_\psi\sum_me^{-2m/X}=\frac{\kappa_\psi X}2(1+O(X^{-1}))$; off the diagonal $|c_q(h)|\le(h,q)\le|h|$ and $|c_\psi(n)|\le\tau(n)$ give the error term. For $D\mid q$, $\gamma\in\Gamma_0(D)$, $|\vt_\psi|_1\gamma|=|\vt_\psi|$, and the same computation runs with the width $1$ in place of $D$.
 \end{proof}
 
 At $X=3\cdot10^5$, $D=23$ (\texttt{linnik\_class\_arcs.py}) the two sides agree to $\pm0.002$ at all $q$, e.g.\ $\rho=0.0084$, $0.1245$, $0.5039$, $1.5026$, $1.0720$ against $\Phi_D=0.0084$, $0.1245$, $0.5047$, $1.5022$, $1.0708$ at $q^2/X=0.45$, $0.77$, $1.34$, $6.93$, $36.0$, and the arcs with $D\mid q$, which by the proposition stay depleted up to $q^2/X\approx8\pi^2\cdot0.1=7.9$ instead of $0.34$, follow $\Phi_D(q^2/8\pi^2X)$ just as closely ($\rho=0.0011$, $0.0577$, $0.5186$ at $q^2/X=7.9$, $14.6$, $31.2$). The overshoot is the excess of the first coefficients over their mean, $c_\psi(1)^2=c_\psi(2)^2=c_\psi(3)^2=1$ against $\kappa_{23}=0.42$: $\max\Phi_{23}=1.503$ at $Y=1.90$, i.e.\ $q^2/X=6.5$. The logarithmic integral of the profile is a Rankin--Selberg constant: if $\sum_nc_\psi(n)^2n^{-s}=\frac{\kappa_\psi}{s-1}+c_0+O(s-1)$, then, from $\int_0^\infty\sum_nc_\psi(n)^2e^{-nt}t^{s-1}\dd t=\Gamma(s)\sum_nc_\psi(n)^2n^{-s}$ at $s=1$,
